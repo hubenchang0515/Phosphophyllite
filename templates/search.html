@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Phosphophyllite</title>
+    </head>
+    <body>
+        <article>
+            {% for page in search_result_page.web_page_list %}
+                <div>
+                    <p>
+                        <a href="{{page.url}}" target="_blank">{{page.title}}</a>
+                    </p>
+                    <p>
+                        <span>更新时间:</span> {{ page.update_time }}
+                    </p>
+                    <p>
+                        <span>关键词:</span>
+                        {% for keyword in page.matched_keywords %}
+                            <em>{{keyword}}</em>
+                        {% endfor %}
+                    </p>
+                    <hr/>
+                </div>
+            {% endfor %}
+        </article>
+        <footer>
+            {% for n in range(search_result_page.page_count) %}
+                {% if n == search_result_page.page %}
+                    <span>{{n+1}}</span>
+                {% else %}
+                    <a href="/preview/search?query={{ search_result_page.query }}&page={{ n }}&page_size={{ search_result_page.page_size }}">{{n+1}}</a>
+                {% endif %}
+            {% endfor %}
+        </footer>
+    </body>
+</html>
