@@ -103,27 +103,18 @@ class Spider(object):
         return page_model.id
 
     def guess_charset(self, response:requests.Response) -> str:
-        if response.encoding is None and response.apparent_encoding is None:
-            return "UTF-8"
-            
-        if response.apparent_encoding is None:
-            return response.encoding
+        try:
+            encoding:str = response.encoding.upper()
+            apparent_encoding:str = response.apparent_encoding.upper()
+            info:List[str] = [encoding, apparent_encoding]
 
-        if response.encoding is None:
-            return response.apparent_encoding
-            
-        if response.encoding == response.apparent_encoding:
-            return response.encoding
+            if "GB2312" in info:
+                return "GB2312"
 
-        encoding:str = response.encoding.upper()
-        apparent_encoding:str = response.apparent_encoding.upper()
-        info:List[str] = [encoding, apparent_encoding]
-
-        if "GB2312" in info:
-            return "GB2312"
-
-        if "GBK" in info:
-            return "GBK"
+            if "GBK" in info:
+                return "GBK"
+        except Exception as e:
+            logger.warning(e)
         
         return "UTF-8"
 
