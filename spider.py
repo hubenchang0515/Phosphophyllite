@@ -40,6 +40,10 @@ class SpiderQueue(object):
         return url
 
     def push_url(self, url:str) -> bool:
+        if len(url) > config.sql_index_field_length_limit:
+            logger.warning(f"{url} is too long, skip.")
+            return False
+
         if self.full():
             return False
 
@@ -53,12 +57,16 @@ class SpiderQueue(object):
         return True
 
     def push_urls(self, urls:List[str]) -> int:
-        if self.full():
-            return 0
-
+        count:int = self.count()
         session = DBSession()
-        count:int = 0
         for url in urls:
+            if len(url) > config.sql_index_field_length_limit:
+                logger.warning(f"{url} is too long, skip.")
+                continue
+
+            if count >= config.spider_queue_max_size:
+                break
+                
             item = session.query(SpiderQueueModel).filter_by(url=url).first()
             if item is not None:
                 continue

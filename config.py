@@ -10,6 +10,9 @@ debug:bool = False
 # 数据库配置
 sql_url:str = "postgresql://pi:123456@localhost/phosphophyllite"
 
+# 索引字段长度限制（PostgreSQL 为 2712，MySQL 为 767）
+sql_index_field_length_limit = 767
+
 # 浏览器身份
 user_agent:str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36" 
 

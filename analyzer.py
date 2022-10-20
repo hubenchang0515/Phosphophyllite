@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import jieba
 from urllib.parse import urlparse, ParseResult
 from typing import List, Dict
+import config
 
 class WebPageAnalyzer(object):
     def __init__(self, url:str, html:str) -> None:
@@ -26,7 +27,7 @@ class WebPageAnalyzer(object):
 
     def keywords(self) -> List[str]:
         words = jieba.cut_for_search(self.text())
-        return [word.lower() for word in words if len(word) < 1024 and word.strip() != "" and word not in "`~!@#$%^&*()_+-={[]}\\|\"':;,.?/，。、·"]
+        return [word.lower() for word in words if len(word) < config.sql_index_field_length_limit and word.strip() != "" and word not in "`~!@#$%^&*()_+-={[]}\\|\"':;,.?/，。、·"]
 
     def keyword_scores(self) -> Dict[str, float]:
         keywords:List[str] = self.keywords()
