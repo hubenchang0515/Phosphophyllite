@@ -4,6 +4,7 @@ import logging
 import requests
 from datetime import datetime, timedelta
 from typing import Union, Optional, Set, List
+from sqlalchemy import func
 from sqlalchemy.orm import load_only
 
 import config
