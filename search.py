@@ -7,7 +7,7 @@ from sqlalchemy.orm import load_only
 from functools import reduce
 import math
 
-from utils import split_words
+from utils import split_words, keyword_scores_to_dict
 from schema import WebPage, SearchResultPage
 from model import DBSession, WebPageModel, InvertedIndexModel
 
@@ -93,7 +93,7 @@ class Searcher(object):
         if index_models is None:
             return search_result
         for index_model in index_models:
-            web_page_id_scores:Dict[int, float] = eval(f"{index_model.web_page_id_scores}")
+            web_page_id_scores:Dict[int, float] = keyword_scores_to_dict(index_model.web_page_id_scores)
             search_result.update(index_model.keyword, web_page_id_scores, web_page_count)
         return search_result
 

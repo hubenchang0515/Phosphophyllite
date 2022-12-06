@@ -11,6 +11,7 @@ import config
 from analyzer import WebPageAnalyzer
 from schema import WebPage
 from model import DBSession, InvertedIndexModel, WebPageModel, SpiderQueueModel
+from utils import keyword_scores_to_dict
 
 logger = logging.getLogger("spider")
 
@@ -21,13 +22,13 @@ class SpiderQueue(object):
 
     def count(self) -> int:
         session = DBSession()
-        return session.query(func.count(WebPageModel.id)).scalar()
+        return session.query(func.count(SpiderQueueModel.id)).scalar()
 
     def empty(self) -> bool:
         return self.count() == 0
 
     def full(self) -> bool:
-        return self.__max > 0 and self.count() == self.__max
+        return self.__max > 0 and self.count() >= self.__max
 
     def pop_url(self) -> str:
         session = DBSession()
@@ -86,8 +87,8 @@ class Spider(object):
         self.__timeout:int = config.timeout
         self.__headers:dict[str, str] = {"User-Agent": config.user_agent}
 
-    def push_url(self, url:str) -> None:
-        self.__url_queue.push_url(url)
+    def push_url(self, url:str) -> bool:
+        return self.__url_queue.push_url(url)
 
     def pop_url(self) -> Optional[str]:
         return self.__url_queue.pop_url()
@@ -177,11 +178,11 @@ class Spider(object):
             if index is None:
                 web_page_id_scores:Dict[int, float] = {web_page_id:scores[keyword]}
                 index = InvertedIndexModel(keyword=keyword, web_page_id_scores=f"{web_page_id_scores}")
+                session.add(index)
             else:
-                web_page_id_scores:Dict[int, float] = eval(f"{index.web_page_id_scores}")
+                web_page_id_scores:Dict[int, float] = keyword_scores_to_dict(index.web_page_id_scores)
                 web_page_id_scores[web_page_id] = scores[keyword]
                 index.web_page_id_scores = f"{web_page_id_scores}"
-            session.add(index)
         session.commit()
 
     def start(self) -> None:
@@ -204,7 +205,9 @@ class Spider(object):
                 if not self.expired(url, timedelta(seconds=config.cd)):
                     logger.info(f"{url} is cooling down, skip.")
                     continue
-                self.push_url(url)
+
+                if not self.push_url(url):
+                    break
 
             logger.info(f"{web_page_analyzer.title()} {url} OK.")
 
