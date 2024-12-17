@@ -1,0 +1,51 @@
+{% extends "frameworks/base.html" %}
+
+{% block NavBlock %}
+
+{% include 'components/NavBar.html' %}
+
+{% endblock %}
+
+{% block LeftSideBlock %}
+
+{% include 'components/UserCard.html' %}
+
+{% include 'components/CategoryCard.html' %}
+
+{% include 'components/SummaryCard.html' %}
+
+{% endblock %}
+
+{% block MainContentBlock %}
+
+{% include 'components/ArticleContent.html' %}
+
+{% endblock %}
+
+{% block RightSideBlock %}
+
+{% include 'components/GitHubStatCard.html' %}
+
+{% include 'components/MostLanguageCard.html' %}
+
+{% include 'components/AdditionMethodCard.html' %}
+
+{% include 'components/RecentArticleCard.html' %}
+
+{% endblock %}
+
+{% block FooterBlock %}
+
+{% include 'components/PoweredBy.html' %}
+
+{% endblock %}
+
+{% block FinalBlock %}
+
+<script>
+    fetchUserInfo("{{DATA['Username']}}");
+    hljs.highlightAll();
+    dynamicSummary();
+</script>
+
+{% endblock %}

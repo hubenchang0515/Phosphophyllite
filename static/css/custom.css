@@ -1,0 +1,175 @@
+@media print
+{    
+    .no-print, .no-print *:not(.print)
+    {
+        display: none !important;
+    }
+
+    .print, .print *
+    {
+        display: block !important;
+    }
+}
+
+html {
+    height: 100%;
+}
+
+.navbar {
+    box-shadow: inset 1px 1px rgba(255, 255, 255, .2), inset -1px -1px rgba(255, 255, 255, .1), 1px 3px 24px -1px rgba(0, 0, 0, .15);
+    background-color: transparent;
+    background-image: linear-gradient(125deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, .2) 70%);
+}
+
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 2em;
+    background-image: linear-gradient(90deg,#87CEFA,#9EF5D2);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    margin: 8px;
+    gap: 8px;
+}
+
+@media (width < 1700px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin: 8px;
+        gap: 8px;
+    }
+}
+
+aside {
+    display: flex; 
+    flex-direction: column; 
+    flex-shrink: 0; 
+    gap: 8px;
+}
+
+
+@media (width >= 1700px) {
+    .sticky {
+        position: sticky;
+        top: 8px;
+    }
+
+    aside {
+        max-width: 400px;
+    }
+
+    aside .card {
+        overflow-x: hidden;
+    }
+}
+
+main {
+    flex-grow: 1; 
+    flex-shrink: 1;
+    display: flex; 
+    flex-direction: column; 
+    gap: 8px;
+    overflow-x: hidden;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.github-avatar {
+    display: block;
+    width: 260px;
+    height: 260px;
+    border-radius: 260px;
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* 为最外层 ol 设置计数器 */
+ol {
+    list-style: none; /* 移除默认的数字标记 */
+    counter-reset: level1; /* 初始化第一层计数器 */
+}
+
+/* 每一层 li 内增加对应的计数器 */
+ol > li {
+    counter-increment: level1; /* 递增第一级计数器 */
+}
+
+ol > li::marker {
+    content: counter(level1) ". "; /* 显示第一级计数器 */
+}
+
+/* 第二层 ol 的样式 */
+ol ol {
+    counter-reset: level2; /* 初始化第二层计数器 */
+}
+
+ol ol > li {
+    counter-increment: level2; /* 递增第二级计数器 */
+}
+
+ol ol > li::marker {
+    content: counter(level1) "." counter(level2) ". "; /* 显示第一级和第二级计数器 */
+}
+
+/* 第三层 ol 的样式 */
+ol ol ol {
+    counter-reset: level3; /* 初始化第三层计数器 */
+}
+
+ol ol ol > li {
+    counter-increment: level3; /* 递增第三级计数器 */
+}
+
+ol ol ol > li::marker {
+    content: counter(level1) "." counter(level2) "." counter(level3) ". "; /* 显示第一级、第二级和第三级计数器 */
+}
+
+/* 第四层 ol 的样式 */
+ol ol ol ol {
+    counter-reset: level4; /* 初始化第四层计数器 */
+}
+
+ol ol ol ol > li {
+    counter-increment: level4; /* 递增第四级计数器 */
+}
+
+ol ol ol ol > li::marker {
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) ". "; /* 显示多层级计数器 */
+}
+
+/* 第五层 ol 的样式 */
+ol ol ol ol ol {
+    counter-reset: level5; /* 初始化第五层计数器 */
+}
+
+ol ol ol ol ol > li {
+    counter-increment: level5; /* 递增第五级计数器 */
+}
+
+ol ol ol ol ol > li::marker {
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) "." counter(level5) ". ";
+}
+
+/* 第六层 ol 的样式 */
+ol ol ol ol ol ol {
+    counter-reset: level6; /* 初始化第六层计数器 */
+}
+
+ol ol ol ol ol ol > li {
+    counter-increment: level6; /* 递增第六级计数器 */
+}
+
+ol ol ol ol ol ol > li::marker {
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) "." counter(level5) "." counter(level6) ". ";
+}

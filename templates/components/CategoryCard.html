@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <p style="max-width: 300px; display: flex; flex-wrap: wrap; gap: 4px;">
+            {% for category in DATA['Categories'] %}
+            <span class="badge bg-info rounded-pill">{{category.name()}}({{category.count()}})</span>
+            {% endfor %}
+        </p>
+    </div>
+</div>

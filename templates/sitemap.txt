@@ -1,0 +1,3 @@
+{% for article in DATA['Articles'] -%}
+{{DATA['Domain']}}/{{DATA['Base']}}/articles/{{article.urlPath()}}.html
+{% endfor %}
