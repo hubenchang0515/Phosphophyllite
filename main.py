@@ -13,7 +13,7 @@ def renderIndex(articles:list[Article], categories:list[Category]):
     DATA = {
         "Domain": f"https://{CONFIG['Username']}.github.io",
         "Base": CONFIG["Base"],
-            "Title": f"{CONFIG['Nickname']} 的博客 - 首页",
+        "Title": f"{CONFIG['Nickname']} 的博客 - 首页",
         "Nickname": CONFIG["Nickname"],
         "Username": CONFIG["Username"],
         "Friends": CONFIG["Friends"],
@@ -52,7 +52,7 @@ def renderArticle(article:Article, articles:list[Article], categories:list[Categ
     DATA = {
         "Domain": f"https://{CONFIG['Username']}.github.io",
         "Base": CONFIG["Base"],
-            "Title": f"{CONFIG['Nickname']} 的博客 - {article.name()}",
+        "Title": f"{CONFIG['Nickname']} 的博客 - {article.name()}",
         "Nickname": CONFIG["Nickname"],
         "Username": CONFIG["Username"],
         "Friends": CONFIG["Friends"],
@@ -85,6 +85,7 @@ def deploy(target:str):
     subprocess.run("git push -f origin gh-pages", cwd=target)
 
 if __name__ == "__main__":
+    Article.init(f"https://{CONFIG['Username']}.github.io", CONFIG['Base'])
     try:
         TARGET_DIR.remove()
     except:

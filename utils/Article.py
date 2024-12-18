@@ -1,10 +1,12 @@
 import mistune
 import subprocess
 from datetime import datetime, timezone
+from .MarkdownRenderer import MarkdownRenderer
 from .File import File
 
 class Article(object):
-    __markdown = mistune.create_markdown(renderer=mistune.HTMLRenderer(), plugins=['strikethrough', 'footnotes', 'table', 'url', 'task_lists', 'def_list', 'abbr', 'mark', 'insert', 'superscript', 'subscript', 'math'])
+    def init(domain:str, base:str):
+        Article.__markdown = mistune.create_markdown(renderer=MarkdownRenderer(domain, base), plugins=['strikethrough', 'footnotes', 'table', 'url', 'task_lists', 'def_list', 'abbr', 'mark', 'insert', 'superscript', 'subscript', 'math'])
     
     def __init__(self, path:str) -> None:
         self.__file = File(path)
