@@ -46,7 +46,7 @@ aside {
     }
 
     aside {
-        max-width: 400px;
+        width: 400px;
     }
 
     aside .card {
