@@ -4,7 +4,7 @@ SEO 友好的纯静态 Markdown 博客系统
 
 SEO-friendly pure static Markdown blog system
 
-![Preview](../blog/resource/preview.png)
+![Preview](../../resource/preview.png)
 
 ## Usage - 使用说明
 

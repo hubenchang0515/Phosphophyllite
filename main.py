@@ -1,11 +1,13 @@
 import math
 from urllib.parse import quote
+import subprocess
 from utils import *
 from config import CONFIG
 
-PREFIX = f"build/{CONFIG['Base']}"
-DES_DIR = File(PREFIX)
-
+CURRENT_FILE = File(__file__)
+CURRENT_DIR = File(CURRENT_FILE.dirpath())
+TARGET_DIR = CURRENT_DIR.join("build", CONFIG['Base'])
+PREFIX = TARGET_DIR.path()
 
 def renderIndex(articles:list[Article], categories:list[Category]):
     DATA = {
@@ -73,15 +75,29 @@ def renderSitemap(articles:list[Article]):
     renderer = Renderer("sitemap.txt")
     renderer.render(f"{PREFIX}/sitemap.txt", DATA=DATA)
 
+def deploy(target:str):
+    origin = subprocess.run("git remote get-url origin", capture_output=True, text=True).stdout.strip()
+    subprocess.run("git init .", cwd=target)
+    subprocess.run(f"git remote add origin {origin}", cwd=target)
+    subprocess.run("git checkout -b gh-pages", cwd=target)
+    subprocess.run("git add *", cwd=target)
+    subprocess.run("git commit -m \"Update gh-pages\"", cwd=target)
+    subprocess.run("git push -f origin gh-pages", cwd=target)
 
 if __name__ == "__main__":
-    DES_DIR.remove()
+    try:
+        TARGET_DIR.remove()
+    except:
+        print("删除失败，没有权限，请手动删除 build 目录")
 
-    ARTICLE_DIR = File("./blog/article")
+    ARTICLE_DIR = CURRENT_DIR.join("blog", "article")
     CATEGORIES = ARTICLE_DIR.listdir()
 
-    staticDir = File("static")
-    staticDir.copyTo(f"{PREFIX}/static")
+    STATIC_DIR = CURRENT_DIR.join("static")
+    STATIC_DIR.copyTo(f"{PREFIX}/static")
+
+    RESOURCE_DIR = CURRENT_DIR.join("blog", "resource")
+    RESOURCE_DIR.copyTo(f"{PREFIX}/resource")
 
     scanner = Scanner(ARTICLE_DIR.path())
     articles = scanner.articles()
@@ -95,3 +111,5 @@ if __name__ == "__main__":
 
     renderIndex(articles, categories)
     renderSitemap(articles)
+
+    deploy(TARGET_DIR.path())

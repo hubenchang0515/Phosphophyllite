@@ -1,4 +1,5 @@
 import os
+import stat
 import shutil
 
 class File(object):
@@ -35,17 +36,19 @@ class File(object):
         if not self.exists():
             return
         elif not self.isdir():
+            os.chmod(self.__path, stat.S_IRWXU)
             os.remove(self.__path)
         else:
             for filename in self.listdir():
                 self.join(filename).remove()
+            os.chmod(self.__path, stat.S_IRWXU)
             os.rmdir(self.__path)
     
-    def open(self, mode:str="r") -> any:
+    def open(self, mode:str="r", encoding="utf-8") -> any:
         if not os.path.exists(self.dirpath()):
             os.makedirs(self.dirpath())
 
-        return open(self.__path, mode, encoding="utf-8")
+        return open(self.__path, mode, encoding=encoding)
     
     def copyTo(self, target:str) -> any:
         shutil.copytree(self.path(), target, dirs_exist_ok=True)
