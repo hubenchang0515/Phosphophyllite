@@ -30,32 +30,32 @@
 
     </head>
 
-    <body>
+    <body class="d-flex flex-column">
         {% block NavBlock %}
 
         {% endblock %}
 
-        <div class="content">
-            <aside class="no-print left-side"> 
+        <div class="content d-flex flex-row flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
             {% block LeftSideBlock %}
 
             {% endblock %}
             </aside>
 
-            <main>
+            <main class="flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
                 {% block MainContentBlock %}
 
                 {% endblock %}
             </main>
 
-            <aside class="no-print right-side">
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
             {% block RightSideBlock %}
 
             {% endblock %}
             </aside>
         </div>
 
-        <footer class="no-print" style="display: block; position: absolute; bottom: 0; left: 0; right: 0;">
+        <footer class="no-print">
             {% block FooterBlock %}
 
             {% endblock %}

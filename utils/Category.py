@@ -1,13 +1,19 @@
+from urllib.parse import quote
 from .Article import Article
 
 class Category(object):
     def __init__(self, name:str):
         self.__name = name
-        self.__articles:list[str] = []
-        self.__urlPath = name
+        self.__articles:list[Article] = []
 
-    def append(self, path:str):
-        self.__articles.append(path)
+    def append(self, article:Article):
+        self.__articles.append(article)
+
+    def articles(self) -> list[Article]:
+        return self.__articles
+    
+    def sort(self):
+        self.__articles.sort(key=lambda v: v.updateTime(), reverse=True)
 
     def name(self) -> str:
         return self.__name
@@ -16,7 +22,4 @@ class Category(object):
         return len(self.__articles)
 
     def urlPath(self) -> str:
-        return self.__urlPath
-    
-    def setUrlPath(self, urlPath: str):
-        self.__urlPath = urlPath
+        return self.__name

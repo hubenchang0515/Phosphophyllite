@@ -18,9 +18,9 @@ const fetchUserInfo = async (username) => {
         document.querySelector('.github-name').innerText = data.name;
         document.querySelector('.github-username').innerText = data.login;
         document.querySelector('.github-brief').innerText = data.bio;
-        document.querySelector('.github-location').innerText = data.location;
-        document.querySelector('.github-url').href = data.html_url;
-        document.querySelector('.github-url').innerText = data.html_url;
+        // document.querySelector('.github-location').innerText = data.location;
+        // document.querySelector('.github-url').href = data.html_url;
+        // document.querySelector('.github-url').innerText = data.html_url;
     }
 }
 
@@ -73,11 +73,13 @@ const generateSummary = () => {
     // 节点生成函数
     const generateSummaryNode = (node) => {
         const element = document.createElement("li");
-        const link = document.createElement("a");
-        link.className = node.focus ? "text-success" : "link-secondary";
-        link.innerText = node.text;
-        link.href = `#${node.refer.id}`;
-        element.appendChild(link);
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = node.focus ? "btn btn-link text-success" : "btn btn-link link-secondary";
+        btn.style = "padding:0;";
+        btn.innerText = node.text;
+        btn.onclick = () => {node.refer.scrollIntoView()}
+        element.appendChild(btn);
         if (node.children.length > 0) {
             const sub = document.createElement("ol");
             for (const subnode of node.children) {
@@ -108,4 +110,12 @@ function dynamicSummary() {
     const fn = debounce(generateSummary);
     fn();
     window.addEventListener("scroll", fn);
+}
+
+function scanTime() {
+    const elements = document.querySelectorAll(".time");
+    for (element of elements) {
+        const t = new Date(element.innerText);
+        element.innerText = t.toLocaleString();
+    }
 }

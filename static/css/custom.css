@@ -15,23 +15,13 @@ html {
     height: 100%;
 }
 
-.navbar {
-    box-shadow: inset 1px 1px rgba(255, 255, 255, .2), inset -1px -1px rgba(255, 255, 255, .1), 1px 3px 24px -1px rgba(0, 0, 0, .15);
-    background-color: transparent;
-    background-image: linear-gradient(125deg, rgba(255, 255, 255, .3), rgba(255, 255, 255, .2) 70%);
-}
-
 body {
     min-height: 100%;
-    position: relative;
-    padding-bottom: 2em;
+    background-color: #9EF5D2;
     background-image: linear-gradient(90deg,#87CEFA,#9EF5D2);
 }
 
 .content {
-    display: flex;
-    flex-direction: row;
-    margin: 8px;
     gap: 8px;
 }
 
@@ -45,9 +35,6 @@ body {
 }
 
 aside {
-    display: flex; 
-    flex-direction: column; 
-    flex-shrink: 0; 
     gap: 8px;
 }
 
@@ -68,18 +55,7 @@ aside {
 }
 
 main {
-    flex-grow: 1; 
-    flex-shrink: 1;
-    display: flex; 
-    flex-direction: column; 
     gap: 8px;
-    overflow-x: hidden;
-}
-
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
 .github-avatar {
@@ -92,6 +68,57 @@ footer {
 
 img {
     max-width: 100%;
+}
+
+.article-header {
+    background-image: linear-gradient(90deg,#87CEFA,#9EF5D2);
+}
+
+.article-border-top,
+.article-border-bottom {
+    border: 2px solid;
+    border-image: linear-gradient(to right, #87CEFA, #9EF5D2) 2;
+}
+
+.article-border-left {
+    border: 2px solid #87CEFA;
+}
+
+.article-border-right {
+    border: 2px solid #9EF5D2;
+}
+
+#article-preview {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scrollbar-gutter: stable;
+}
+
+#article-preview:hover {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #87CEFA;
+    cursor: default;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #87CEFA;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 /* 为最外层 ol 设置计数器 */

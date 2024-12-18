@@ -1,7 +1,9 @@
 CONFIG = {
-    "Domain": "https://hubenchang0515.github.io",
     "Base": "Phosphophyllite",
-    "Title": "PlanC 的博客",
     "Nickname": "PlanC",
     "Username": "hubenchang0515",
+    "Friends": {
+        "Moe Tools": "https://hubenchang0515.github.io/moe-tools/",
+        "QtTheme": "https://hubenchang0515.github.io/QtTheme/",
+    },
 }

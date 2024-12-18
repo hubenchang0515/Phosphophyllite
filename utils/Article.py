@@ -54,7 +54,5 @@ class Article(object):
             return Article.__markdown(fp.read())
         
     def urlPath(self) -> str:
-        return self.__urlPath
+        return f"{self.category()}/{self.name()}"
     
-    def setUrlPath(self, urlPath: str):
-        self.__urlPath = urlPath
