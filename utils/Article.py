@@ -11,12 +11,14 @@ class Article(object):
     def __init__(self, path:str) -> None:
         self.__file = File(path)
         try:
-            self.__first = datetime.strptime(subprocess.run(f"git log --reverse --format='%ai' -- '{path}'").stdout.strip())
-        except:
+            output = subprocess.run(f"git log --reverse --format=\"%ai\" -- \"{path}\"", encoding='utf-8', capture_output=True, text=True).stdout.strip()
+            self.__first = datetime.strptime(output, "%Y-%m-%d %H:%M:%S %z")
+        except Exception as e:
             self.__first = datetime.now(timezone.utc)
 
         try:
-            self.__last = datetime.strptime(subprocess.run(f"git log --format='%ai' -- '{path}'").stdout.strip())
+            output = subprocess.run(f"git log --format=\"%ai\" -- \"{path}\"", encoding='utf-8', capture_output=True, text=True).stdout.strip()
+            self.__last = datetime.strptime(output, "%Y-%m-%d %H:%M:%S %z")
         except:
             self.__last = datetime.now(timezone.utc)
 
