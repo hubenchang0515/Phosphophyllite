@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+
+        
+        <title>PlanC 的博客 - 部署 GitLab 和持续集成环境</title>
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/custom.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/static/js/custom.js"></script>
+        
+
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-sm-2" type="search" placeholder="Search">
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <p style="max-width: 300px; display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">Linux 命令与配置 (18)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/FreeRTOS-1.html">FreeRTOS (10)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Linux%20API-1.html">Linux API (9)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">代理与镜像源配置 (9)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Qt-1.html">Qt (8)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">默认分类 (7)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/X11-1.html">X11 (5)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/CUDA-1.html">CUDA (4)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">C 语言 (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Python-1.html">Python (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">汇编 (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/C%2B%2B-1.html">C++ (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/CMake-1.html">CMake (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Docker-1.html">Docker (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Windows%20API-1.html">Windows API (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/FreeType-1.html">FreeType (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/GitHub-1.html">GitHub (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/GitLab-1.html">GitLab (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Golang-1.html">Golang (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Kafka-1.html">Kafka (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/MySQL-1.html">MySQL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/OpenCL-1.html">OpenCL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/OpenGL-1.html">OpenGL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/nginx-1.html">nginx (1)</a>
+            
+        </p>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">概要</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+        <ol class="summary"></ol>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+<div class="d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <div class="fs-6 overflow-x-hidden">部署 GitLab 和持续集成环境</div>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <button type="button" class="btn btn-link text-white fs-6 p-0 m-0" onclick="print();"><i class="bi bi-download me-1"></i>下载</button>
+    </div>
+
+    <div class="d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div id="article-content" class="markdown-body overflow-x-hidden flex-grow-1 p-2">
+            <h1>部署 GitLab 和持续集成环境</h1>
+<p>参考: <a href="https://about.gitlab.com/install/">https://about.gitlab.com/install/</a></p>
+<h2>部署 Gitlab</h2>
+<p>安装依赖:</p>
+<pre><code class="language-bash">sudo apt update
+sudo apt install -y curl openssh-server ca-certificates tzdata perl postfix
+</code></pre>
+<p>添加 Gitlab 的仓库（以debian为例）:</p>
+<pre><code class="language-bash">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+</code></pre>
+<p>安装 Gitlab 的包:</p>
+<pre><code class="language-bash">sudo EXTERNAL_URL=&quot;https://gitlab.example.com&quot; apt install gitlab-ce
+</code></pre>
+<blockquote>
+<p>把 <code>gitlab.example.com</code> 替换成你将要使用的域名，如果你没有域名可以配置为 HOSTNAME，例如 <code>raspberrypi.local</code></p>
+<p>如果域名发生了改变，在 <code>/etc/gitlab/gitlab.rb</code> 文件中进行修改</p>
+</blockquote>
+<p>访问 Gitlab 页面:</p>
+<p>安装完成后即可从浏览器访问，管理员账户的用户名为 <code>root</code>，初始密码保存在 <code>/etc/gitlab/initial_root_password</code> 文件中。</p>
+<p>登录后应当立即修改密码。</p>
+<p><img src="https://raw.githubusercontent.com/hubenchang0515/resource/master/gitlab/gitlab-password.png" alt="gitlab-password" /></p>
+<h2>持续集成（CI）</h2>
+<h3>部署 Gitlib CI 运行环境</h3>
+<p>安装 <code>gitlab-runner</code> :</p>
+<pre><code class="language-bash">sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-arm64
+
+sudo chmod +x /usr/local/bin/gitlab-runner
+
+sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+
+sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+
+sudo gitlab-runner start
+</code></pre>
+<p>在 <code>Admin Area -&gt; CI/CD -&gt;  Runners</code> 页面，点击 <code>New instance runner</code> 按钮创建 Runner</p>
+<p>然后根据页面提示执行命令配置 TOKEN:</p>
+<pre><code class="language-bash">sudo gitlab-runner register --url http://raspberrypi.local --token glrt-n3W91JCVxCNRs6qJzVfM
+</code></pre>
+<h3>为项目配置 CI 工作流</h3>
+<p>在项目的根目录中创建 <code>.gitlab-ci.yml</code> 文件，例如:</p>
+<pre><code class="language-yml"># 作业的名字是 default
+default:
+
+    # 执行 echo hello world
+    script: echo hello world
+</code></pre>
+<p>每次项目推送到 Gitlab 服务器上或者发起 pull-request 时，都会执行根据该配置执行步骤。</p>
+<p><img src="https://raw.githubusercontent.com/hubenchang0515/resource/master/gitlab/gitlab-pipeline.png" alt="gitlab-pipeline" /></p>
+<p><img src="https://raw.githubusercontent.com/hubenchang0515/resource/master/gitlab/gitlab-ci-helloworld.png" alt="gitlab-job" /></p>
+<p>一个简单的 CMake 项目 CI 配置示例:</p>
+<pre><code class="language-yml"># 作业1:构建
+Build:
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
+
+# 作业2:构建单元测试并生成覆盖率报告
+Coverage:
+  script:
+  - mkdir build
+  - cd build
+  - cmake .. -DUNIT_TEST=ON           # 具体根据 CMakeLists.txt 内容进行配置
+  - make
+  - ./test/silk_unit_test
+  - lcov -c -d . -o coverage.info --rc lcov_branch_coverage=1   # 具体根据单元测试工具进行配置
+  - genhtml --branch-coverage -o ./coverage coverage.info
+</code></pre>
+<p>这个示例创建了两个 CI Jobs，分别名为 Build 和 Coverage:</p>
+<ul>
+<li>Build - 进行构建</li>
+<li>Coverage - 构建单元测试并运行，然后生成覆盖率报告</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/hubenchang0515/resource/master/gitlab/gitlab-ci-jobs.png" alt="gitlab-ci-jobs" /></p>
+<p><img src="https://raw.githubusercontent.com/hubenchang0515/resource/master/gitlab/gitlab-ci-coverage.png" alt="gitlab-ci-coverage" /></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        
+        <div class="fs-6">作者: PlanC</div>
+        
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+</div>
+
+
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">友情链接</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Friends</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> Moe Tools</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/FreeType/FreeType2%20%E6%B8%B2%E6%9F%93%E5%AD%97%E4%BD%93%E7%9A%84%E7%A4%BA%E4%BE%8B.html">FreeType2 渲染字体的示例</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E9%80%9A%E8%BF%87%20systemd%20service%20%E5%90%AF%E5%8A%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%97%A0%E6%B3%95%E5%86%99%E6%96%87%E4%BB%B6.html">通过 systemd service 启动的程序无法写文件</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/C%20%E8%AF%AD%E8%A8%80%E7%AE%80%E6%98%93%E6%97%A5%E5%BF%97%E5%BA%93.html">C 语言简易日志库</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/SIMD%20%E7%A4%BA%E4%BE%8B.html">SIMD 示例</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/%E9%80%9A%E8%BF%87%20%23include%20%E5%B0%86%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E6%8A%80%E5%B7%A7.html">通过 #include 将文件加载为字符串字面量的技巧</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%2B%2B/C%2B%2B%20%E5%AE%B9%E5%99%A8%E5%86%85%E5%85%83%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%9E%90%E6%9E%84%E7%9A%84%E9%97%AE%E9%A2%98.html">C++ 容器内元素重复析构的问题</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%2B%2B/%E5%9C%A8%20enum%20class%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20bitmask%20%E7%BB%84%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95.html">在 enum class 中使用 bitmask 组合的方法</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CMake/CMake%20%E5%AD%90%E7%9B%AE%E5%BD%95%E4%BE%9D%E8%B5%96%E5%A4%84%E7%90%86.html">CMake 子目录依赖处理</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CMake/CMake%20%E5%BF%BD%E7%95%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E6%8C%87%E4%BB%A4.html">CMake 忽略第三方库的安装指令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CUDA/Linux%20CUDA%20%E9%A9%B1%E5%8A%A8%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html">Linux CUDA 驱动失效问题的解决办法</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    hljs.highlightAll();
+    scanTime();
+    dynamicSummary();
+</script>
+
+
+    </body>
+</html>

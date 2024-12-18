@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+
+        
+        <title>PlanC 的博客 - FreeRTOS 信号量和互斥量</title>
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/static/css/custom.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/static/js/custom.js"></script>
+        
+
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-sm-2" type="search" placeholder="Search">
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <p style="max-width: 300px; display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">Linux 命令与配置 (18)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/FreeRTOS-1.html">FreeRTOS (10)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Linux%20API-1.html">Linux API (9)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">代理与镜像源配置 (9)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Qt-1.html">Qt (8)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">默认分类 (7)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/X11-1.html">X11 (5)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/CUDA-1.html">CUDA (4)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">C 语言 (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Python-1.html">Python (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">汇编 (3)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/C%2B%2B-1.html">C++ (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/CMake-1.html">CMake (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Docker-1.html">Docker (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Windows%20API-1.html">Windows API (2)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/FreeType-1.html">FreeType (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/GitHub-1.html">GitHub (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/GitLab-1.html">GitLab (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Golang-1.html">Golang (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/Kafka-1.html">Kafka (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/MySQL-1.html">MySQL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/OpenCL-1.html">OpenCL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/OpenGL-1.html">OpenGL (1)</a>
+            
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/Phosphophyllite/categories/nginx-1.html">nginx (1)</a>
+            
+        </p>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">概要</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+        <ol class="summary"></ol>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+<div class="d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <div class="fs-6 overflow-x-hidden">FreeRTOS 信号量和互斥量</div>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <button type="button" class="btn btn-link text-white fs-6 p-0 m-0" onclick="print();"><i class="bi bi-download me-1"></i>下载</button>
+    </div>
+
+    <div class="d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div id="article-content" class="markdown-body overflow-x-hidden flex-grow-1 p-2">
+            <h1>FreeRTOS 信号量和互斥量</h1>
+<p><code>信号量(Semaphore)</code>也是一种任务间通信的常用方式，通常用于任务的同步。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+BaseType_t xSemaphoreGive(SemaphoreHandle_t xSemaphore);
+//产生一个信号，成功返回pdPASS
+//信号量已满则失败，返回errQUEUE_FULL
+
+BaseType_t xSemaphoreTake(SemaphoreHandle_t xSemaphore,TickType_t xBlockTime);
+//获取一个信号，信号量为空则阻塞
+//第二个参数是阻塞超时时间，成功返回pdTRUE，超时返回pdFALSE
+</code></pre>
+<p>值信号量是只有两个值(例如0或1、满或空)的信号量，FreeRTOS的二值信号量相当于只有一个元素的队列，用满和空表示信号量的值。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateBinary(void);
+//创建一个二值信号量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+<ul>
+<li>二值信号量为空时调用<code>xSemaphoreGive</code>，信号量变满；为满时失败。</li>
+<li>二值信号量为满时调用<code>xSemaphoreTake</code>，信号量变空；为空时阻塞。</li>
+</ul>
+<p>计数信号量顾名思义是计数用的信号量。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateCounting(void);
+//创建一个计数信号量，成功返回信号量句柄，失败返回NULL
+ 
+UBaseType_t uxSemaphoreGetCount(const QueueHandle_t xSemaphore);
+//返回计数信号量的计数值
+</code></pre>
+<ul>
+<li><code>xSemaphoreGive</code>使计数信号量加一。</li>
+<li><code>xSemaphoreTake</code>使计数信号量减一。</li>
+</ul>
+<p>信号量通常用于任务同步，例如多个任务共享资源时，使用二值信号量进行访问控制，二值信号量为满则表示资源可用，二值信号量为空则表示资源正在被使用。也可以使用计数信号量计数有多少个任务在使用共享资源。</p>
+<p>下面这个例子使用二值信号量标志串口是否被使用：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;queue.h&gt;
+#include &lt;semphr.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+SemaphoreHandle_t binary;
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    //创建二值信号量，用这个信号量标识串口是否可用
+    binary = xSemaphoreCreateBinary();
+    //使二值信号量变为满，表示资源可用
+    xSemaphoreGive(binary);
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环五次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //使二值信号量变为空，表示资源被占用
+        xSemaphoreTake(binary,100/portTICK_RATE_MS);
+        USART_printf(USART1,&quot;The task1 is running now.\n&quot;);
+        //使二值信号量变为满，表示资源可用
+        xSemaphoreGive(binary);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环十次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //使二值信号量变为空，表示资源被占用
+        xSemaphoreTake(binary,100/portTICK_RATE_MS);
+        USART_printf(USART1,&quot;The task2 is running now.\n&quot;);
+        //使二值信号量变为满，表示资源可用
+        xSemaphoreGive(binary);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://hubenchang0515.github.io/Phosphophyllite//resource/FreeRTOS/pic16.png" alt="Image" /></p>
+<p>不过这种方式可能导致优先级反转：</p>
+<pre><code>(1)假设优先级task1&gt;task2&gt;task3  
+(2)task1和task2阻塞或挂起  
+(3)task3运行并通过二值信号量占用了某个公共资源  
+(4)task1就绪并试图通过二值信号量使用被task3占用的资源，但由于资源被占用，task1阻塞  
+(5)task2就绪，由于它优先级高于task3，因此task2优先执行  
+(6)task2执行完之后task3继续执行  
+(7)task3释放资源，task1解除阻塞并执行  
+</code></pre>
+<p>如此以来优先级相当于变成了task2&gt;task1，原本优先级最高的task1不能及时运行，这在实时性要求高的场合是不被允许的。</p>
+<p><code>互斥量(Mutex)</code>是处理共享资源同步的常用方式。在FreeRTOS的实现中，互斥量是一种特殊的二值信号量，其操作方式和二值信号量一样，但互斥量具有优先级继承的特性。</p>
+<pre><code>(1)假设优先级task1&gt;task2&gt;task3  
+(2)task1和task2阻塞或挂起  
+(3)task3运行并通过互斥量占用了某个公共资源  
+(4)task1就绪并试图通过互斥量使用被task3占用的资源，但由于资源被占用，task1阻塞  
+(5)task3的优先级被提升到和task1一样  
+</code></pre>
+<p>如此一来就不会发生task2在task1之前运行的情况，提高了实时性。</p>
+<p><code>xSemaphoreCreateMutex</code>用于创建互斥量。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateMutex(void);
+//创建一个互斥量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+<blockquote>
+<blockquote>
+<p>假如任务中调用一个函数来使用公共资源，在调用这个函数前使用<code>xSemaphoreTake</code>占用该资源的互斥量，在这个函数返回后使用<code>xSemaphoreGive</code>来释放该资源的互斥量。但这个函数中可能也使用了<code>xSemaphoreTake</code>和<code>xSemaphoreGive</code>来占用和释放资源。这种情况下就会导致错误。</p>
+</blockquote>
+</blockquote>
+<p>递归互斥量可以让同一个任务多次占用资源，在释放同等次数互斥量后释放资源。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateRecursiveMutex(void);
+//创建一个递归互斥量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        
+        <div class="fs-6">作者: PlanC</div>
+        
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+</div>
+
+
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">友情链接</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Friends</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> Moe Tools</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/FreeType/FreeType2%20%E6%B8%B2%E6%9F%93%E5%AD%97%E4%BD%93%E7%9A%84%E7%A4%BA%E4%BE%8B.html">FreeType2 渲染字体的示例</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E9%80%9A%E8%BF%87%20systemd%20service%20%E5%90%AF%E5%8A%A8%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%97%A0%E6%B3%95%E5%86%99%E6%96%87%E4%BB%B6.html">通过 systemd service 启动的程序无法写文件</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/C%20%E8%AF%AD%E8%A8%80%E7%AE%80%E6%98%93%E6%97%A5%E5%BF%97%E5%BA%93.html">C 语言简易日志库</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/SIMD%20%E7%A4%BA%E4%BE%8B.html">SIMD 示例</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/%E9%80%9A%E8%BF%87%20%23include%20%E5%B0%86%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E6%8A%80%E5%B7%A7.html">通过 #include 将文件加载为字符串字面量的技巧</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%2B%2B/C%2B%2B%20%E5%AE%B9%E5%99%A8%E5%86%85%E5%85%83%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%9E%90%E6%9E%84%E7%9A%84%E9%97%AE%E9%A2%98.html">C++ 容器内元素重复析构的问题</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/C%2B%2B/%E5%9C%A8%20enum%20class%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20bitmask%20%E7%BB%84%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95.html">在 enum class 中使用 bitmask 组合的方法</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CMake/CMake%20%E5%AD%90%E7%9B%AE%E5%BD%95%E4%BE%9D%E8%B5%96%E5%A4%84%E7%90%86.html">CMake 子目录依赖处理</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CMake/CMake%20%E5%BF%BD%E7%95%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85%E6%8C%87%E4%BB%A4.html">CMake 忽略第三方库的安装指令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/CUDA/Linux%20CUDA%20%E9%A9%B1%E5%8A%A8%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95.html">Linux CUDA 驱动失效问题的解决办法</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    hljs.highlightAll();
+    scanTime();
+    dynamicSummary();
+</script>
+
+
+    </body>
+</html>
