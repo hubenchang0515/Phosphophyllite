@@ -1,8 +1,10 @@
-# FreeType2渲染字体的示例
+# FreeType2 渲染字体的示例
 
-FreeType2有水平、竖直两种文字布局，注意原点的位置。
-![horizontal-text-layout](https://freetype.org/freetype2/docs/tutorial/glyph-metrics-3.svg)
-![vertical-text-layouts](https://freetype.org/freetype2/docs/tutorial/glyph-metrics-4.svg)
+FreeType2有水平、竖直两种文字布局，注意原点的位置。  
+
+![horizontal-text-layout](https://freetype.org/freetype2/docs/tutorial/glyph-metrics-3.svg)  
+
+![vertical-text-layouts](https://freetype.org/freetype2/docs/tutorial/glyph-metrics-4.svg)  
 
 参考: https://freetype.org/freetype2/docs/glyphs/glyphs-3.html
 
