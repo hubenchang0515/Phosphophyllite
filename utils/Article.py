@@ -1,5 +1,6 @@
 import mistune
 import subprocess
+from urllib.parse import quote
 from datetime import datetime, timezone
 from .MarkdownRenderer import MarkdownRenderer
 from .File import File
@@ -46,6 +47,9 @@ class Article(object):
         with self.__file.open() as fp:
             return Article.__markdown(fp.read())
         
+    def targetPath(self) -> str:
+         return f"{self.category()}/{self.name()}"
+        
     def urlPath(self) -> str:
-        return f"{self.category()}/{self.name()}"
+        return quote(f"{self.category()}/{self.name()}")
     

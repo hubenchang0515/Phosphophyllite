@@ -21,5 +21,8 @@ class Category(object):
     def count(self) -> int:
         return len(self.__articles)
 
-    def urlPath(self) -> str:
+    def targetPath(self) -> str:
         return self.__name
+
+    def urlPath(self) -> str:
+        return quote(self.__name)

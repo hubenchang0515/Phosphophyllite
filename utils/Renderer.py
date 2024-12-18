@@ -1,4 +1,4 @@
-from jinja2 import Template, Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader
 from .File import File
 
 class Renderer(object):

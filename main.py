@@ -1,5 +1,4 @@
 import math
-from urllib.parse import quote
 import subprocess
 from utils import *
 from config import CONFIG
@@ -46,7 +45,7 @@ def renderCategory(category:Category, articles:list[Article], categories:list[Ca
         }
 
         renderer = Renderer("category.html")
-        renderer.render(f"{PREFIX}/categories/{category.urlPath()}-{page+1}.html", DATA=DATA)
+        renderer.render(f"{PREFIX}/categories/{category.targetPath()}-{page+1}.html", DATA=DATA)
 
 def renderArticle(article:Article, articles:list[Article], categories:list[Category]):
     DATA = {
@@ -63,12 +62,12 @@ def renderArticle(article:Article, articles:list[Article], categories:list[Categ
     }
 
     renderer = Renderer("article.html")
-    renderer.render(f"{PREFIX}/articles/{article.urlPath()}.html", DATA=DATA)
+    renderer.render(f"{PREFIX}/articles/{article.targetPath()}.html", DATA=DATA)
 
 def renderSitemap(articles:list[Article]):
     sites:list[str] = []
     for article in articles:
-        sites.append(f"https://{CONFIG['Username']}.github.io/{CONFIG['Base']}/articles/{quote(article.urlPath())}.html")
+        sites.append(f"https://{CONFIG['Username']}.github.io/{CONFIG['Base']}/articles/{article.urlPath()}.html")
     DATA = {
         "Sites": sites,
     }
