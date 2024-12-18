@@ -30,7 +30,6 @@ const generateSummary = () => {
     const summary = document.querySelector(".summary");
     const markdown = document.querySelector("#article-content");
     const headings = markdown.querySelectorAll("h1,h2,h3,h4,h5,h6");
-    summary.innerHTML = ""
 
     // 生成树
     let forest = []; // 一级标题，可能有多个
@@ -73,11 +72,11 @@ const generateSummary = () => {
     // 节点生成函数
     const generateSummaryNode = (node) => {
         const element = document.createElement("li");
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = node.focus ? "btn btn-link text-success" : "btn btn-link link-secondary";
+        const btn = document.createElement("a");
+        btn.className = node.focus ? "text-success" : "link-secondary";
         btn.style = "padding:0;";
         btn.innerText = node.text;
+        btn.href = "javascript:void(0);";
         btn.onclick = () => {node.refer.scrollIntoView()}
         element.appendChild(btn);
         if (node.children.length > 0) {
@@ -91,10 +90,12 @@ const generateSummary = () => {
     }
 
     // 生成目录
+    const elements = []
     for (const tree of forest) {
         const element = generateSummaryNode(tree);
-        summary.appendChild(element);
+        elements.push(element);
     }
+    summary.replaceChildren(...elements);
 }
 
 function debounce(fn, ms = 100) {
