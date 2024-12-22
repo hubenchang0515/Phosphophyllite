@@ -22,6 +22,35 @@ auto debouncedFn = debounce(fn, 100);
 #include <memory>
 #include <exception>
 
+namespace Utils
+{
+
+template<typename R, typename... ARGS>
+std::enable_if_t<!std::is_void_v<R> && (!std::is_void_v<ARGS> && ...), void>
+invoke(std::shared_ptr<std::promise<R>> promise, std::function<R(ARGS...)> fn, ARGS... args)
+{
+    promise->set_value(fn(args...));
+}
+
+template<typename R>
+void invoke(std::shared_ptr<std::promise<R>> promise, std::function<R(void)> fn)
+{
+    promise->set_value(fn());
+}
+
+template<typename... ARGS>
+void invoke(std::shared_ptr<std::promise<void>> promise, std::function<void(ARGS...)> fn, ARGS... args)
+{
+    fn(args...);
+    promise->set_value();
+}
+
+void invoke(std::shared_ptr<std::promise<void>> promise, std::function<void(void)> fn)
+{
+    fn();
+    promise->set_value();
+}
+
 /*************************************************************************
  * @brief 函数消抖
  * @param fn 希望消抖函数
@@ -63,7 +92,8 @@ std::function<std::shared_ptr<std::promise<R>>(ARGS...)> debounce(std::function<
             }
             mutex.unlock();
 
-            promise->set_value(fn(args...));
+            // promise->set_value(fn(args...));
+            invoke(promise, fn, args...);
             thread.detach();
         });
 
@@ -72,28 +102,30 @@ std::function<std::shared_ptr<std::promise<R>>(ARGS...)> debounce(std::function<
 
     return lambda;
 }
+
+template<typename R, typename... ARGS>
+std::function<std::shared_ptr<std::promise<R>>(ARGS...)> debounce(R(*fn)(ARGS...), int ms)
+{
+    return debounce(static_cast<std::function<R(ARGS...)>>(fn), ms);
+}
+
+}; // namespace Utils
 ```
 
 ## 测试
 
 ```c++
-#include <cstdio>
-
-int hello(int x, int y)
-{
-    int n = x + y;
-    printf("hello world %d\n", n);
-    return n;
-}
-
 int main()
 {
-    auto fn = debounce(std::function<int(int,int)>(hello), 1000);
-    auto p1 = fn(2, 3);
-    auto p2 = fn(4, 5);
+    auto fn = Utils::debounce(test, 1000);
+    auto p1 = fn(1, 2);
+    auto p2 = fn(3, 4);
 
     auto f1 = p1->get_future();
     auto f2 = p2->get_future();
+
+    f1.wait();
+    f2.wait();
 
     try {
         if (f1.valid())
@@ -108,6 +140,7 @@ int main()
     } catch (std::runtime_error e) {
         printf("%s\n", e.what());
     }
+
     return 0;
 }
 ```
@@ -115,7 +148,7 @@ int main()
 结果:  
 
 ```
-hello world 9
+test 3 4
 cancel
-9
+7
 ```
