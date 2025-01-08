@@ -12,7 +12,7 @@ class Article(object):
     def __init__(self, path:str) -> None:
         self.__file = File(path)
         try:
-            times = subprocess.run(f"git log --reverse --format=\"%ai\" -- \"{path}\"", encoding='utf-8', capture_output=True, text=True).stdout.splitlines()
+            times = subprocess.run(["git", "log", "--reverse", "--format=%ai", path], encoding='utf-8', capture_output=True, text=True).stdout.splitlines()
             self.__first = datetime.strptime(times[0].strip(), "%Y-%m-%d %H:%M:%S %z")
             self.__last = datetime.strptime(times[-1].strip(), "%Y-%m-%d %H:%M:%S %z")
         except:

@@ -75,13 +75,13 @@ def renderSitemap(articles:list[Article]):
     renderer.render(f"{PREFIX}/sitemap.txt", DATA=DATA)
 
 def deploy(target:str):
-    origin = subprocess.run("git remote get-url origin", capture_output=True, text=True).stdout.strip()
-    subprocess.run("git init .", cwd=target)
-    subprocess.run(f"git remote add origin {origin}", cwd=target)
-    subprocess.run("git checkout -b gh-pages", cwd=target)
-    subprocess.run("git add *", cwd=target)
-    subprocess.run("git commit -m \"Update gh-pages\"", cwd=target)
-    subprocess.run("git push -f origin gh-pages", cwd=target)
+    origin = subprocess.run(["git", "remote", "get-url", "origin"], capture_output=True, text=True).stdout.strip()
+    subprocess.run(["git", "init", "."], cwd=target)
+    subprocess.run(["git", "remote", "add", "origin", origin], cwd=target)
+    subprocess.run(["git", "checkout", "-b", "gh-pages"], cwd=target)
+    subprocess.run(["git", "add", "*"], cwd=target)
+    subprocess.run(["git", "commit", "-m", "\"Update gh-pages\""], cwd=target)
+    subprocess.run(["git", "push", "-f", "origin", "gh-pages"], cwd=target)
 
 if __name__ == "__main__":
     Article.init(f"https://{CONFIG['Username']}.github.io", CONFIG['Base'])
