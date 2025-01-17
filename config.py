@@ -6,5 +6,6 @@ CONFIG = {
     "Friends": {
         "Moe Tools": "https://hubenchang0515.github.io/moe-tools/",
         "QtTheme": "https://hubenchang0515.github.io/QtTheme/",
+        "Shift": "https://hubenchang0515.github.io/shift/",
     },
 }
