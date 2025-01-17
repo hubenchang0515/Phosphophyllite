@@ -1,5 +1,6 @@
 import mistune
 import subprocess
+import re
 from urllib.parse import quote
 from datetime import datetime, timezone
 from .MarkdownRenderer import MarkdownRenderer
@@ -38,10 +39,19 @@ class Article(object):
     
     def author(self) -> str:
         return None
+    
+    def raw(self) -> str:
+          with self.__file.open() as fp:
+            return fp.read()
         
     def content(self) -> str:
         with self.__file.open() as fp:
             return Article.__markdown(fp.read())
+        
+    def text(self) -> str:
+        text:str = re.sub(r'<[^>]*>', ' ', self.content())
+        text = re.sub(r'\s+', ' ', text)
+        return text
         
     def targetPath(self) -> str:
          return f"{self.category()}/{self.name()}"
