@@ -32,11 +32,19 @@
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
-            <script>
+        <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            {% if 'Article' in DATA and DATA['Article'].author() %}
+            document.oncopy = makeOnCopy("{{DATA['Article'].author()}}");
+            {% else %}
+            document.oncopy = makeOnCopy("{{DATA['Nickname']}}");
+            {% endif %}
         </script>
     </head>
 

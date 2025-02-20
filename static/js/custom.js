@@ -120,3 +120,27 @@ function scanTime() {
         element.innerText = t.toLocaleString();
     }
 }
+
+function makeOnCopy(author) {
+    return (ev) => {
+        const selection  = window.getSelection();
+        if (typeof selection == 'undefined') {
+            return;
+        }
+        const text = selection + '';
+
+        // 复制只有一行且字数较少时不触发
+        if (text.length < 30 && !text.includes('\n')) {
+            return;
+        }
+
+        const clip = ev.clipboardData || window.clipboardData;
+        clip.setData('text/plain', text + 
+            '\n=============================' +
+            '\n作者：' + author +
+            '\n链接：' + location.href +
+            '\n著作权归作者所有。商业转载请联系作者获取授权，非商业转载请注明出处。');
+        console.log(clip);
+        return false;
+    }
+}
