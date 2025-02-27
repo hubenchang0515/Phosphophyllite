@@ -19,4 +19,8 @@
     .comment {
         background-color: rgb(22,27,34);
     }
+
+    .markdown-body img {
+        filter: hue-rotate(180deg) invert(1);
+    }
 }
