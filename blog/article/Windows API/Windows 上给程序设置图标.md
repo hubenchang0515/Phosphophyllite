@@ -14,3 +14,5 @@ add_executable(${PROJECT_NAME} ${SOURCE} icon.rc)
 ```
 
 必须使用 `ico` 格式的图片，我写了一个转换工具： [萌萌工具箱 - 图片格式转换](https://hubenchang0515.github.io/moe-tools/#/image-format-convert)
+
+![image-format-convert](../../resource/moe-tools/image-format-convert.png)
