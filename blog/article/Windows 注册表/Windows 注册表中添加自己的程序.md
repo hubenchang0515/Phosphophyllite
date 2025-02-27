@@ -3,7 +3,7 @@
 
 ![打开方式](../../resource/lolipop/OpenWith.png)
 
-以 [Lolipop Media Player](https://learn.microsoft.com/en-us/windows/win32/shell/app-registration) 为例。
+以 [Lolipop Media Player](https://github.com/hubenchang0515/Lolipop) 为例。
 
 > 本文全部使用 `HKEY_CURRENT_USER`，表示当前用户的配置。
 > 可以替换为 `HKEY_LOCAL_MACHINE`，表示所有用户的配置。
