@@ -88,6 +88,14 @@ img {
     border: 2px solid #87CEFA;
 }
 
+.markdown-body pre {
+    background-color: rgb(21,27,35);
+}
+
+.comment {
+    background-color: #ffffff;
+}
+
 #article-preview {
     overflow-x: hidden;
     overflow-y: hidden;
