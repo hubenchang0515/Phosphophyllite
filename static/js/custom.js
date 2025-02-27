@@ -144,3 +144,12 @@ function makeOnCopy(author) {
         return false;
     }
 }
+
+function makeSearch(site, formId, inputId) {
+    const form = document.querySelector(`#${formId}`);
+    form.addEventListener('submit', (ev) => {
+        ev.preventDefault();
+        const query = document.querySelector(`#${inputId}`);
+        window.open(`https://cn.bing.com/search?q=site:${site}+${query.value}`, "_blank");
+    });
+}
