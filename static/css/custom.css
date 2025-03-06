@@ -89,6 +89,7 @@ img {
 }
 
 .markdown-body pre {
+    color: #fafafa;
     background-color: rgb(21,27,35);
 }
 

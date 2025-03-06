@@ -8,6 +8,12 @@
         background-image: linear-gradient(90deg, #323232, #212121, #323232);
     }
 
+    .article-border-top,
+    .article-border-bottom {
+        border: 2px solid;
+        border-image: linear-gradient(to right, #323232, #212121, #323232) 2;
+    }
+
     .article-border-left {
         border: 2px solid #323232;
     }
@@ -21,6 +27,6 @@
     }
 
     .markdown-body img {
-        filter: hue-rotate(180deg) invert(1);
+        filter: brightness(0.5);
     }
 }
