@@ -7,7 +7,7 @@
 
     <div class="d-flex overflow-hidden" style="max-height: 300px;">
         <div class="no-print article-border-left"></div>
-        <div id="article-preview" class="markdown-body flex-grow-1 p-2">
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="{{index if index else 0}}">
             {{article.content()}}
         </div>
         <div class="no-print article-border-right"></div>

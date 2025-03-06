@@ -16,9 +16,13 @@
 
 {% block MainContentBlock %}
 
+
 {% for article in (DATA['Category'].articles()[DATA['Page']*DATA['PageSize']:(DATA['Page']+1)*DATA['PageSize']]) %}
 
-{% include 'components/ArticleCard.html' %}
+    {% with %}
+        {% set index = loop.index %}
+        {% include 'components/ArticleCard.html' %}
+    {% endwith %}
 
 {% endfor %}
 
