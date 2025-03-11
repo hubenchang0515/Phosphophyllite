@@ -14,7 +14,7 @@
 
 > nginx 的默认配置文件路径为 `/etc/nginx/nginx.conf`
 > 该文件初始包含了 `include /etc/nginx/conf.d/*.conf;` 和 `include /etc/nginx/sites-enabled/*;`
-> 通常将自定义的配置文件写到 `/etc/nginx/sites-enabled/` 目录中，然后软链接到 `/etc/nginx/sites-enabled/`
+> 通常将自定义的配置文件写到 `/etc/nginx/sites-available/` 目录中，然后软链接到 `/etc/nginx/sites-enabled/`
 
 基础示例:  
 
