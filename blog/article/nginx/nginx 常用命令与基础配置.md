@@ -16,21 +16,49 @@
 > 该文件初始包含了 `include /etc/nginx/conf.d/*.conf;` 和 `include /etc/nginx/sites-enabled/*;`
 > 通常将自定义的配置文件写到 `/etc/nginx/sites-available/` 目录中，然后软链接到 `/etc/nginx/sites-enabled/`
 
-基础示例:  
+## 示例
+
+### 基础示例
 
 ```nginx
 server {
-    listen       80;                  # 监听的端口
-    server_name  localhost;           # 服务器名称或域名
+    listen       80;                    # 监听的端口
+    server_name  _;                     # 服务器名（域名或IP地址）下划线表示匹配所有名称
  
     location / {
-        root   /usr/share/nginx/html; # 网站根目录
-        index  index.html index.htm;   # 默认页面
+        root   /var/www/html/;          # 网站根目录
+        index  index.html;              # 默认页面
     }
 }
 ```
 
-通过反向代理绕过 CORS:  
+### 代理到 PHP
+
+> 安装相关的包：`apt install php-fpm php php-mysql`
+
+```nginx
+server {
+    listen       80;                                    # 监听的端口
+    server_name  _;                                     # 服务器名（域名或IP地址）下划线表示匹配所有名称
+ 
+    location / {
+        root   /var/www/html/;                          # 网站根目录
+        index  index.html index.php;                    # 默认页面
+    }
+
+    location ~ \.php$ {
+        root   /var/www/html/;                          # 网站根目录
+        include snippets/fastcgi-php.conf;
+    
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;     # 使用 php-fpm 作为 CGI，版本号根据实际情况配置
+    }
+}
+```
+
+### 反向代理
+
+#### 绕过 CORS
 
 ```nginx
 server {
@@ -50,7 +78,7 @@ server {
 }
 ```
 
-代理尝试多个后端:  
+#### 多个后端  
 
 ```nginx
 http {
