@@ -73,7 +73,7 @@ def renderArticle(article:Article, articles:list[Article], categories:list[Categ
 def renderSitemap(articles:list[Article]):
     sites:list[str] = []
     for article in articles:
-        sites.append(f"https://{CONFIG['Username']}.github.io/{CONFIG['Base']}/articles/{article.urlPath()}.html")
+        sites.append(f"https://{CONFIG['Username']}.github.io{CONFIG['Base']}/articles/{article.urlPath()}.html")
     DATA = {
         "Sites": sites,
     }

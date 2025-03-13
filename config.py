@@ -1,5 +1,5 @@
 CONFIG = {
-    "Base": "Phosphophyllite",
+    "Base": "",
     "Nickname": "PlanC",
     "Username": "hubenchang0515",
     "Repo": "hubenchang0515/Phosphophyllite",
