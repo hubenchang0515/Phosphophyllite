@@ -10,7 +10,7 @@ PREFIX = TARGET_DIR.path()
 
 def renderIndex(articles:list[Article], categories:list[Category]):
     DATA = {
-        "Domain": f"https://{CONFIG['Username']}.github.io",
+        "Domain": CONFIG['Domain'],
         "Base": CONFIG["Base"],
         "Title": f"{CONFIG['Nickname']} 的博客 - 首页",
         "Description": f"{CONFIG['Nickname']} 的博客 - 首页",
@@ -31,7 +31,7 @@ def renderCategory(category:Category, articles:list[Article], categories:list[Ca
     pageCount = math.ceil(len(category.articles())/pageSize)
     for page in range(0, pageCount):
         DATA = {
-            "Domain": f"https://{CONFIG['Username']}.github.io",
+            "Domain": CONFIG['Domain'],
             "Base": CONFIG["Base"],
             "Title": f"{CONFIG['Nickname']} 的博客 - {category.name()}",
             "Description": f"{CONFIG['Nickname']} 的博客 - {category.name()} 分类 - 第 {page+1} 页",
@@ -53,7 +53,7 @@ def renderCategory(category:Category, articles:list[Article], categories:list[Ca
 
 def renderArticle(article:Article, articles:list[Article], categories:list[Category]):
     DATA = {
-        "Domain": f"https://{CONFIG['Username']}.github.io",
+        "Domain": CONFIG['Domain'],
         "Base": CONFIG["Base"],
         "Title": f"{CONFIG['Nickname']} 的博客 - {article.name()}",
         "Description": article.text()[:150],
