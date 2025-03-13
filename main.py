@@ -100,7 +100,7 @@ if __name__ == "__main__":
     CATEGORIES = ARTICLE_DIR.listdir()
 
     STATIC_DIR = CURRENT_DIR.join("static")
-    STATIC_DIR.copyTo(f"{PREFIX}/static")
+    STATIC_DIR.copyTo(f"{PREFIX}/")
 
     RESOURCE_DIR = CURRENT_DIR.join("blog", "resource")
     RESOURCE_DIR.copyTo(f"{PREFIX}/resource")

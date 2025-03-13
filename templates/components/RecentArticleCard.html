@@ -5,7 +5,7 @@
         <ul>
             {% for article in DATA["Articles"][0:10]  %}
             <li>
-                <a class="link-info" href="/{{DATA['Base']}}/articles/{{article.urlPath()}}.html">{{article.name()}}</a>
+                <a class="link-info" href="{{DATA["Base"]}}/articles/{{article.urlPath()}}.html">{{article.name()}}</a>
             </li>
             {% endfor %}
         </ul>

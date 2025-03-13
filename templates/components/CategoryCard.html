@@ -5,7 +5,7 @@
 
         <p style="max-width: 300px; display: flex; flex-wrap: wrap; gap: 4px;">
             {% for category in DATA['Categories'] %}
-            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="/{{DATA['Base']}}/categories/{{category.urlPath()}}-1.html">{{category.name()}} ({{category.count()}})</a>
+            <a class="badge bg-info rounded-pill link-underline link-underline-opacity-0" style="font-size: 1rem;" href="{{DATA["Base"]}}/categories/{{category.urlPath()}}-1.html">{{category.name()}} ({{category.count()}})</a>
             {% endfor %}
         </p>
     </div>
