@@ -8,7 +8,7 @@ class MarkdownRenderer(mistune.HTMLRenderer):
 
     def image(self, text, url, title=None):
         if url.startswith("../.."):
-            wrapUrl = f"{self.__domain}/{self.__base}/{url[len('../..'):]}"
+            wrapUrl = f"{self.__domain}{self.__base}/{url[len('../..'):]}"
             return super().image(text, wrapUrl, title)
 
         return super().image(text, url, title)

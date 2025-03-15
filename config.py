@@ -1,5 +1,5 @@
 CONFIG = {
-    "Domain": "https://blog.planc.moe/",
+    "Domain": "https://blog.planc.moe",
     "Base": "",
     "Nickname": "PlanC",
     "Username": "hubenchang0515",
