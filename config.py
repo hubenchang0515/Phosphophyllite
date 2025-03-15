@@ -1,6 +1,6 @@
 CONFIG = {
-    "Domain": "https://blog.planc.moe",
-    "Base": "",
+    "Domain": "https://xplanc.org",
+    "Base": "/Phosphophyllite",
     "Nickname": "PlanC",
     "Username": "hubenchang0515",
     "Repo": "hubenchang0515/Phosphophyllite",
