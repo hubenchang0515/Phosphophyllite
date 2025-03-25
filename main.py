@@ -5,7 +5,7 @@ from config import CONFIG
 
 CURRENT_FILE = File(__file__)
 CURRENT_DIR = File(CURRENT_FILE.dirpath())
-TARGET_DIR = CURRENT_DIR.join("build", CONFIG['Base'])
+TARGET_DIR = CURRENT_DIR.join("build", CONFIG['Base'].strip('/'))
 PREFIX = TARGET_DIR.path()
 
 def renderIndex(articles:list[Article], categories:list[Category]):
