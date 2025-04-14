@@ -1,6 +1,21 @@
 # 使用 Tan90-Proxy 代理 Minecraft 服务器
 
-[Tan90-Proxy](https://github.com/hubenchang0515/Tan90-Proxy) 是一个 NAT 穿透代理服务器，可以将 Minecraft 服务器部署在本地，然后通过一个外网服务器转发。
+[Tan90-Proxy](https://github.com/hubenchang0515/Tan90-Proxy) 是一个 NAT 穿透代理服务器。
+
+可以将 Minecraft 服务程序部署在本地，然后通过一个廉价低配的公网服务器转发，从而降低开服成本。
+
+一些服务器优惠页面:  
+
+* [腾讯云优惠主机](https://curl.qcloud.com/G7jGsYZL)
+* [阿里云优惠主机](https://www.aliyun.com/minisite/goods?userCode=gtmsv57a)
+* [野草云海外主机](https://my.yecaoyun.com/aff.php?aff=5087)
+
+> 因为公网服务器仅负责转发网络请求，同价位下建议购买带宽更高的产品。
+
+Minecraft 服务程序下载页地址:  
+
+* Java 版 - https://www.minecraft.net/zh-hans/download/server
+* 基岩版 - https://www.minecraft.net/zh-hans/download/server/bedrock
 
 ## 代理服务器配置
 
@@ -22,13 +37,13 @@ proxy_client_port = 8103                # 代理客户端连接这个端口
 
 ## 代理客户端配置
 
-启动 Minecraft Server:  
+启动 Minecraft 服务程序:  
 
 ```bash
 java -Xmx1024M -Xms1024M -jar server.jar nogui
 ```
 
-![启动 Minecraft Server](https://github.com/hubenchang0515/resource/blob/master/tan90-proxy/pic-01.png?raw=true)
+![启动 Minecraft 服务程序](https://github.com/hubenchang0515/resource/blob/master/tan90-proxy/pic-01.png?raw=true)
 
 ```ini
 [Proxy of Minecraft]
