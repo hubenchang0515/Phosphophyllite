@@ -25,12 +25,24 @@ body {
     gap: 8px;
 }
 
-@media (width < 1700px) {
+@media (width < 1300px) {
     .content {
         display: flex;
         flex-direction: column;
         margin: 8px;
         gap: 8px;
+    }
+
+    .left-side {
+        order: 2;
+    }
+
+    .main-content {
+        order: 1;
+    }
+
+    .right-side {
+        order: 3;
     }
 }
 
@@ -39,7 +51,7 @@ aside {
 }
 
 
-@media (width >= 1700px) {
+@media (width >= 1300px) {
     .sticky {
         position: sticky;
         top: 8px;
