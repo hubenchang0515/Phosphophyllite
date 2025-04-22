@@ -73,7 +73,7 @@ const generateSummary = () => {
     const generateSummaryNode = (node) => {
         const element = document.createElement("li");
         const btn = document.createElement("a");
-        btn.className = node.focus ? "text-success" : "link-secondary";
+        btn.className = node.focus ? "text-info" : "link-secondary";
         btn.style = "padding:0;";
         btn.innerText = node.text;
         btn.href = "javascript:void(0);";

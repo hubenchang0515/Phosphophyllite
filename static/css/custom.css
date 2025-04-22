@@ -109,6 +109,21 @@ img {
     overflow-y: scroll;
 }
 
+.category-link {
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    font-size: 1rem;
+    transition: all 200ms ease;
+    color: white;
+}
+
+.category-link:hover {
+    color: white;
+    background-color: #ec407a;
+    padding-left: 1rem;
+}
+
 ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
