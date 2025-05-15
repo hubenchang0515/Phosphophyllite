@@ -12,13 +12,13 @@
 
 {% include 'components/CategoryCard.html' %}
 
-{% include 'components/FriendsCard.html' %}
-
 {% include 'components/RecentArticleCard.html' %}
 
 {% endblock %}
 
 {% block MainContentBlock %}
+
+{# include 'components/Ads.html' #}
 
 {% include 'components/ArticleContent.html' %}
 
@@ -31,6 +31,8 @@
 {% include 'components/GitHubStatCard.html' %}
 
 {% include 'components/MostLanguageCard.html' %}
+
+{% include 'components/FriendsCard.html' %}
 
 {% include 'components/SummaryCard.html' %}
 

@@ -16,6 +16,7 @@
 
 {% block MainContentBlock %}
 
+{# include 'components/Ads.html' #}
 
 {% for article in (DATA['Category'].articles()[DATA['Page']*DATA['PageSize']:(DATA['Page']+1)*DATA['PageSize']]) %}
 
