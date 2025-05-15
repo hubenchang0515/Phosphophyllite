@@ -1,0 +1,1060 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        
+
+        
+        <title>PlanC 的博客 - C 语言</title>
+        <meta name="description" content="PlanC 的博客 - C 语言 分类 - 第 1 页">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/C%20%E8%AF%AD%E8%A8%80%E7%AE%80%E6%98%93%E6%97%A5%E5%BF%97%E5%BA%93.html"><i class="bi bi-box-arrow-up-right me-1"></i>C 语言简易日志库</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="1">
+            <h1>C 语言简易日志库</h1>
+<pre><code class="language-c">#ifndef LOG_H
+#define LOG_H
+
+#include &lt;stdio.h&gt;
+
+
+// Log Tag
+#ifdef __linux__
+    #define LOG_TAG_VERBOSE     &quot;\033[97;1mVERBOSE\033[0m&quot;
+    #define LOG_TAG_DEBUG       &quot;\033[96;1mDEBUG\033[0m&quot;
+    #define LOG_TAG_INFO        &quot;\033[94;1mINFO\033[0m&quot;
+    #define LOG_TAG_WARNING     &quot;\033[93;1mWARNING\033[0m&quot;
+    #define LOG_TAG_ERROR       &quot;\033[91;1mERROR\033[0m&quot;
+#else
+    #define LOG_TAG_VERBOSE     &quot;VERBOSE&quot;
+    #define LOG_TAG_DEBUG       &quot;DEBUG&quot;
+    #define LOG_TAG_INFO        &quot;INFO&quot;
+    #define LOG_TAG_WARNING     &quot;WARNING&quot;
+    #define LOG_TAG_ERROR       &quot;ERROR&quot;
+#endif 
+
+
+// enum of LOG_LEVEL
+#define    LOG_LEVEL_ERROR      0
+#define    LOG_LEVEL_WARNING    1
+#define    LOG_LEVEL_INFO       2
+#define    LOG_LEVEL_DEBUG      3
+#define    LOG_LEVEL_VERBOSE    4
+
+
+// Default LOG_LEVEL
+#ifndef LOG_LEVEL
+    #define LOG_LEVEL LOG_LEVEL_INFO
+#endif // LOG_LEVEL
+
+
+#if LOG_LEVEL &gt;= LOG_LEVEL_VERBOSE
+    #define VERBOSE(fmt, ...) fprintf(stdout, &quot;[%s:%d][&quot; LOG_TAG_VERBOSE &quot;]: &quot; fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#else
+    #define VERBOSE(fmt, ...)
+#endif
+
+#if LOG_LEVEL &gt;= LOG_LEVEL_DEBUG
+    #define DEBUG(fmt, ...) fprintf(stdout, &quot;[%s:%d][&quot; LOG_TAG_DEBUG &quot;]: &quot; fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#else
+    #define DEBUG(fmt, ...)
+#endif
+
+#if LOG_LEVEL &gt;= LOG_LEVEL_INFO
+    #define INFO(fmt, ...) fprintf(stdout, &quot;[%s:%d][&quot; LOG_TAG_INFO &quot;]: &quot; fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#else
+    #define INFO(fmt, ...)
+#endif
+
+#if LOG_LEVEL &gt;= LOG_LEVEL_WARNING
+    #define WARNING(fmt, ...) fprintf(stdout, &quot;[%s:%d][&quot; LOG_TAG_WARNING &quot;]: &quot; fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#else
+    #define WARNING(fmt, ...)
+#endif
+
+#if LOG_LEVEL &gt;= LOG_LEVEL_ERROR
+    #define ERROR(fmt, ...) fprintf(stderr, &quot;[%s:%d][&quot; LOG_TAG_ERROR &quot;]: &quot; fmt, __FILE__, __LINE__, ##__VA_ARGS__)
+#else
+    #define ERROR(fmt, ...)
+#endif
+
+#endif // LOG_H
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/SIMD%20%E7%A4%BA%E4%BE%8B.html"><i class="bi bi-box-arrow-up-right me-1"></i>SIMD 示例</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="2">
+            <h1>SIMD 示例</h1>
+<p>所谓 SIMD 就是一次指令计算多个数据，例如 AVX256 一次计算 256 位数据。</p>
+<ul>
+<li>int 是 32 位，所以 AVX256 一次计算 8 个</li>
+<li>double 是 64 位，所以一次计算 4 个</li>
+</ul>
+<p>以计算 double 加法为例:</p>
+<pre><code class="language-c">__m256d m256x; // 定义标识 AVX 寄存器的变量
+__m256d m256y;
+
+m256x = _mm256_set_pd(x[i+3], x[i+2], x[i+1], x[i]); // 向 AVX 寄存器中写入数据，大端序
+m256y = _mm256_set_pd(y[i+3], y[i+2], y[i+1], y[i]);
+m256x = _mm256_add_pd(m256x, m256y);                 // 一次操作 4 对 double 数据的加法
+
+double o[4] __attribute__((aligned(32)));
+_mm256_store_pd(o, m256x);                           // 读出结果，必须 32 位对齐
+</code></pre>
+<blockquote>
+<p>使用 gcc 编译时，需要附带 <code>-mavx2</code> 选项。</p>
+</blockquote>
+<p>在 Linux 上，执行 <code>cat /proc/cpuinfo | grep flags</code> 命令可以查看 CPU 支持哪些特性:</p>
+<pre><code>$ cat /proc/cpuinfo | grep flags
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat 
+pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp 
+lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni 
+pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx 
+f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 
+3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext 
+perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp 
+vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a rdseed adx smap 
+clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc 
+cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd arat npt 
+lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists 
+pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip pku ospke 
+vaes vpclmulqdq rdpid overflow_recov succor smca fsrm
+</code></pre>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">名称</th>
+  <th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">MMX</td>
+  <td style="text-align:left">64位整型</td>
+</tr>
+<tr>
+  <td style="text-align:center">SSE</td>
+  <td style="text-align:left">128位单精度浮点</td>
+</tr>
+<tr>
+  <td style="text-align:center">SSE2</td>
+  <td style="text-align:left">扩展128位整型、双精度浮点，CPU快取的控制指令</td>
+</tr>
+<tr>
+  <td style="text-align:center">SSE3</td>
+  <td style="text-align:left">扩展类型转换，超线程支持</td>
+</tr>
+<tr>
+  <td style="text-align:center">SSE4</td>
+  <td style="text-align:left">扩展 CRC32 等指令</td>
+</tr>
+<tr>
+  <td style="text-align:center">AVX</td>
+  <td style="text-align:left">256位浮点</td>
+</tr>
+<tr>
+  <td style="text-align:center">AVX2</td>
+  <td style="text-align:left">扩展256位整型，三操作数指令（3-Operand Instructions）</td>
+</tr>
+<tr>
+  <td style="text-align:center">AVX512</td>
+  <td style="text-align:left">512位运算</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>MMX 是 MultiMedia eXtensions 的缩写</li>
+<li>SSE 是 Streaming SIMD Extensions 的缩写</li>
+<li>AVX 是 Advanced Vector Extensions 的缩写</li>
+</ul>
+<p>注意不要混用不同的指令（例如同时使用 AVX 和 SSE），否则将会引发 transition penalty，造成性能损失。</p>
+<p>在 gcc 中需要引用 <code>x86intrin.h</code> 头文件，在 MSVC 中需要引用 <code>intrin.h</code> 头文件。</p>
+<p>具体的:</p>
+<pre><code class="language-c">#include &lt;mmintrin.h&gt;   // mmx, 4个64位寄存器
+#include &lt;xmmintrin.h&gt;  // sse, 8个128位寄存器
+#include &lt;emmintrin.h&gt;  // sse2, 8个128位寄存器
+#include &lt;pmmintrin.h&gt;  // sse3, 8个128位寄存器
+#include &lt;smmintrin.h&gt;  // sse4.1, 8个128位寄存器
+#include &lt;nmmintrin.h&gt;  // sse4.2, 8个128位寄存器
+#include &lt;immintrin.h&gt;  // avx, 16个256位寄存器
+</code></pre>
+<p>示例程序 demo1.c 中，可以看到使用 avx256 和直接计算，耗时差不多，甚至直接计算反而更快。这是因为运算过于简单，数据拷贝占用的时间更高。
+因此使用 SIMD 的时候，需要把算法的步骤组合起来，在一次 IO 中进行尽可能多的运算。</p>
+<blockquote>
+<p>另外还发现，在 AMD Ryzen 9 5900HX 上使用 gcc 编译，优化级别设为 <code>-O0</code> 时，AVX256 会比直接计算慢很多。
+不清楚是 CPU 的原因还是编译器的原因。</p>
+</blockquote>
+<h2>示例1</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;x86intrin.h&gt;
+#include &lt;time.h&gt;
+
+void avx256_vector_add(const double* x, const double* y, size_t n, double* out);
+void avx256_vector_sub(const double* x, const double* y, size_t n, double* out);
+void avx256_vector_mul(const double* x, const double* y, size_t n, double* out);
+void avx256_vector_div(const double* x, const double* y, size_t n, double* out);
+
+void vector_add(const double* x, const double* y, size_t n, double* out);
+void vector_sub(const double* x, const double* y, size_t n, double* out);
+void vector_mul(const double* x, const double* y, size_t n, double* out);
+void vector_div(const double* x, const double* y, size_t n, double* out);
+
+#define TEST(func, ...) do{                                             \
+                            clock_t start = clock();                    \
+                            func(__VA_ARGS__);                          \
+                            clock_t end = clock();                      \
+                            printf(#func &quot; cost: %ld\n&quot;, end - start);  \
+                        }while(0)
+
+int main(void)
+{
+    const size_t N = 2048;
+    double x[N];
+    double y[N];
+    double out[N];
+
+    TEST(avx256_vector_add, x, y, N, out);
+    TEST(avx256_vector_sub, x, y, N, out);
+    TEST(avx256_vector_mul, x, y, N, out);
+    TEST(avx256_vector_div, x, y, N, out);
+
+    TEST(vector_add, x, y, N, out);
+    TEST(vector_sub, x, y, N, out);
+    TEST(vector_mul, x, y, N, out);
+    TEST(vector_div, x, y, N, out);
+}
+
+void avx256_vector_add(const double* x, const double* y, size_t n, double* out)
+{
+    __m256d m256x;
+    __m256d m256y;
+    double o[4] __attribute__((aligned(32)));
+
+    size_t i = 0;
+    for (; i + 3 &lt; n; i+=4)
+    {
+        m256x = _mm256_set_pd(x[i+3], x[i+2], x[i+1], x[i]);
+        m256y = _mm256_set_pd(y[i+3], y[i+2], y[i+1], y[i]);
+        m256x = _mm256_add_pd(m256x, m256y);
+        _mm256_store_pd(o, m256x);
+
+        memcpy(out, o, sizeof(double) * 4);
+    }
+
+    // 剩下少量没对齐的数据没必要使用 SIMD
+    for(;i &lt; n; i++)
+    {
+        out[i] = x[i] + y[i];
+    }
+}
+
+void avx256_vector_sub(const double* x, const double* y, size_t n, double* out)
+{
+    __m256d m256x;
+    __m256d m256y;
+    double o[4] __attribute__((aligned(32)));
+
+    size_t i = 0;
+    for (; i + 3 &lt; n; i+=4)
+    {
+        m256x = _mm256_set_pd(x[i+3], x[i+2], x[i+1], x[i]);
+        m256y = _mm256_set_pd(y[i+3], y[i+2], y[i+1], y[i]);
+        m256x = _mm256_sub_pd(m256x, m256y);
+        _mm256_store_pd(o, m256x);
+
+        memcpy(out, o, sizeof(double) * 4);
+    }
+
+    // 剩下少量没对齐的数据没必要使用 SIMD
+    for(;i &lt; n; i++)
+    {
+        out[i] = x[i] - y[i];
+    }
+}
+
+void avx256_vector_mul(const double* x, const double* y, size_t n, double* out)
+{
+    __m256d m256x;
+    __m256d m256y;
+    double o[4] __attribute__((aligned(32)));
+
+    size_t i = 0;
+    for (; i + 3 &lt; n; i+=4)
+    {
+        m256x = _mm256_set_pd(x[i+3], x[i+2], x[i+1], x[i]);
+        m256y = _mm256_set_pd(y[i+3], y[i+2], y[i+1], y[i]);
+        m256x = _mm256_mul_pd(m256x, m256y);
+        _mm256_store_pd(o, m256x);
+
+        memcpy(out, o, sizeof(double) * 4);
+    }
+
+    // 剩下少量没对齐的数据没必要使用 SIMD
+    for(;i &lt; n; i++)
+    {
+        out[i] = x[i] * y[i];
+    }
+}
+
+void avx256_vector_div(const double* x, const double* y, size_t n, double* out)
+{
+    __m256d m256x;
+    __m256d m256y;
+    double o[4] __attribute__((aligned(32)));
+
+    size_t i = 0;
+    for (; i + 3 &lt; n; i+=4)
+    {
+        m256x = _mm256_set_pd(x[i+3], x[i+2], x[i+1], x[i]);
+        m256y = _mm256_set_pd(y[i+3], y[i+2], y[i+1], y[i]);
+        m256x = _mm256_div_pd(m256x, m256y);
+        _mm256_store_pd(o, m256x);
+
+        memcpy(out, o, sizeof(double) * 4);
+    }
+
+    // 剩下少量没对齐的数据没必要使用 SIMD
+    for(;i &lt; n; i++)
+    {
+        out[i] = x[i] / y[i];
+    }
+}
+
+void vector_add(const double* x, const double* y, size_t n, double* out)
+{
+    for (size_t i = 0; i &lt; n; i++)
+    {
+        out[i] = x[i] + y[i];
+    }
+}
+void vector_sub(const double* x, const double* y, size_t n, double* out)
+{
+    for (size_t i = 0; i &lt; n; i++)
+    {
+        out[i] = x[i] - y[i];
+    }
+}
+
+void vector_mul(const double* x, const double* y, size_t n, double* out)
+{
+    for (size_t i = 0; i &lt; n; i++)
+    {
+        out[i] = x[i] * y[i];
+    }
+}
+
+void vector_div(const double* x, const double* y, size_t n, double* out)
+{
+    for (size_t i = 0; i &lt; n; i++)
+    {
+        out[i] = x[i] / y[i];
+    }
+}
+</code></pre>
+<h2>示例2</h2>
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;math.h&gt;
+#include &lt;x86intrin.h&gt;
+#include &lt;time.h&gt;
+
+double avx256_pi(size_t limit);
+double pi(size_t limit);
+
+#define TEST(func, ...) do{                                             \
+                            clock_t start = clock();                    \
+                            func(__VA_ARGS__);                          \
+                            clock_t end = clock();                      \
+                            printf(#func &quot; cost: %ld\n&quot;, end - start);  \
+                        }while(0)
+
+int main(void)
+{
+    #define N 0xfffff
+
+    TEST(pi, N);
+    printf(&quot;%f\n&quot;, pi(N));
+
+    TEST(avx256_pi, N);
+    printf(&quot;%f\n&quot;, avx256_pi(N));
+
+
+}
+
+double avx256_pi(size_t limit)
+{
+    // ∑(1 / n^2) = pi^2 / 6
+
+    __m256d sum = _mm256_set1_pd(0.0); // 四个 double 都设为同一个值 0.0
+    __m256d one = _mm256_set1_pd(1.0);
+    __m256d temp;
+
+    for (size_t n = 1; n + 3 &lt; limit; n+=4)
+    {
+        temp = _mm256_set_pd(n+3.0, n+2.0, n+1.0, n);
+        temp = _mm256_mul_pd(temp, temp);
+        temp = _mm256_div_pd(one, temp);
+        sum = _mm256_add_pd(sum, temp);
+    }
+
+
+    double o[4] __attribute__((aligned(32)));
+    _mm256_store_pd(o, sum);
+
+    return sqrt(6*(o[0] + o[1] + o[2] + o[3]));
+}
+
+double pi(size_t limit)
+{
+    // // ∑(1 / n^2) = pi^2 / 6
+
+    double sum = 0.0;
+    for (size_t n = 1; n &lt; limit; n++)
+    {
+        sum += 1.0 / n / n;
+    }
+
+    return sqrt(6 * sum);
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/C%20%E8%AF%AD%E8%A8%80/%E9%80%9A%E8%BF%87%20%23include%20%E5%B0%86%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AD%97%E9%9D%A2%E9%87%8F%E7%9A%84%E6%8A%80%E5%B7%A7.html"><i class="bi bi-box-arrow-up-right me-1"></i>通过 #include 将文件加载为字符串字面量的技巧</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="3">
+            <h1>通过 #include 将文件加载为字符串字面量的技巧</h1>
+<blockquote>
+<p>C23 新增的 <code>#embed</code> 预处理指令可以实现相同的功能。<br />
+资源文件通常使用 <code>xxd -i &lt;file&gt;</code> 来生成数组。</p>
+</blockquote>
+<ul>
+<li>C++:</li>
+</ul>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+#define INCLUDE_FILE_TO_STRING(X, ...) (#X #__VA_ARGS__)
+
+static std::string source = 
+#include &quot;kernel.cl&quot;
+
+int main()
+{
+    std::cout &lt;&lt; source &lt;&lt; std::endl;
+}
+</code></pre>
+<ul>
+<li>kernel.cl:</li>
+</ul>
+<pre><code class="language-opencl">INCLUDE_FILE_TO_STRING(
+
+__kernel void matFill(__global float* mat, unsigned len, float value)
+{
+    unsigned idx = get_global_id(0);
+
+    if (idx &gt;= len)
+        return;
+
+    mat[idx] = value;
+}
+
+);
+</code></pre>
+<h2>注意事项</h2>
+<ul>
+<li>必须将 <code>INCLUDE_FILE_TO_STRING(</code> 和结尾的 <code>);</code> 写在被加载的文件里面，否则无法编译通过。</li>
+<li>此方式加载后会丢失换行符，因此不能用于加载强依赖换行符的文本（例如 python 脚本）。</li>
+<li>这可能不是一个合规的写法，在 <code>gcc 11.4.0</code>、<code>clang 14.0.0</code> 上测试通过，其它编译器可能无法编译通过。</li>
+</ul>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+<div>
+    <ul class="pagination float-end">
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-left"></i></a>
+        </li>
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="page-item active">
+                <a class="page-link" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">1</a>
+            </li>
+            
+        
+            
+            
+        
+            
+            
+        
+
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-right"></i></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    scanTime();
+</script>
+
+
+    </body>
+</html>

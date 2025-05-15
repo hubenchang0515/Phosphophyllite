@@ -1,0 +1,1023 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        
+
+        
+        <title>PlanC 的博客 - Linux 命令与配置</title>
+        <meta name="description" content="PlanC 的博客 - Linux 命令与配置 分类 - 第 2 页">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E9%80%9A%E8%BF%87%20systemd%20service%20%E6%8E%A7%E5%88%B6%20x11vnc.html"><i class="bi bi-box-arrow-up-right me-1"></i>通过 systemd service 控制 x11vnc</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="1">
+            <h1>通过 systemd service 控制 x11vnc</h1>
+<p>创建 <code>/usr/lib/systemd/user/x11vnc.service</code> 文件，写入以下内容:</p>
+<pre><code class="language-ini">[Unit]
+Description=X11 VNC Server
+Requires=graphical-session.target
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/x11vnc -forever
+ExecStop=/usr/bin/x11vnc -R stop
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>执行 <code>systemctl --user daemon-reload</code> 命令，刷新服务。</p>
+<p>操作命令:</p>
+<ul>
+<li>启动 <code>systemctl --user start x11vnc</code></li>
+<li>停止 <code>systemctl --user stop x11vnc</code></li>
+<li>启用开机自启 <code>systemctl --user enable x11vnc</code></li>
+<li>停用开机自启 <code>systemctl --user disable x11vnc</code></li>
+</ul>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E7%AC%A6.html"><i class="bi bi-box-arrow-up-right me-1"></i>配置命令提示符</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="2">
+            <h1>配置命令提示符</h1>
+<p>通过环境变量 PS1 配置命令提示符，以 Ubuntu 24.04 的默认值为例:</p>
+<pre><code>\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ 
+</code></pre>
+<p>它分为两个部分。</p>
+<p>第一部分用于设置终端的图标和标题，不会显示在命令提示符中。<code>\e]0;</code> 表示开始设置图标和标题，<code>\a</code> 表示结束:</p>
+<pre><code>\[\e]0;\u@\h: \w\a\]
+</code></pre>
+<p>第二部分为命令提示符:</p>
+<pre><code>${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ 
+</code></pre>
+<h2>转义字符</h2>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">转义字符</th>
+  <th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center"><code>\e</code></td>
+  <td style="text-align:left">等价于 <code>\033</code> 用于部分控制</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\u</code></td>
+  <td style="text-align:left">当前用户名</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\h</code></td>
+  <td style="text-align:left">当前主机名</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\w</code></td>
+  <td style="text-align:left">当前路径</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\W</code></td>
+  <td style="text-align:left">当前目录名</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\t</code></td>
+  <td style="text-align:left">当前时间（24小时制）</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\T</code></td>
+  <td style="text-align:left">当前时间（12小时制）</td>
+</tr>
+<tr>
+  <td style="text-align:center"><code>\$</code></td>
+  <td style="text-align:left">提示符，普通用户为 <code>$</code>，root 用户为 <code>#</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>\[</code> 和 <code>\]</code> 用于告诉 <code>readline</code> 不要将中间的字符计入长度，这可以避免长度中计入控制字符导致显示错位。</p>
+<h2>字体颜色设置</h2>
+<p>字体颜色格式为 <code>\e[XX;XX;XXm</code> 或 <code>\033[XX;XX;XXm</code>，其中变量 <code>XX</code> 可以有任意个，通过分号隔开。</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">值</th>
+  <th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">0</td>
+  <td style="text-align:left">恢复默认</td>
+</tr>
+<tr>
+  <td style="text-align:center">1</td>
+  <td style="text-align:left">加粗</td>
+</tr>
+<tr>
+  <td style="text-align:center">4</td>
+  <td style="text-align:left">下划线</td>
+</tr>
+<tr>
+  <td style="text-align:center">5</td>
+  <td style="text-align:left">闪烁</td>
+</tr>
+<tr>
+  <td style="text-align:center">7</td>
+  <td style="text-align:left">高亮</td>
+</tr>
+<tr>
+  <td style="text-align:center">30</td>
+  <td style="text-align:left">黑色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">31</td>
+  <td style="text-align:left">红色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">32</td>
+  <td style="text-align:left">绿色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">33</td>
+  <td style="text-align:left">黄色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">34</td>
+  <td style="text-align:left">蓝色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">35</td>
+  <td style="text-align:left">紫色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">36</td>
+  <td style="text-align:left">青色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">37</td>
+  <td style="text-align:left">白色前景</td>
+</tr>
+<tr>
+  <td style="text-align:center">40</td>
+  <td style="text-align:left">黑色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">41</td>
+  <td style="text-align:left">红色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">42</td>
+  <td style="text-align:left">绿色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">43</td>
+  <td style="text-align:left">黄色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">44</td>
+  <td style="text-align:left">蓝色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">45</td>
+  <td style="text-align:left">紫色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">46</td>
+  <td style="text-align:left">青色背景</td>
+</tr>
+<tr>
+  <td style="text-align:center">47</td>
+  <td style="text-align:left">白色背景</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Linux%20%E4%B8%8A%E6%9F%A5%E7%9C%8B%E8%8B%B1%E7%89%B9%E5%B0%94%E6%A0%B8%E6%98%BE%E7%9A%84%E5%8D%A0%E7%94%A8%E7%8E%87.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux 上查看英特尔核显的占用率</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="3">
+            <h1>Linux上查看英特尔核显的占用率</h1>
+<pre><code class="language-bash">sudo apt install intel-gpu-tools 
+sudo intel_gpu_top
+</code></pre>
+<p>参考: <a href="https://wiki.archlinux.org/title/Hardware_video_acceleration">https://wiki.archlinux.org/title/Hardware_video_acceleration</a></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Linux%20%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93%E9%85%8D%E7%BD%AE.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux 中文字体配置</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="4">
+            <h1>字体设置</h1>
+<p>下载字体文件:</p>
+<ul>
+<li><a href="https://github.com/adobe-fonts/source-han-sans/releases">思源黑体</a></li>
+<li><a href="https://github.com/adobe-fonts/source-han-mono/releases">思源等宽</a></li>
+</ul>
+<h2>安装到用户目录</h2>
+<p>将字体文件复制到用户字体目录 <code>~/.local/share/fonts/</code></p>
+<h2>安装到系统目录</h2>
+<blockquote>
+<p>系统目录中通过目录区对字体进行分组，可以手动创建文件夹</p>
+</blockquote>
+<p>思源等宽（SourceHanMono.ttc）是 TrueType 字体，复制到 <code>/usr/share/fonts/truetype/source-han</code><br />
+思源黑体（SourceHanSansCN-Normal.otf）是 OpenType 字体，复制到 <code>/usr/share/fonts/opentype/source-han</code></p>
+<h2>查看字体</h2>
+<p>使用 <code>fc-list</code> 命令可以查看已安装的字体:</p>
+<pre><code>$ fc-list | grep -i source
+/home/planc/.local/share/fonts/SourceHanSansSC-VF.otf: Source Han Sans SC VF:style=Regular
+/usr/share/fonts/truetype/source-han: Source Han Mono SC,思源等宽:style=Regular
+/usr/share/fonts/truetype/source-han: Source Han Mono TC,思源等寬:style=Regular
+/usr/share/fonts/truetype/source-han: Source Han Mono HC,思源等寬 香港:style=Regular
+</code></pre>
+<blockquote>
+<p>其中 SC 是简体中文（Simplified Chinese）的缩写</p>
+</blockquote>
+<h2>设置系统字体</h2>
+<p>字体设置有三个：</p>
+<ul>
+<li>标准字体 <code>font-name</code> - 通常情况下使用的字体</li>
+<li>等宽字体 <code>monospace-font-name</code> - 要求字符等宽时使用的字体，例如终端和一些代码编辑器</li>
+<li>文档字体 <code>document-font-name</code> - 打印时使用的字体</li>
+</ul>
+<pre><code>$ gsettings set org.gnome.desktop.interface font-name 'Source Han Sans CN 11'
+$ gsettings set org.gnome.desktop.interface monospace-font-name 'Source Han Mono SC 11'
+$ gsettings set org.gnome.desktop.interface document-font-name 'Source Han Sans CN 11'
+</code></pre>
+<h2>设置应用字体</h2>
+<p>应用软件既可以读取系统配置使用系统字体，也可以自己决定使用的字体。有些软件完全不会读取系统字体配置，只能在软件内设置字体。<br />
+以 VSCode 为例，在其配置文件（<code>~/.config/Code/User/settings.json</code>）中添加 <code>&quot;editor.fontFamily&quot;: &quot;'Source Han Mono SC',</code> 来配置字体。</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Linux%20%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA%E6%A0%87%E5%87%86%E6%96%87%E4%BB%B6%E5%A4%B9.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux 用户目录创建标准文件夹</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="5">
+            <h1>Linux 用户目录创建标准文件夹</h1>
+<p>新版本的 KDE noen (ubuntu 22.04) 安装完成后，用户目录下没有标准目录。执行 <code>xdg-user-dirs-update</code> 即可自动创建</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/hexdump%20%E6%A0%BC%E5%BC%8F%E5%8C%96.html"><i class="bi bi-box-arrow-up-right me-1"></i>hexdump 格式化</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="6">
+            <h1>hexdump 格式化</h1>
+<p>hexdump 常用的选项有三个：跳过的字节数（<code>-s</code>）、打印的字节数（<code>-n</code>）和打印的格式(<code>-e</code>)</p>
+<pre><code>hexdump [-s SKIP_BYTES] [-n BYTES] [-e FORMAT] 
+</code></pre>
+<p>其中 FORMAT 的格式为 <code>'m/n &quot;F&quot;'</code>，其中 <code>m</code> 为一组打印多少个元素，<code>n</code>为一个元素的字节数。 <code>F</code> 支持 C 语言中 printf 相同的格式,并且额外持支以下格式:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:left">格式</th>
+  <th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:left">%_a[dox]</td>
+  <td style="text-align:left">地址，d、o、x分别表示十进制、八进制和十六进制</td>
+</tr>
+<tr>
+  <td style="text-align:left">%_A[dox]</td>
+  <td style="text-align:left">地址（仅在最后打印），d、o、x分别表示十进制、八进制和十六进制</td>
+</tr>
+<tr>
+  <td style="text-align:left">%_c</td>
+  <td style="text-align:left">默认字符集字符，非文本字符打印三位八进制数</td>
+</tr>
+<tr>
+  <td style="text-align:left">%_p</td>
+  <td style="text-align:left">默认字符集字符，非文本字符打印 .</td>
+</tr>
+<tr>
+  <td style="text-align:left">%_u</td>
+  <td style="text-align:left">ASCII字符，控制字符打印名称，其他非文本字符打印十六进制数</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>FORMAT 可以有多个，m 和 n 可以省略。</p>
+</blockquote>
+<p>示例:</p>
+<pre><code class="language-bash">$ hexdump data.bin # 默认打印
+0000000 3b98 bcbc abdf 0001 cded 08ef 0ac6 e1e0
+0000010 b584 c2c4 41a5 5f14 3ad6 ba58 0533 8757
+0000020
+$ hexdump data.bin -e '&quot;%06_ax &quot; 8/2 &quot;%04x &quot; &quot;\n&quot; &quot;%06_Ax\n&quot;' # 地址-8个2字节十六进制整数-换行 --- 最后再打印一次地址
+000000 3b98 bcbc abdf 0001 cded 08ef 0ac6 e1e0
+000010 b584 c2c4 41a5 5f14 3ad6 ba58 0533 8757
+000020
+</code></pre>
+<p>参考:</p>
+<p><a href="https://man7.org/linux/man-pages/man1/hexdump.1.html#FORMATS">hexdump - FORMATS</a></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E6%9F%A5%E7%9C%8B%E5%92%8C%E4%BF%AE%E6%94%B9%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%20RPATH.html"><i class="bi bi-box-arrow-up-right me-1"></i>查看和修改可执行文件的 RPATH</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="7">
+            <h1>查看和修改可执行文件的 RPATH</h1>
+<p>查看:</p>
+<pre><code class="language-bash">readelf -d $EXEC | grep runpath
+</code></pre>
+<p>修改:</p>
+<pre><code class="language-bash">chrpath -r $RPATH $EXEC
+</code></pre>
+<p>编译时设置 rpath:</p>
+<pre><code class="language-bash">gcc -o $EXEC $SOURCE -Wl,-rpath=$RPATH
+</code></pre>
+<p>设置 rpath 时可以使用 <code>$ORIGIN</code> 来表示可执行文件本身所在路径</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E9%85%8D%E7%BD%AE%20SSH%20%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E5%8F%8A%E5%88%AB%E5%90%8D.html"><i class="bi bi-box-arrow-up-right me-1"></i>配置 SSH 免密登录及别名</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="8">
+            <h1>配置 SSH 免密登录及别名</h1>
+<h2>免密登录</h2>
+<p>将 A 主机上的公钥（<code>~/.ssh/id_rsa.pub</code>）保存到 B 主机上的 <code>~/.ssh/authorized_keys</code> 文件中，即可在 A 主机上免密登录 B 主机。</p>
+<h2>别名</h2>
+<pre><code>Host xxxx                                       # 主机别名
+    Hostname xxx.xxx.xxx.xxx                    # 主机名：域名或IP地址
+</code></pre>
+<h3>VS Code 上删除 ssh target</h3>
+<p>无法在 VS Code 上直接删除 ssh target，只能编辑 <code>~/.ssh/config</code> 文件来进行删除</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+<div>
+    <ul class="pagination float-end">
+        
+        <li class="page-item">
+            <a class="page-link" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html"><i class="bi bi-chevron-double-left"></i></a>
+        </li>
+        
+
+        
+            
+            
+        
+            
+            <li class="page-item">
+                <a class="page-link" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">1</a>
+            </li>
+            
+        
+            
+            <li class="page-item active">
+                <a class="page-link" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-2.html">2</a>
+            </li>
+            
+        
+            
+            
+        
+            
+            
+        
+
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-right"></i></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    scanTime();
+</script>
+
+
+    </body>
+</html>
