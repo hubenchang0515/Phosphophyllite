@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/Phosphophyllite/",
+      "destination": "/"
+    },
+
+    {
       "source": "/Phosphophyllite/:path*",
       "destination": "/:path*"
     }
