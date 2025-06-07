@@ -1,0 +1,1734 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        
+
+        
+        <title>PlanC 的博客 - Linux API</title>
+        <meta name="description" content="PlanC 的博客 - Linux API 分类 - 第 1 页">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/Gio%20DBus%20%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%82%E6%95%B0.html"><i class="bi bi-box-arrow-up-right me-1"></i>Gio DBus 中创建复合类型的参数</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="1">
+            <h1>Gio::DBus 中创建复合类型的参数</h1>
+<p>首先，需要知道两个基本知识:</p>
+<ul>
+<li>每一个参数都需要被包装为 Variant。</li>
+<li>全体参数需要被整体包装成一个 Tuple。</li>
+</ul>
+<blockquote>
+<p>即使只有一个参数也需要包装为 Tuple，例如一个 string:</p>
+<pre><code class="language-c++">const auto arg1 = Glib::Variant&lt;Glib::ustring&gt;::create(&quot;hello world&quot;);
+Glib::VariantContainerBase args = Glib::VariantContainerBase::create_tuple(arg1);
+</code></pre>
+</blockquote>
+<p><code>Glib::Variant</code> 是模板，是不完全的类型，所以要使用它的基类 <code>Glib::VariantBase</code> 来表示任意类型的 Variant 对象。</p>
+<p>因此，一个 <code>a{sv}</code> 类型的参数类型为 <code>Glib::Variant&lt;std::map&lt;Glib::ustring, Glib::VariantBase&gt;&gt;</code></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/Linux%20C%20API%20%E8%8E%B7%E5%8F%96%E5%B9%BF%E6%92%AD%E5%9C%B0%E5%9D%80.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux C API 获取广播地址</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="2">
+            <h1>Linux C API 获取广播地址</h1>
+<blockquote>
+<p>广播地址通常为网段的最后一个地址</p>
+</blockquote>
+<p>通过对一个 socket 进行 <code>ioctl(SIOCGIFBRDADDR)</code> 即可获取广播地址。</p>
+<pre><code class="language-C">struct ifreq req;
+strcpy(req.ifr_name, &quot;网卡名&quot;);
+ioctl(sock, SIOCGIFBRDADDR, &amp;req);
+inet_ntoa(((struct sockaddr_in*)&amp;(req.ifr_addr))-&gt;sin_addr)
+</code></pre>
+<p>遍历网卡的方法可以参考 <a href="https://gist.github.com/hubenchang0515/c690755e1b310f9d20216dfe779f5f66">Linux C API 获取本机的 IP 地址</a></p>
+<p>示例:</p>
+<pre><code class="language-C">#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;cerrno&gt;
+
+#include &lt;unistd.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;net/if.h&gt;
+#include &lt;sys/ioctl.h&gt;
+
+bool getBoardCastAddress(const char* iface, char* buffer, size_t n)
+{
+    int sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (sock &lt; 0)
+    {
+        fprintf(stderr, &quot;socket: %s\n&quot;, strerror(errno));
+        return false;
+    }
+
+
+    struct ifreq req;
+    strcpy(req.ifr_name, iface);
+    if (ioctl(sock, SIOCGIFBRDADDR, &amp;req) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl: %s\n&quot;, strerror(errno));
+        close(sock);
+        return false;
+    }
+
+    strncpy(buffer, inet_ntoa(((struct sockaddr_in*)&amp;(req.ifr_addr))-&gt;sin_addr), n);
+    close(sock);
+    return true;
+}
+
+int main(void)
+{
+    char addr[INET_ADDRSTRLEN];
+    if (!getBoardCastAddress(&quot;enp2s0&quot;, addr, INET_ADDRSTRLEN))
+    {
+        return EXIT_FAILURE;
+    }
+
+    printf(&quot;broadcast %s\n&quot;, addr);
+    return EXIT_SUCCESS;
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/Linux%20C%20API%20%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA%E7%9A%84%20IP%20%E5%9C%B0%E5%9D%80.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux C API 获取本机的 IP 地址</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="3">
+            <h1>Linux C API 获取本机的 IP 地址</h1>
+<h2>方法1：遍历网卡</h2>
+<pre><code class="language-C">#include &lt;stdio.h&gt;      
+#include &lt;ifaddrs.h&gt;
+#include &lt;arpa/inet.h&gt;
+
+int main (void) 
+{
+    struct ifaddrs* ifAddrStruct = NULL;
+    getifaddrs(&amp;ifAddrStruct); // 获得网卡的链表
+
+    while (ifAddrStruct!=NULL) 
+    {
+        if (ifAddrStruct-&gt;ifa_addr-&gt;sa_family==AF_INET) 
+        {
+            // IPv4
+            char address[INET_ADDRSTRLEN];
+            void* inAddr = &amp;((struct sockaddr_in *)ifAddrStruct-&gt;ifa_addr)-&gt;sin_addr;
+            inet_ntop(AF_INET, inAddr, address, INET_ADDRSTRLEN);
+            
+            char netMask[INET_ADDRSTRLEN];
+            void* inNetMask = &amp;((struct sockaddr_in *)ifAddrStruct-&gt;ifa_netmask)-&gt;sin_addr;
+            inet_ntop(AF_INET, inNetMask, netMask, INET_ADDRSTRLEN);
+            
+            char broadAddr[INET_ADDRSTRLEN];
+            void* inBroadAddr = &amp;((struct sockaddr_in *)ifAddrStruct-&gt;ifa_ifu.ifu_broadaddr)-&gt;sin_addr;
+            inet_ntop(AF_INET, inBroadAddr, broadAddr, INET_ADDRSTRLEN);
+            
+            printf(&quot;IPv4 %8s: %31s \t%31s \t%31s\n&quot;, ifAddrStruct-&gt;ifa_name, address, netMask, broadAddr); 
+        } 
+        else if (ifAddrStruct-&gt;ifa_addr-&gt;sa_family==AF_INET6) 
+        {
+            // IPv6
+            char address[INET6_ADDRSTRLEN];
+            void* inAddr = &amp;((struct sockaddr_in *)ifAddrStruct-&gt;ifa_addr)-&gt;sin_addr;
+            inet_ntop(AF_INET6, inAddr, address, INET6_ADDRSTRLEN);
+            
+            char prefixMask[INET6_ADDRSTRLEN];
+            void* inPrefixMask = &amp;((struct sockaddr_in *)ifAddrStruct-&gt;ifa_netmask)-&gt;sin_addr;
+            inet_ntop(AF_INET6, inPrefixMask, prefixMask, INET6_ADDRSTRLEN);
+            
+            printf(&quot;IPv6 %8s: %31s \t%31s\n&quot;, ifAddrStruct-&gt;ifa_name, address, prefixMask); 
+        } 
+        ifAddrStruct=ifAddrStruct-&gt;ifa_next;
+    }
+    return 0;
+}
+</code></pre>
+<h2>方法2：gethostbyname</h2>
+<p>这个方法不能支持 IPv6</p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;    
+#include &lt;unistd.h&gt;  
+#include &lt;netdb.h&gt;
+#include &lt;arpa/inet.h&gt;
+
+int main (void) 
+{
+    // 获取 host name
+    char hostName[_SC_HOST_NAME_MAX];
+    gethostname(hostName, _SC_HOST_NAME_MAX);
+
+    // 通过 host name 获取 host entry
+    struct hostent* hostEntry = gethostbyname(hostName);
+
+    // 打印 IP 地址
+    for(int i = 0; hostEntry-&gt;h_addr_list[i]; i++) 
+    {
+        printf(&quot;%s\n&quot;, inet_ntoa(*(struct in_addr*)(hostEntry-&gt;h_addr_list[i])));
+    }
+
+    return 0;
+}
+</code></pre>
+<blockquote>
+<p>在 <code>netdb.h</code> 中还有一个 <code>gethostent</code> 函数，能够遍历 host entry，但是它只能查询 <code>/etc/hosts</code> 里的值。因此，它通常只能返回 <code>127.0.0.1</code></p>
+<pre><code class="language-C">#include &lt;stdio.h&gt;    
+#include &lt;unistd.h&gt;  
+#include &lt;netdb.h&gt;
+#include &lt;arpa/inet.h&gt;
+
+int main(void)
+{
+    struct hostent* hostEntry;
+    while((hostEntry = gethostent()) != NULL)
+    {
+        for(int i = 0; hostEntry-&gt;h_addr_list[i]; i++) 
+        {
+            printf(&quot;%s\n&quot;, inet_ntoa(*(struct in_addr*)(hostEntry-&gt;h_addr_list[i])));
+        }
+    }
+    return 0;
+}
+</code></pre>
+</blockquote>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/%E9%80%9A%E8%BF%87%20ALSA%20%E6%98%BE%E7%A4%BA%E9%9F%B3%E9%A2%91%E8%AE%BE%E5%A4%87%E7%9A%84%E5%A3%B0%E9%81%93.html"><i class="bi bi-box-arrow-up-right me-1"></i>通过 ALSA 显示音频设备的声道</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="4">
+            <h1>通过 ALSA 显示音频设备的声道</h1>
+<pre><code class="language-c">// apt install libasound2-dev
+// LDFLAGS := -lasound
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;alsa/asoundlib.h&gt;
+
+int main(int argc, char* argv[])
+{
+    if(argc != 2)
+    {
+        fprintf(stderr, &quot;Usage: %s &lt;device&gt;\n&quot;, argv[0]);
+        fprintf(stderr, &quot;       %s hw:0,0\n&quot;, argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    snd_pcm_t* pcm = NULL;
+    if(snd_pcm_open(&amp;pcm, argv[1], SND_PCM_STREAM_PLAYBACK, 0) &lt; 0)
+    {
+        fprintf(stderr, &quot;snd_pcm_open failed\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    snd_pcm_chmap_query_t** chmaps = snd_pcm_query_chmaps(pcm);
+    if(chmaps == NULL)
+    {
+        fprintf(stderr, &quot;snd_pcm_query_chmaps failed\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    for(int i = 0; chmaps[i] != NULL; i++)
+    {
+        snd_pcm_chmap_query_t* mapping = chmaps[i];
+        printf(&quot;Mapping-%d\n&quot;, i);
+        for(int ch = 0; ch &lt; mapping-&gt;map.channels; ch++)
+        {
+            printf(&quot;\tchannel-%d %s\n&quot;, ch, snd_pcm_chmap_long_name(mapping-&gt;map.pos[ch]));
+        }
+    }
+
+    snd_pcm_free_chmaps(chmaps);
+
+    return EXIT_SUCCESS;
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/%E9%80%9A%E8%BF%87%20PulseAudio%20%E6%92%AD%E6%94%BE%E5%92%8C%E5%BD%95%E5%88%B6%E5%A3%B0%E9%9F%B3.html"><i class="bi bi-box-arrow-up-right me-1"></i>通过 PulseAudio 播放和录制声音</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="5">
+            <h1>通过 PulseAudio 播放和录制声音</h1>
+<pre><code class="language-c">// libs: -lpulse 
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;pulse/pulseaudio.h&gt;
+
+#ifdef DEBUG
+    #define LOG(...) printf(__VA_ARGS__)
+#else
+    #define LOG(...)
+#endif
+
+typedef enum Method
+{
+    METHOD_PLAY,
+    METHOD_RECORD
+}Method;
+
+typedef struct UserData
+{
+    pa_context* context;
+    pa_stream* stream;
+    pa_mainloop_api* api;
+    FILE* fp;
+    Method method;
+}UserData;
+
+static void mainloop_quit(UserData* userdata, int ret);
+static void context_state_callback(pa_context* context, void* userdata) ;
+static void stream_write_callback(pa_stream* stream, size_t length, void* userdata);
+static void stream_read_callback(pa_stream* stream, size_t length, void* userdata);
+static void stream_drain_complete(pa_stream* stream, int success, void* userdata);
+static void context_drain_complete(pa_context* c, void* userdata);
+
+int main(int argc, char* argv[]) 
+{
+    // 参数检查
+    if(argc != 3)
+    {
+        printf(&quot;pademo [play|record] &lt;sound-file&gt;\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    // 创建一个线程，并在该线程中创建 mainloop
+    pa_mainloop* mainloop = pa_mainloop_new();
+    if(mainloop == NULL)
+    {
+        fprintf(stderr, &quot;pa_threaded_mainloop_new failed.\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    // 获取API
+    pa_mainloop_api* api = pa_mainloop_get_api(mainloop);
+    if(api == NULL)
+    {
+        pa_mainloop_free(mainloop);
+        fprintf(stderr, &quot;pa_threaded_mainloop_get_api failed.\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    // 创建上下文
+    pa_context* context = pa_context_new(api, &quot;demo&quot;);
+    if(context == NULL)
+    {
+        pa_mainloop_free(mainloop);
+        fprintf(stderr, &quot;pa_context_new failed.\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    UserData data;
+    if(strcmp(argv[1],&quot;play&quot;) == 0)
+    {
+        data.fp = fopen(argv[2], &quot;rb&quot;);
+        data.method = METHOD_PLAY;
+    } 
+    else if(strcmp(argv[1], &quot;record&quot;) == 0)
+    {
+        data.fp = fopen(argv[2], &quot;wb&quot;);
+        data.method = METHOD_RECORD;
+    }
+    else
+    {
+        fprintf(stderr, &quot;Unknown method %s\n&quot;, argv[1]);
+        // 释放
+        pa_context_unref(context);
+        pa_mainloop_free(mainloop);
+        return EXIT_FAILURE;
+    }
+
+    // 设置状态变化的回调函数,这是主入口
+    data.context = context;
+    data.api = api;
+    pa_context_set_state_callback(context, context_state_callback, (void*)(&amp;data));
+
+    // 开始建立连接
+    if(pa_context_connect(context, NULL, PA_CONTEXT_NOFAIL, NULL) &lt; 0)
+    {
+        pa_context_unref(context);
+        pa_mainloop_free(mainloop);
+        fprintf(stderr, &quot;pa_context_connect failed.\n&quot;);
+        return EXIT_FAILURE;
+    }
+    
+    // 运行mainloop
+    int ret = pa_mainloop_run(mainloop, NULL);
+
+    // 退出
+    pa_context_unref(context);
+    pa_mainloop_free(mainloop);
+    return ret;
+}
+
+// 退出主循环
+static void mainloop_quit(UserData* userdata, int ret)
+{
+    LOG(&quot;mainloop_quit\n&quot;);
+    userdata-&gt;api-&gt;quit(userdata-&gt;api, ret);
+}
+
+// 状态变化的回调函数
+static void context_state_callback(pa_context* context, void* userdata) 
+{
+    UserData* data = (UserData*)(userdata);
+    pa_context_state_t state = pa_context_get_state(context);
+    switch (state) 
+    {
+    case PA_CONTEXT_READY: // 上下文就绪
+    {
+        LOG(&quot;PA_CONTEXT_READY\n&quot;);
+
+        // 创建spec
+        pa_sample_spec sampleSpec;
+        sampleSpec.rate = 44100;
+        sampleSpec.format = PA_SAMPLE_S16LE;
+        sampleSpec.channels = 2;
+
+        // 创建channel map
+        pa_channel_map channelMap;
+        pa_channel_map_init_stereo(&amp;channelMap);
+
+        // 创建stream
+        pa_stream* stream = pa_stream_new(context, &quot;demo-stream&quot;, &amp;sampleSpec, &amp;channelMap);
+        data-&gt;stream = stream;
+
+        if(data-&gt;method == METHOD_PLAY) // 播放
+        {
+            pa_stream_connect_playback(stream, NULL, NULL, PA_STREAM_NOFLAGS, NULL, NULL);
+            pa_stream_set_write_callback(stream, stream_write_callback, userdata);
+        }
+        else if(data-&gt;method == METHOD_RECORD) // 录音
+        {
+            pa_stream_connect_record(stream, NULL, NULL, PA_STREAM_NOFLAGS);
+            pa_stream_set_read_callback(stream, stream_read_callback, userdata);
+        }
+        break;
+    }
+
+    case PA_CONTEXT_TERMINATED: // 结束
+        LOG(&quot;PA_CONTEXT_TERMINATED\n&quot;);
+        mainloop_quit(data, EXIT_SUCCESS);
+        break;
+
+    default:
+        LOG(&quot;context state %d\n&quot;, state);
+    }
+}
+
+// 播放的回调
+static void stream_write_callback(pa_stream* stream, size_t length, void* userdata)
+{
+    UserData* data = (UserData*)(userdata);
+    void* buffer;
+    while(true)
+    {
+        // 给buffer分配空间，不需要手动释放
+        pa_stream_begin_write(stream, &amp;buffer, &amp;length); 
+        
+        // 读取文件,写入stream
+        length = fread(buffer, 1, length, data-&gt;fp);
+        pa_stream_write(stream, buffer, length, NULL, 0, PA_SEEK_RELATIVE); // 会自动释放buffer
+        LOG(&quot;play %zu bytes\n&quot;, length);
+
+        // 文件读取完毕
+        if(feof(data-&gt;fp))
+        {
+            pa_stream_cancel_write(stream);
+            pa_stream_set_write_callback(stream, NULL, NULL); //清除回调
+            pa_operation* o = pa_stream_drain(stream, stream_drain_complete, data); // 设置播放完毕时的回调
+            if(o == NULL)
+            {
+                mainloop_quit(data, EXIT_FAILURE);
+            }
+            pa_operation_unref(o);
+            break;
+        }
+    }
+}
+
+// 录音的回调
+static void stream_read_callback(pa_stream* stream, size_t length, void* userdata)
+{
+    UserData* data = (UserData*)(userdata);
+    const void *buffer;
+    while(pa_stream_readable_size(stream) &gt; 0)
+    {
+        pa_stream_peek(stream, &amp;buffer, &amp;length);
+        if(buffer == NULL || length &lt;= 0)
+        {
+            continue;
+        }
+
+        fwrite(buffer, length, 1, data-&gt;fp);
+        fflush(data-&gt;fp);
+        LOG(&quot;record %zu bytes\n&quot;, length);
+        pa_stream_drop(stream);
+    }
+}
+
+// 播放完毕的回调
+static void stream_drain_complete(pa_stream* stream, int success, void* userdata) 
+{
+    (void)(success);
+    LOG(&quot;stream_drain_complete\n&quot;);
+    UserData* data = (UserData*)(userdata);
+
+    // 释放stream
+    pa_stream_disconnect(stream); 
+    pa_stream_unref(stream);
+    data-&gt;stream = NULL;
+
+    // 设置上下文结束的回调
+    pa_operation* o = pa_context_drain(data-&gt;context, context_drain_complete, NULL);
+    if (o == NULL)
+    {
+        pa_context_disconnect(data-&gt;context);
+    }
+    else 
+    {
+        pa_operation_unref(o);
+    }
+}
+
+// 上下文结束的回调
+static void context_drain_complete(pa_context* context, void* userdata)
+{
+    (void)(userdata);
+    LOG(&quot;context_drain_complete\n&quot;);
+    pa_context_disconnect(context);
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/Linux%20Hook%20%E6%8A%80%E6%9C%AF.html"><i class="bi bi-box-arrow-up-right me-1"></i>Linux Hook 技术</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="6">
+            <h1>Linux Hook 技术</h1>
+<p>Hook 是一种覆盖重写进程中符号的技术，在 Linux 中，通过环境变量 <code>LD_PRELOAD</code> 预加载包含同名符号的动态库即可实现。</p>
+<h2>覆盖 malloc 和 free 检查内存泄漏</h2>
+<pre><code class="language-c">// 文件名: memcheck.c
+// 编译命令: gcc -o memcheck.so memcheck.c --shared -fPIC
+#define _GNU_SOURCE
+#include &lt;dlfcn.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;execinfo.h&gt;
+
+// 打印调用栈的最大深度
+#define MAX_STACK_DEPTH 16
+
+typedef struct RecordNode RecordNode;
+
+struct RecordNode
+{
+    RecordNode* next;
+    void* ptr;
+    size_t size;
+    void* stack_trace[MAX_STACK_DEPTH];
+    size_t stack_depth;
+};
+
+static RecordNode* head = NULL;                 // 此处头指针不存数据，head-&gt;next 才是第一个结点
+static RecordNode* tail = NULL;
+static void* (*real_malloc)(size_t) = NULL;     // 原 malloc 函数的地址
+static void (*real_free)(void*) = NULL;         // 原 free 函数的地址
+static bool ignore = false;                     // 忽略内部调用的 malloc
+
+// 打印调用栈
+static void printStack(const RecordNode* node)
+{
+    char** symbols = backtrace_symbols(node-&gt;stack_trace, node-&gt;stack_depth);
+    for (size_t i = 0; i &lt; node-&gt;stack_depth; ++i) {
+        fprintf(stderr, &quot; [%zu] %s \r\n&quot;, i, symbols[i]);
+    }
+    real_free(symbols);
+}
+
+// 打印内存泄漏记录
+static void printRecord(void)
+{
+    ignore = true;
+    for (RecordNode* node = head-&gt;next; node != NULL; node = node-&gt;next)
+    {
+        fprintf(stderr, &quot;Leak %zu bytes at %p\n&quot;, node-&gt;size, node-&gt;ptr);
+        printStack(node);
+    }
+    ignore = false;
+}
+
+// 初始化
+static void init()
+{
+    // 通过 RTLD_NEXT 查找当前进程空间的下一个同名符号来获取原函数地址
+    real_malloc = (void*(*)(size_t))dlsym(RTLD_NEXT, &quot;malloc&quot;);
+    real_free = (void(*)(void*))dlsym(RTLD_NEXT, &quot;free&quot;);
+
+    head = (RecordNode*)real_malloc(sizeof(RecordNode));
+    head-&gt;next = NULL;
+    tail = head;
+    atexit(printRecord);
+}
+
+// 添加记录
+static RecordNode* addRecord(void* ptr, size_t size)
+{
+    RecordNode* node = (RecordNode*)real_malloc(sizeof(RecordNode));
+    node-&gt;next = NULL;
+    node-&gt;ptr = ptr;
+    node-&gt;size = size;
+    node-&gt;stack_depth = 0;
+
+    tail-&gt;next = node;
+    tail = node;
+    return node;
+}
+
+// 删除记录
+static void delRecord(void* ptr)
+{
+    RecordNode* prev = head;
+    for (RecordNode* node = head-&gt;next; node != NULL; node = node-&gt;next)
+    {
+        if (node-&gt;ptr == ptr)
+        {
+            prev-&gt;next = node-&gt;next;
+            if (node == tail)
+                tail = prev;
+            real_free(node);
+            break;
+        }
+        prev = node;
+    }
+}
+
+// hook malloc
+void* malloc(size_t size)
+{
+    if (real_malloc == NULL)
+        init();
+
+    void* ptr = real_malloc(size);
+
+    if (!ignore) // 防止内部调用 malloc 导致死循环
+    {
+        ignore = true;
+        RecordNode* node = addRecord(ptr, size);
+        node-&gt;stack_depth = backtrace(node-&gt;stack_trace, MAX_STACK_DEPTH);
+        ignore = false;
+    }
+    return ptr;
+}
+
+// hook free
+void free(void* ptr)
+{
+    real_free(ptr);
+    delRecord(ptr);
+}
+</code></pre>
+<p>预加载 <code>memcheck.so</code> 来检查内存泄漏:</p>
+<blockquote>
+<p>构建程序（即下述的 test）时在链接选项中添加 <code>-rdynamic</code> 选项导出符号表才能显示函数名，否则只能显示地址。</p>
+</blockquote>
+<pre><code>$ LD_PRELOAD=./memcheck.so ./test 
+Leak 233 bytes at 0x559e563c8350
+ [0] ./memcheck.so(malloc+0x7b) [0x7f6546b064a7] 
+ [1] ./test(func1+0x12) [0x559e5579215b] 
+ [2] ./test(func3+0x12) [0x559e55792185] 
+ [3] ./test(main+0x12) [0x559e557921a4] 
+ [4] /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7f6546829d90] 
+ [5] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7f6546829e40] 
+ [6] ./test(_start+0x25) [0x559e55792085] 
+Leak 666 bytes at 0x559e563c9560
+ [0] ./memcheck.so(malloc+0x7b) [0x7f6546b064a7] 
+ [1] ./test(func2+0x12) [0x559e55792170] 
+ [2] ./test(func3+0x1c) [0x559e5579218f] 
+ [3] ./test(main+0x12) [0x559e557921a4] 
+ [4] /lib/x86_64-linux-gnu/libc.so.6(+0x29d90) [0x7f6546829d90] 
+ [5] /lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80) [0x7f6546829e40] 
+ [6] ./test(_start+0x25) [0x559e55792085]
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/%E6%80%8E%E6%A0%B7%20detach%20%E5%AD%90%E8%BF%9B%E7%A8%8B.html"><i class="bi bi-box-arrow-up-right me-1"></i>怎样 detach 子进程</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="7">
+            <h1>怎样 detach 子进程</h1>
+<p>通过 <code>fork</code> 创建进程后，父进程可以使用 <code>waitpid</code> 来获取子进程的结束状态。
+如果子进程先于父进程退出，而父进程没有调用 waitpid 的话，子进程将一直存续下去以保持结束状态可以被获取。
+此时，子进程被称为<strong>僵尸进程</strong>。</p>
+<p>如果子进程没有被调用 <code>waitpid</code> 而父进程退出了，此时子进程被称为<strong>孤儿进程</strong>，它会被 <strong>init进程(PID为1)</strong> 领养并调用<code>waitpid</code>回收。</p>
+<p>有时我们并不关心子进程的结束状态，希望像 <code>pthread_detach</code> 一样示释放子进程。有以下两种方法可以实现:</p>
+<ol>
+<li>父进程调用 <code>fork</code> 创建<strong>子进程A</strong>并对其调用 <code>waitpid</code>，<strong>子进程A</strong>再次 <code>fork</code> 创建<strong>子进程B</strong>并退出。</li>
+</ol>
+<blockquote>
+<p>这样一来，<strong>子进程A</strong> 由父进程回收，<strong>子进程B</strong> 成为孤儿进程被<strong>init进程</strong>回收。</p>
+</blockquote>
+<ol start="2">
+<li>父进程调用 <code>signal(SIGCHLD, SIG_IGN)</code></li>
+</ol>
+<blockquote>
+<p><code>SIGCHLD</code> 是子进程状态发生变化时产生的信号，默认就是忽略的，但是必须显示调用才会释放子进程。</p>
+</blockquote>
+<h2>守护进程</h2>
+<p>上述方法一中创建孤儿进程的方法常被用于创建守护进程。常用步骤如下:</p>
+<ol>
+<li>调用 <code>fork</code> 创建子进程，然后父进程退出。</li>
+<li>子调用 <code>setsid</code> 创建新的会话和进程组，从而避免被原先的会话、进程组以及会话终端影响。</li>
+<li>调用 <code>chdir</code> 设置工作目录。</li>
+<li>调用 <code>umask</code> 设置文件掩码（通常设为 <code>umask(0)</code>)。</li>
+<li>关闭不需要的资源（从父进程继承的文件描述符等）。</li>
+</ol>
+<blockquote>
+<p>除第一步外的后续步骤并不是必须的，但大部分情况下是必要的。</p>
+</blockquote>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/%E8%B0%83%E7%94%A8%20PAM%20%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81.html"><i class="bi bi-box-arrow-up-right me-1"></i>调用 PAM 进行认证</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="8">
+            <h1>调用 PAM 进行认证</h1>
+<pre><code class="language-c">// gcc main.c -lpam
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;termio.h&gt;
+#include &lt;security/pam_appl.h&gt;
+
+/***************************************
+ * @brief 开关回显 
+ * @param[in] fd 文件描述符
+ * @param[in] off 1-关闭回显，0-开启回显
+ * *************************************/
+static void echoOff(int fd, int off)
+{
+    struct termio tty;
+    (void) ioctl(fd, TCGETA, &amp;tty);
+    if (off) 
+    {
+        tty.c_lflag &amp;= ~(ECHO | ECHOE | ECHOK | ECHONL);
+        (void) ioctl(fd, TCSETAF, &amp;tty);
+    }
+    else
+    {
+        tty.c_lflag |= (ECHO | ECHOE | ECHOK | ECHONL);
+        (void) ioctl(fd, TCSETAW, &amp;tty);
+    }
+}
+
+/***************************************
+ * @brief 关闭标准输入的回显 
+ * *************************************/
+static void echoOffStdin()
+{
+    echoOff(fileno(stdin), 1);
+}
+
+/***************************************
+ * @brief 开启标准输入的回显 
+ * *************************************/
+static void echoOnStdin()
+{
+    echoOff(fileno(stdin), 0);
+}
+
+/***************************************
+ * @brief 读取一行输入
+ * @return 输入的字符串
+ * *************************************/
+static char* readline()
+{
+    struct termio tty;
+    char input[PAM_MAX_RESP_SIZE];
+
+    /* 读取字符直到回车 */
+    flockfile(stdin);
+    int i = 0;
+    for (; i &lt; PAM_MAX_RESP_SIZE; i++)
+    {
+        int ch = getchar_unlocked();
+        if (ch == '\n' || ch == '\r' ||ch == EOF)
+            break;
+        input[i] = ch;
+    }
+    funlockfile(stdin);
+    input[i] = '\0';
+
+    return (strdup(input));
+}
+
+/**************************************************
+ * @brief PAM对话回调函数
+ * @param[in] num_msg PAM发送过来的消息数量
+ * @param[in] msg PAM发送过来的消息数据 
+ * @param[out] resp 发回给PAM的应答
+ * @param[in] appdata_ptr 用户参数 
+ * @return 状态 
+ * ************************************************/
+static int conversation(int num_msg, const struct pam_message** msg, struct pam_response **resp, void *appdata_ptr)
+{
+    // 检查参数
+    if (num_msg &lt;= 0 || num_msg &gt;= PAM_MAX_MSG_SIZE)
+    {
+        fprintf(stderr, &quot;invalid num_msg(%d)\n&quot;, num_msg);
+        return PAM_CONV_ERR;
+    }
+
+    // 给回复消息分配内存，这里分配的内存，由外层的 PAM 框架释放
+    // TODO: 发生错误的时候需要手动释放
+    if ((resp[0] = malloc(num_msg * sizeof(struct pam_response))) == NULL)
+    {
+        fprintf(stderr, &quot;bad alloc\n&quot;);
+        return PAM_BUF_ERR;
+    }
+
+    // 处理PAM发来的消息并应答
+    for(int i = 0; i &lt; num_msg; i++)
+    {
+        const struct pam_message* m = *msg + i;
+        struct pam_response* r = *resp + i;
+        r-&gt;resp_retcode = 0;    // 这个是保留属性，固定为0
+        switch (m-&gt;msg_style)
+        {
+        case PAM_PROMPT_ECHO_OFF:   // 请求输入，不回显，例如请求输入用户名
+            printf(&quot;%s&quot;, m-&gt;msg);
+            echoOffStdin();         // 关闭回显
+            r-&gt;resp = readline();   // 读取密码
+            echoOnStdin();          // 开启回显
+            printf(&quot;\n&quot;);           // 补个换行
+            break;
+
+        case PAM_PROMPT_ECHO_ON:    // 请求输入，回显，例如请求输入密码
+            printf(&quot;%s&quot;, m-&gt;msg);
+            r-&gt;resp = readline();
+            break;
+
+        case PAM_TEXT_INFO:         // 打印普通消息
+            printf(&quot;%s\n&quot;, m-&gt;msg);
+            break;
+
+        case PAM_ERROR_MSG:         // 打印错误消息
+            fprintf(stderr, &quot;%s\n&quot;, m-&gt;msg);
+            break;
+
+        default:
+            printf(&quot;DEFAULT\n&quot;);
+            break;
+        }
+    }
+    return PAM_SUCCESS;
+}
+
+int main()
+{
+    atexit(echoOnStdin); // 退出时开启回显
+
+    struct pam_conv pam_conv = {conversation, NULL};
+    pam_handle_t *pamh;
+    if (PAM_SUCCESS != pam_start(&quot;login&quot;, NULL, &amp;pam_conv, &amp;pamh))
+    {
+        fprintf(stderr, &quot;pam_start failed\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    if (PAM_SUCCESS != pam_authenticate(pamh, 0))
+    {
+        fprintf(stderr, &quot;pam_authenticate failed\n&quot;);
+        pam_end(pamh, 0);
+        return EXIT_FAILURE;
+    }
+    
+    pam_end(pamh, 0);
+    return EXIT_SUCCESS;
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/Linux%20API/%E9%80%9A%E8%BF%87%20V4L2%20%E8%AF%BB%E5%8F%96%E6%91%84%E5%83%8F%E5%A4%B4.html"><i class="bi bi-box-arrow-up-right me-1"></i>通过 V4L2 读取摄像头</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="9">
+            <h1>通过 V4L2 读取摄像头</h1>
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+
+#include &lt;unistd.h&gt;
+#include &lt;fcntl.h&gt;
+#include &lt;sys/ioctl.h&gt;
+#include &lt;sys/mman.h&gt;
+#include &lt;linux/videodev2.h&gt; // libv4l-dev
+
+
+#define VIDEO_DEV &quot;/dev/video0&quot;
+
+int main()
+{
+    // 打开设备
+    int videoFd = open(VIDEO_DEV, O_RDWR);
+    if(videoFd &lt; 0)
+    {
+        fprintf(stderr, &quot;open %s failed: %s\n&quot;, VIDEO_DEV, strerror(errno));
+        return EXIT_FAILURE;
+    }
+
+    // 读取设备属性
+    struct v4l2_capability videoCap;
+    if(ioctl(videoFd, VIDIOC_QUERYCAP, &amp;videoCap) &lt; 0)
+    {
+        close(videoFd);
+        fprintf(stderr, &quot;ioctl VIDIOC_QUERYCAP failed: %s\n&quot;, strerror(errno));
+        return EXIT_FAILURE;
+    }
+    printf(&quot;%s\n&quot;, videoCap.card);
+
+    // 判断是否是摄像头
+    if(videoCap.capabilities &amp; V4L2_CAP_VIDEO_CAPTURE != V4L2_CAP_VIDEO_CAPTURE)
+    {
+        fprintf(stderr, &quot;%s doesn't support video recording\n&quot;, VIDEO_DEV);
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 读取支持的格式
+    bool supportYUYV = false;
+    struct v4l2_fmtdesc fmtdesc;
+    fmtdesc.index=0;
+    fmtdesc.type=V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    printf(&quot;Support format:\n&quot;);
+    while(ioctl(videoFd, VIDIOC_ENUM_FMT, &amp;fmtdesc) != -1)
+    {
+        printf(&quot;\t%d.%s\n&quot;,fmtdesc.index+1,fmtdesc.description);
+        fmtdesc.index++;
+        if(fmtdesc.pixelformat == V4L2_PIX_FMT_YUYV)
+        {
+            supportYUYV = true;
+        }
+    }
+
+    if(supportYUYV == false)
+    {
+        fprintf(stderr, &quot;YUYV 4:2:2 not supported\n&quot;);
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 设置帧格式
+    struct v4l2_format videoFormat;
+    videoFormat.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    videoFormat.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
+    if(ioctl(videoFd, VIDIOC_S_FMT, &amp;videoFormat) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_S_FMT failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 申请缓冲
+    struct v4l2_requestbuffers request;
+    request.count = 3; //三帧缓冲
+    request.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    request.memory = V4L2_MEMORY_MMAP;
+    if(ioctl(videoFd, VIDIOC_REQBUFS, &amp;request) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_REQBUFS failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 获取缓冲
+    struct v4l2_buffer buffer;
+    memset(&amp;buffer, 0, sizeof(buffer));
+    buffer.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    buffer.memory = V4L2_MEMORY_MMAP;
+    buffer.index = 0;
+    if(ioctl(videoFd, VIDIOC_QUERYBUF, &amp;buffer) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_QUERYBUF failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+    void* bufPtr = mmap(NULL, buffer.length, PROT_READ|PROT_WRITE, MAP_SHARED, videoFd, buffer.m.offset);
+    if(bufPtr == NULL)
+    {
+        fprintf(stderr, &quot;mmap failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 创建一个帧缓冲
+    if(ioctl(videoFd, VIDIOC_QBUF, &amp;buffer) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_QBUF failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 开始采集
+    enum v4l2_buf_type bufType = V4L2_BUF_TYPE_VIDEO_CAPTURE; 
+    if(ioctl(videoFd, VIDIOC_STREAMON, &amp;bufType) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_STREAMON failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 等待采集完成
+    fd_set fds;
+    FD_ZERO(&amp;fds); 
+    FD_SET(videoFd,  &amp;fds); 
+    struct timeval   tv; 
+    tv.tv_sec = 2;
+    tv.tv_usec = 0;
+    select(1, &amp;fds, NULL, NULL, &amp;tv);
+
+    // 读取一帧图像并删除帧缓冲
+    if(ioctl(videoFd, VIDIOC_DQBUF, &amp;buffer) &lt; 0)
+    {
+        fprintf(stderr, &quot;ioctl VIDIOC_DQBUF failed: %s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 停止采集
+    ioctl(videoFd, VIDIOC_STREAMOFF, &amp;bufType);
+
+    // 创建一个PPM文件
+    FILE* ppmFptr = fopen(&quot;output.ppm&quot;, &quot;wb&quot;);
+    if(ppmFptr == NULL)
+    {
+        fprintf(stderr, &quot;%s\n&quot;, strerror(errno));
+        close(videoFd);
+        return EXIT_FAILURE;
+    }
+
+    // 写入PPM header
+    fprintf(ppmFptr, &quot;P3\n%d %d\n255\n&quot;, videoFormat.fmt.pix.width, videoFormat.fmt.pix.height);
+
+    // 读取像素,写入PPM文件
+    for(size_t i = 0; i+3 &lt; buffer.length; i+=4)
+    {
+        uint8_t Y1 = ((uint8_t*)bufPtr)[i];
+        uint8_t U = ((uint8_t*)bufPtr)[i+1];
+        uint8_t Y2 = ((uint8_t*)bufPtr)[i+2];
+        uint8_t V = ((uint8_t*)bufPtr)[i+3];
+
+        uint8_t B =  1.164 * (Y1 - 16) +  2.018 * (U - 128);
+        uint8_t G =  1.164 * (Y1 - 16) -  0.391 * (U - 128) - 0.813 * (V - 128);
+        uint8_t R =  1.164 * (Y1 - 16)                      + 1.596 * (V - 128);
+        fprintf(ppmFptr, &quot;%u %u %u &quot;, R, G, B);
+
+        B =  1.164 * (Y2 - 16) +  2.018 * (U - 128);
+        G =  1.164 * (Y2 - 16) -  0.391 * (U - 128) - 0.813 * (V - 128);
+        R =  1.164 * (Y2 - 16)                      + 1.596 * (V - 128);
+        fprintf(ppmFptr, &quot;%u %u %u &quot;, R, G, B);
+    }
+    
+    close(videoFd);
+    fclose(ppmFptr);
+    return EXIT_SUCCESS;
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+<div>
+    <ul class="pagination float-end">
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-left"></i></a>
+        </li>
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="page-item active">
+                <a class="page-link" href="/Phosphophyllite/categories/Linux%20API-1.html">1</a>
+            </li>
+            
+        
+            
+            
+        
+            
+            
+        
+
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-right"></i></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    scanTime();
+</script>
+
+
+    </body>
+</html>

@@ -1,0 +1,910 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        <link rel="canonical" href="https://xplanc.org/Phosphophyllite/articles/Windows%20API/Windows%20IOCP%20%E7%A4%BA%E4%BE%8B" />
+        
+        
+
+        
+        <title>PlanC 的博客 - Windows IOCP 示例</title>
+        <meta name="description" content=" Windows IOCP 示例 这个示将接收到的数据原样返回给客户端: #include &lt;WinSock2.h&gt; #include &lt;WS2tcpip.h&gt; #include &lt;MSWSock.h&gt; #include &lt;cstdio&gt; #defin">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+<div class="d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <div class="fs-6 overflow-x-hidden">Windows IOCP 示例</div>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <button type="button" class="btn btn-link text-white fs-6 p-0 m-0" onclick="print();"><i class="bi bi-download me-1"></i>下载</button>
+    </div>
+
+    <div class="d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div id="article-content" class="markdown-body overflow-x-hidden flex-grow-1 p-2">
+            <h1>Windows IOCP 示例</h1>
+<p>这个示将接收到的数据原样返回给客户端:</p>
+<pre><code class="language-c++">#include &lt;WinSock2.h&gt;
+#include &lt;WS2tcpip.h&gt;
+#include &lt;MSWSock.h&gt;
+#include &lt;cstdio&gt;
+
+#define BUFFER_SIZE 1024
+
+enum class IocpType
+{
+    ACCEPT,
+    RECV,
+    SEND
+};
+
+struct IocpContext : public WSAOVERLAPPED
+{
+    IocpContext() : 
+        WSAOVERLAPPED{}
+    {
+
+    }
+
+    WSABUF wsaBuf{BUFFER_SIZE, buffer};
+    char buffer[BUFFER_SIZE];
+    SOCKET sock;
+    IocpType type;
+};
+
+// 提交一个异步的 accept 操作
+bool postAccpet(SOCKET server)
+{
+    // 创建上下文
+    IocpContext* ctx = new IocpContext;
+    ctx-&gt;type = IocpType::ACCEPT;
+
+    // 创建接收连接的socket
+    ctx-&gt;sock = WSASocketW(AF_INET, SOCK_STREAM, IPPROTO_TCP, nullptr, 0, WSA_FLAG_OVERLAPPED);
+    if (ctx-&gt;sock == SOCKET_ERROR)
+    {
+        fprintf(stderr, &quot;WSASocketW: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(ctx-&gt;sock);
+        return false;
+    }
+
+    // 加载 AcceptEX 函数
+    LPFN_ACCEPTEX lpfnAcceptEx = NULL;
+    GUID GuidAcceptEx = WSAID_ACCEPTEX;
+    DWORD dwBytes;
+    {
+        int ret = WSAIoctl(server, SIO_GET_EXTENSION_FUNCTION_POINTER,
+                            &amp;GuidAcceptEx, sizeof (GuidAcceptEx), 
+                            &amp;lpfnAcceptEx, sizeof (lpfnAcceptEx), 
+                            &amp;dwBytes, NULL, NULL);
+        if (ret == SOCKET_ERROR)
+        {
+            fprintf(stderr, &quot;WSAIoctl: %s\n&quot;, strerror(WSAGetLastError()));
+            closesocket(ctx-&gt;sock);
+            return false;
+        }
+    }
+    
+    // 通过 AcceptEx 发起异步的 accept 操作
+    {
+        DWORD addrlen = sizeof(struct sockaddr_in);
+        DWORD recvlen;
+        BOOL ret = lpfnAcceptEx(server, 
+                                ctx-&gt;sock, 
+                                ctx-&gt;buffer, 
+                                BUFFER_SIZE - 2*(addrlen+16), 
+                                addrlen + 16, 
+                                addrlen + 16, 
+                                &amp;recvlen, 
+                                ctx);
+        if (!ret &amp;&amp; WSAGetLastError() != ERROR_IO_PENDING)
+        {
+            fprintf(stderr, &quot;AcceptEx: %s\n&quot;, strerror(WSAGetLastError()));
+            closesocket(ctx-&gt;sock);
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// 提交一个异步的 RECV 操作
+bool postRecv(SOCKET sock)
+{
+    IocpContext* ctx = new IocpContext;
+    ctx-&gt;sock = sock;
+    ctx-&gt;type = IocpType::RECV;
+    DWORD nBytes = BUFFER_SIZE;
+    DWORD flags = 0;
+    int ret = WSARecv(sock, &amp;(ctx-&gt;wsaBuf), 1, &amp;nBytes, &amp;flags, ctx, nullptr);
+    if (ret == SOCKET_ERROR &amp;&amp; WSAGetLastError() != ERROR_IO_PENDING)
+    {
+        fprintf(stderr, &quot;WSARecv: %s\n&quot;, strerror(WSAGetLastError()));
+        return false;
+    }
+
+    return true;
+}
+
+// 提交一个异步的 SEND 操作
+bool postSend(SOCKET sock, const char* data, DWORD size)
+{
+    IocpContext* ctx = new IocpContext;
+    ctx-&gt;sock = sock;
+    ctx-&gt;type = IocpType::SEND;
+    memcpy(ctx-&gt;buffer, data, size);
+    DWORD nBytes = size;
+    ctx-&gt;wsaBuf.len = size;
+    DWORD flags = 0;
+    int ret = WSASend(sock, &amp;(ctx-&gt;wsaBuf), 1, &amp;nBytes, flags, ctx, nullptr);
+    if (ret == SOCKET_ERROR &amp;&amp; WSAGetLastError() != ERROR_IO_PENDING)
+    {
+        fprintf(stderr, &quot;WSASend: %s\n&quot;, strerror(WSAGetLastError()));
+        return false;
+    }
+
+    return true;
+}
+
+int main()
+{
+    WSAData wsa;
+    if (WSAStartup(0x202, &amp;wsa) != NO_ERROR)
+    {
+        fprintf(stderr, &quot;WSAStartup failed\n&quot;);
+        return EXIT_FAILURE;
+    }
+
+    // 创建服务socket
+    SOCKET server = WSASocketW(AF_INET, SOCK_STREAM, IPPROTO_TCP, nullptr, 0, WSA_FLAG_OVERLAPPED);
+    if (server == INVALID_SOCKET)
+    {
+        fprintf(stderr, &quot;WSASocketW: %s\n&quot;, strerror(WSAGetLastError()));
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+    
+    // 设为非阻塞
+    unsigned long value = 1;
+    if (ioctlsocket(server, FIONBIO, &amp;value) == SOCKET_ERROR)
+    {
+        fprintf(stderr, &quot;ioctlsocket: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    // 绑定端口
+    struct sockaddr_in address {};
+    address.sin_family = AF_INET;
+    address.sin_port = htons(8080);
+    inet_pton(AF_INET, &quot;127.0.0.1&quot;, &amp;address.sin_addr);
+    if (bind(server, (const sockaddr*)(&amp;address), sizeof(address)) == SOCKET_ERROR)
+    {
+        fprintf(stderr, &quot;bind: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    // 监听
+    if (listen(server, SOMAXCONN) == SOCKET_ERROR)
+    {
+        fprintf(stderr, &quot;listen: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    // 创建 IOCP handle
+    HANDLE handle = CreateIoCompletionPort(INVALID_HANDLE_VALUE, nullptr, 0, 0);
+    if (handle == INVALID_HANDLE_VALUE)
+    {
+        fprintf(stderr, &quot;CreateIoCompletionPort: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    // 将 server 绑定到 IOCP 上
+    if (CreateIoCompletionPort(reinterpret_cast&lt;HANDLE&gt;(server), handle, 0, 0) == nullptr)
+    {
+        fprintf(stderr, &quot;CreateIoCompletionPort: %s\n&quot;, strerror(WSAGetLastError()));
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    // 提交一个异步的 accept 操作
+    if (postAccpet(server) == false)
+    {
+        closesocket(server);
+        WSACleanup();
+        return EXIT_FAILURE;
+    }
+
+    while (true)
+    {
+        // 等待操作完成
+        IocpContext* ctx = nullptr;
+        DWORD lpNumberOfBytesTransferred = 0;
+        void* lpCompletionKey = nullptr;
+        {
+            BOOL ret = GetQueuedCompletionStatus(
+                        handle,
+                        &amp;lpNumberOfBytesTransferred,
+                        (PULONG_PTR) &amp;lpCompletionKey,
+                        (LPOVERLAPPED *) &amp;ctx,
+                        INFINITE);
+            if (!ret)
+                continue;
+        }
+        
+        // 处理 ACCEPT 操作
+        if (ctx-&gt;type == IocpType::ACCEPT)
+        {   
+            // 重新发起一个异步的 accept 操作，接收下一个连接
+            postAccpet(server);
+
+            // 将连接设为非阻塞
+            unsigned long value = 1;
+            if (ioctlsocket(ctx-&gt;sock, FIONBIO, &amp;value) == SOCKET_ERROR)
+            {
+                fprintf(stderr, &quot;ioctlsocket: %s\n&quot;, strerror(WSAGetLastError()));
+                closesocket(ctx-&gt;sock);
+                delete ctx;
+                continue;
+            }
+
+            // 将连接绑定到 IOCP 上
+            if (CreateIoCompletionPort(reinterpret_cast&lt;HANDLE&gt;(ctx-&gt;sock), handle, 0, 0) == nullptr)
+            {
+                fprintf(stderr, &quot;CreateIoCompletionPort: %s\n&quot;, strerror(WSAGetLastError()));
+                closesocket(ctx-&gt;sock);
+                delete ctx;
+                continue;
+            }
+
+            // 发起一个异步的 send 操作，NOTE: AcceptEx 会读取第一帧数据
+            if (lpNumberOfBytesTransferred &gt; 0)
+                postSend(ctx-&gt;sock, ctx-&gt;buffer, lpNumberOfBytesTransferred);
+
+            // 发起一个异步的 recv 操作，接受后续数据
+            if (postRecv(ctx-&gt;sock) == false)
+            {
+                closesocket(ctx-&gt;sock);
+                delete ctx;
+                continue;
+            }
+
+            delete ctx;
+            continue;
+        }
+
+        // 处理 RECV 操作
+        if (ctx-&gt;type == IocpType::RECV)
+        {
+            // 连接出错或断开
+            if (lpNumberOfBytesTransferred &lt;= 0)
+            {
+                closesocket(ctx-&gt;sock);
+                delete ctx;
+                continue;
+            }
+
+            // 发起一个异步的 send 操作
+            postSend(ctx-&gt;sock, ctx-&gt;buffer, lpNumberOfBytesTransferred);
+
+            // 发起一个异步的 recv 操作，接收后续数据
+            if (postRecv(ctx-&gt;sock) == false)
+            {
+                closesocket(ctx-&gt;sock);
+                delete ctx;
+                continue;
+            }
+
+            delete ctx;
+            continue;
+        }
+
+        // 处理 SEND 操作
+        if (ctx-&gt;type == IocpType::SEND)
+        {
+            delete ctx;
+            continue;
+        }
+    }
+}
+</code></pre>
+<p>使用 Apache HTTP server benchmarking tool 进行测试，结果如下:</p>
+<pre><code>Server Software:
+Server Hostname:        localhost
+Server Port:            8080
+
+Document Path:          /
+Document Length:        0 bytes
+
+Concurrency Level:      10000
+Time taken for tests:   207.340 seconds
+Complete requests:      10000000
+Failed requests:        0
+Non-2xx responses:      10000000
+Keep-Alive requests:    10000000
+Total transferred:      1060000000 bytes
+HTML transferred:       0 bytes
+Requests per second:    48229.98 [#/sec] (mean)
+Time per request:       207.340 [ms] (mean)
+Time per request:       0.021 [ms] (mean, across all concurrent requests)
+Transfer rate:          4992.56 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0      16
+Processing:   114  205  19.3    204    1214
+Waiting:        0  205  19.3    204    1214
+Total:        114  205  19.3    204    1214
+
+Percentage of the requests served within a certain time (ms)
+  50%    204
+  66%    205
+  75%    206
+  80%    206
+  90%    208
+  95%    210
+  98%    212
+  99%    213
+ 100%   1214 (longest request)
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        
+        <div class="fs-6">作者: PlanC</div>
+        
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+</div>
+
+
+
+<div class="comment d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+
+    <div class="np-print d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div class="no-print flex-grow-1" style="padding: 8px;">
+            <script src="https://giscus.app/client.js"
+                data-repo="hubenchang0515/Phosphophyllite"
+                data-repo-id="R_kgDONe28cg"
+                data-category="Announcements"
+                data-category-id="DIC_kwDONe28cs4CmID9"
+                data-mapping="url"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">概要</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+        <ol class="summary"></ol>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    hljs.highlightAll();
+    scanTime();
+    dynamicSummary();
+</script>
+
+
+    </body>
+</html>

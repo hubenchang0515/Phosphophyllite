@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        <link rel="canonical" href="https://xplanc.org/Phosphophyllite/articles/Docker/Docker%20%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" />
+        
+        
+
+        
+        <title>PlanC 的博客 - Docker 的安装和常用命令</title>
+        <meta name="description" content=" Docker 的安装和常用命令 安装 Docker 安装依赖 sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common 添加 docker 的 GPG key c">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+<div class="d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <div class="fs-6 overflow-x-hidden">Docker 的安装和常用命令</div>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <button type="button" class="btn btn-link text-white fs-6 p-0 m-0" onclick="print();"><i class="bi bi-download me-1"></i>下载</button>
+    </div>
+
+    <div class="d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div id="article-content" class="markdown-body overflow-x-hidden flex-grow-1 p-2">
+            <h1>Docker 的安装和常用命令</h1>
+<h2>安装 Docker</h2>
+<p>安装依赖</p>
+<pre><code class="language-bash">sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+</code></pre>
+<p>添加 docker 的 GPG key</p>
+<pre><code class="language-bash">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
+</code></pre>
+<p>添加 docker 的 APT 源并更新</p>
+<pre><code class="language-bash">sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+sudo apt update
+</code></pre>
+<p>安装 docker</p>
+<pre><code class="language-bash">sudo apt install docker-ce docker-ce-cli containerd.io
+</code></pre>
+<ul>
+<li><code>ce</code> 表示社区版(Community Edition)</li>
+<li><code>ee</code> 表示企业版(Enterprise Edition)</li>
+</ul>
+<blockquote>
+<p>查看是否安装成功</p>
+<pre><code>$ sudo docker version
+Client: Docker Engine - Community
+ Version:           20.10.23
+ API version:       1.41
+ Go version:        go1.18.10
+ Git commit:        7155243
+ Built:             Thu Jan 19 17:45:08 2023
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.23
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.18.10
+  Git commit:       6051f14
+  Built:            Thu Jan 19 17:42:57 2023
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.6.16
+  GitCommit:        31aa4358a36870b21a992d3ad2bef29e1d693bec
+ runc:
+  Version:          1.1.4
+  GitCommit:        v1.1.4-0-g5fd4c4d
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+</code></pre>
+</blockquote>
+<h2>代理配置</h2>
+<p>创建或编辑 <code>/etc/systemd/system/docker.service.d/http-proxy.conf</code> 文件，写入以下内容:</p>
+<pre><code class="language-conf">[Service]
+Environment=&quot;ALL_PROXY=http://192.168.1.100:7890&quot;
+Environment=&quot;HTTP_PROXY=http://192.168.1.100:7890&quot;
+Environment=&quot;HTTPS_PROXY=http://192.168.1.100:7890&quot;
+</code></pre>
+<p>然后重启:</p>
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl restart docker
+</code></pre>
+<h2>常用命令</h2>
+<ul>
+<li>安装镜像: <code>image pull [OPTIONS] NAME[:TAG|@DIGEST]</code></li>
+<li>删除镜像: <code>image rm [OPTIONS] IMAGE [IMAGE...]</code></li>
+<li>运行容器: <code>container run [OPTIONS] IMAGE [COMMAND] [ARG...]</code></li>
+<li>终止容器: <code>container stop [OPTIONS] CONTAINER [CONTAINER...]</code></li>
+</ul>
+<blockquote>
+<p>运行容器时通常使用前台和后台两种模式:</p>
+<ul>
+<li>前台模式通常使用 <code>-it</code> 选项，其中:<ul>
+<li><code>-i, --interactive</code> 表示保持 STDIN 打开，</li>
+<li><code>-t, --tty</code> 表示分配一个伪终端</li>
+</ul>
+</li>
+<li>后台模式通常使用 <code>-d -p &lt;host-port&gt;:&lt;container-port&gt;</code> 选项，其中:<ul>
+<li><code>-d, --detach</code> 表示后台运行</li>
+<li><code>-p, --publish</code> 表示将容器端口公开到宿主机上</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2>创建镜像</h2>
+<p>使用 <code>commit</code> 命令可以创建镜像，然后通过 <code>save</code> 命令可以将镜像保存到指定位置，通过 <code>load</code> 命令可以加载镜像文件。</p>
+<ul>
+<li>创建镜像: <code>container commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</code></li>
+<li>保存镜像: <code>image save</code>，默认写到 stdout，可以通过 <code>-o</code> 指定文件</li>
+<li>加载镜像: <code>image load</code>，默认读取 stdint，可以通过 <code>-i</code> 指定文件</li>
+</ul>
+<h2>自动补全的问题</h2>
+<blockquote>
+<p>使用 ubuntu 镜像时，会发现很多命令无法自动补全，需要安装 <code>bash-completion</code></p>
+<pre><code>apt install bash-completion
+source /etc/bash_completion
+</code></pre>
+</blockquote>
+<p>然后编辑 <code>/etc/bash.bashrc</code>  删除相关行的注释:</p>
+<pre><code class="language-bash"># enable bash completion in interactive shells
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        
+        <div class="fs-6">作者: PlanC</div>
+        
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+</div>
+
+
+
+<div class="comment d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+
+    <div class="np-print d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div class="no-print flex-grow-1" style="padding: 8px;">
+            <script src="https://giscus.app/client.js"
+                data-repo="hubenchang0515/Phosphophyllite"
+                data-repo-id="R_kgDONe28cg"
+                data-category="Announcements"
+                data-category-id="DIC_kwDONe28cs4CmID9"
+                data-mapping="url"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">概要</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+        <ol class="summary"></ol>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    hljs.highlightAll();
+    scanTime();
+    dynamicSummary();
+</script>
+
+
+    </body>
+</html>

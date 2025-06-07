@@ -1,0 +1,730 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        <link rel="canonical" href="https://xplanc.org/Phosphophyllite/articles/Python/Python%E7%9A%84%E5%BC%82%E6%AD%A5IO" />
+        
+        
+
+        
+        <title>PlanC 的博客 - Python的异步IO</title>
+        <meta name="description" content=" Python的异步IO 协程 Python 的异步 I/O 基于协程实现。使用 async 关键字来创建一个异步函数，对异步函数的调用不会执行该函数，而是生成一个协程对象。 对每一个协程对象，都必须等待其结束(即使是没有启动的协程)，否则会产生一个 RuntimeWarning 。 示例 : # ">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+<div class="d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <div class="fs-6 overflow-x-hidden">Python的异步IO</div>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <button type="button" class="btn btn-link text-white fs-6 p-0 m-0" onclick="print();"><i class="bi bi-download me-1"></i>下载</button>
+    </div>
+
+    <div class="d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div id="article-content" class="markdown-body overflow-x-hidden flex-grow-1 p-2">
+            <h1>Python的异步IO</h1>
+<h2>协程</h2>
+<p>Python 的异步 I/O 基于协程实现。使用<code>async</code>关键字来创建一个异步函数，对异步函数的调用不会执行该函数，而是生成一个协程对象。<br />
+对每一个协程对象，都必须等待其结束(即使是没有启动的协程)，否则会产生一个<code>RuntimeWarning</code>。</p>
+<p>示例 :</p>
+<pre><code class="language-python"># 创建一个异步函数
+async def say_hello():
+    print(&quot;hello world&quot;)
+
+# 创建协程
+coro = say_hello()
+print(coro)
+</code></pre>
+<p>运行结果 :</p>
+<pre><code>&lt;coroutine object say_hello at 0x109bf6170&gt;
+sys:1: RuntimeWarning: coroutine 'say_hello' was never awaited
+</code></pre>
+<p>要启动一个协程，有三种方式 :</p>
+<ul>
+<li>通过<code>asyncio.run</code>运行一个协程</li>
+<li>使用<code>await</code>关键字，这种方法只能在另一个<code>async</code>函数中才能使用</li>
+<li>通过<code>asyncio.create_task</code></li>
+</ul>
+<blockquote>
+<p><code>await</code>必须在<code>async</code>函数中才能使用，因此无法启动协程的顶层入口点，此时只能使用<code>asyncio.run</code>函数。</p>
+<p><code>await</code>让出当前协程并运行目标协程，当前协程直到目标目标的状态变为<code>done</code>时才会恢复就绪。
+如果<code>await</code>的目标不是一个协程(例如Task和Future)，让出当前协程后，事件循环(<code>EventLoop</code>)会从就绪队列中选择一个协程运行。</p>
+<p><code>asyncio.create_task</code>让出当前协程并运行目标协程，当前协程不会等待而是加入就绪队列。<br />
+只要目标协程让出，当前协程就有机会执行，从而将启动多个协程，实现并发执行。<br />
+返回的<code>Task</code>对象也可以在适当的时候使用<code>await</code>等待其结束。</p>
+</blockquote>
+<p>简化的协程状态 :</p>
+<p><img src="https://user-images.githubusercontent.com/11847852/222871658-fdd0d4da-1c76-431c-b3d7-0aea36d75e93.png" alt="协程状态" /></p>
+<p><code>await</code>的示例 :</p>
+<pre><code class="language-python">import asyncio
+import time
+
+async def say_hello():
+    print(&quot;hello&quot;, time.strftime('%X'))
+    await asyncio.sleep(1)
+    print(&quot;hello&quot;, time.strftime('%X'))
+
+async def say_world():
+    print(&quot;world&quot;, time.strftime('%X'))
+    await asyncio.sleep(1)
+    print(&quot;world&quot;, time.strftime('%X'))
+
+# 顶层入口点
+async def main():
+    await say_hello() # 启动say_hello()返回的协程，并等待其结束
+    await say_world() # 要等到前一个await结束后，才会启动
+
+# 启动顶层入口点
+asyncio.run(main())
+</code></pre>
+<p>运行结果 :</p>
+<pre><code>hello 15:27:26
+hello 15:27:27
+world 15:27:27
+world 15:27:28
+</code></pre>
+<p><code>asyncio.create_task</code>的示例 :</p>
+<pre><code class="language-python">import asyncio
+import time
+
+async def say_hello():
+    print(&quot;hello&quot;, time.strftime('%X'))
+    await asyncio.sleep(1)
+    print(&quot;hello&quot;, time.strftime('%X'))
+
+async def say_world():
+    print(&quot;world&quot;, time.strftime('%X'))
+    await asyncio.sleep(1)
+    print(&quot;world&quot;, time.strftime('%X'))
+
+# 顶层入口点
+async def main():
+    task_say_hello = asyncio.create_task(say_hello()) # 启动协程不等待
+    task_say_world = asyncio.create_task(say_world()) 
+
+    await task_say_hello
+    await task_say_world
+
+# 启动顶层入口点
+asyncio.run(main())
+</code></pre>
+<p>运行结果 :</p>
+<pre><code>hello 15:29:41
+world 15:29:41
+hello 15:29:42
+world 15:29:42
+</code></pre>
+<p>通过上面两个示例打印的顺序和时间可以看出<code>await</code>和<code>asyncio.create_task</code>的区别</p>
+<p>本来准备介绍一下<code>asyncio</code>中的TCP和UDP接口，但是抄袭官方文档没有意义，而且我懒得写了，下面是一个TCP server的示例，旨在演示如何使用协程并发处理客户请求。</p>
+<p>在<code>/block</code>的请求处理函数中有一个延时10秒的操作(<code>await asyncio.sleep(delay)</code>)，但是因为使用异步操作进行，所有不需要等待它结束就能相应其它请求。</p>
+<ul>
+<li><code>await asyncio.sleep(delay)</code>将当前协程让出，运行<code>asyncio.sleep(delay)</code>返回的协程。</li>
+<li><code>asyncio.sleep(delay)</code>返回的协程里，会创建一个<code>Future</code>对象，并在<code>EventLoop</code>中注册(<code>EventLoop</code>将在<code>delay</code>秒后将<code>Future</code>对象的状态设为<code>done</code>
+)，之后<code>await future</code>让出，等待<code>future</code>的状态变为<code>done</code>。</li>
+<li>由于目标不是协程，<code>EventLoop</code>会从就绪队列中选取一个协程来运行，因此可以对新的请求做出相应。</li>
+</ul>
+<pre><code class="language-python">import asyncio
+import re
+
+class DemoProtocol(asyncio.Protocol):
+    # 获取url的正则
+    url_re = re.compile(b'GET (.*) HTTP/1.1')
+
+    # 连接创建时的回调函数
+    def connection_made(self, transport):
+        peername = transport.get_extra_info('peername')
+        print('Connection from {}'.format(peername))
+        self.transport = transport
+
+    # 收到数据时的回调函数
+    def data_received(self, data):
+        # 获取url
+        url = DemoProtocol.url_re.match(data).group(1)
+        print(&quot;GET&quot;, url)
+        # 根据url做不同的处理
+        if url == b&quot;/block&quot; :
+            # 10s后响应
+            asyncio.create_task(self.response_after(b'&lt;h1&gt;Are you block?&lt;/h1&gt;', 10))
+        else:
+            asyncio.create_task(self.response(b'&lt;h1&gt;hello world&lt;/h1&gt;'))
+
+    # 立刻返回响应
+    async def response(self, content):
+        self.transport.write(b&quot;HTTP/1.1 200 OK\r\n&quot;)
+        self.transport.write(b&quot;Content-Type: text/html\r\n&quot;)
+        self.transport.write(b&quot;\r\n&quot;)
+        self.transport.write(content)
+        self.transport.write(b&quot;\r\n&quot;)
+        self.transport.close()
+
+    # 延迟返回响应
+    async def response_after(self, content, delay):
+        await asyncio.sleep(delay)
+        await self.response(content)
+
+
+async def main():
+    # Get a reference to the event loop as we plan to use
+    # low-level APIs.
+    loop = asyncio.get_running_loop()
+
+    server = await loop.create_server(lambda: DemoProtocol(), '127.0.0.1', 8888)
+
+    async with server:
+        await server.serve_forever()
+
+asyncio.run(main())
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        
+        <div class="fs-6">作者: PlanC</div>
+        
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 21:18:31+08:00</span></div>
+    </div>
+</div>
+
+
+
+<div class="comment d-flex flex-column flex-grow-1">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+
+    <div class="np-print d-flex flex-grow-1" style="width: 100%;">
+        <div class="no-print article-border-left"></div>
+        <div class="no-print flex-grow-1" style="padding: 8px;">
+            <script src="https://giscus.app/client.js"
+                data-repo="hubenchang0515/Phosphophyllite"
+                data-repo-id="R_kgDONe28cg"
+                data-category="Announcements"
+                data-category-id="DIC_kwDONe28cs4CmID9"
+                data-mapping="url"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="height: 4px;">
+    </div>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">概要</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Summary</h6>
+        <ol class="summary"></ol>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    hljs.highlightAll();
+    scanTime();
+    dynamicSummary();
+</script>
+
+
+    </body>
+</html>

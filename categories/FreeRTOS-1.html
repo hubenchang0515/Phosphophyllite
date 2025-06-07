@@ -1,0 +1,1671 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/Phosphophyllite/favicon.svg">
+        
+        
+
+        
+        <title>PlanC 的博客 - FreeRTOS</title>
+        <meta name="description" content="PlanC 的博客 - FreeRTOS 分类 - 第 1 页">
+        
+
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" >
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/nord.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/normalize.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/bootstrap-quartz-theme.min.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/github-markdown.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom.css" rel="stylesheet">
+        <link href="/Phosphophyllite/css/custom-dark.css" rel="stylesheet">
+        
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script src="/Phosphophyllite/js/custom.js"></script>
+        
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HEWPX7E6EV"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HEWPX7E6EV');
+        </script>
+
+        <script>
+            
+            document.oncopy = makeOnCopy("PlanC");
+            
+        </script>
+    </head>
+
+    <body class="d-flex flex-column">
+        
+
+<nav class="navbar navbar-expand-lg card no-print" data-bs-theme="dark" style="border-radius: 0;">
+    <div class="container-fluid">
+        <span class="navbar-brand">PlanC 的博客</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/Phosphophyllite/">首页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="https://github.com/hubenchang0515" target="_blank">GitHub</a>
+                </li>
+            </ul>
+            <form id='search-form' class="d-flex">
+                <input id="search-input" name="q" class="form-control text-info me-sm-2" type="search" placeholder="Search" autocomplete="off">
+            </form>
+            <script>
+                makeSearch("https://xplanc.org/Phosphophyllite", 'search-form', 'search-input')
+            </script>
+        </div>
+    </div>
+</nav>
+
+
+
+        <div class="content d-flex flex-grow-1 m-2">
+            <aside class="no-print left-side flex-shrink-0 d-flex flex-column"> 
+            
+
+<div class="card">
+    <div class="card-body">
+        <div style="margin: auto;">
+            <img class="github-avatar" src="https://github.com/hubenchang0515.png"/>
+            <h4 class="github-name card-title">PlanC</h4>
+            <h6 class="github-username card-subtitle mb-2 text-muted">hubenchang0515</h6>
+            <p class="github-brief card-text"></p>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">文章分类</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Categories</h6>
+
+        <div style="width: 100%;display: flex; flex-wrap: wrap; gap: 4px;">
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Linux 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    18
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeRTOS-1.html">
+                <span>
+                    FreeRTOS
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Qt-1.html">
+                <span>
+                    Qt
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    10
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Linux%20API-1.html">
+                <span>
+                    Linux API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E4%BB%A3%E7%90%86%E4%B8%8E%E9%95%9C%E5%83%8F%E6%BA%90%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    代理与镜像源配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    9
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E9%BB%98%E8%AE%A4%E5%88%86%E7%B1%BB-1.html">
+                <span>
+                    默认分类
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    8
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/X11-1.html">
+                <span>
+                    X11
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    5
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CUDA-1.html">
+                <span>
+                    CUDA
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    4
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%20%E8%AF%AD%E8%A8%80-1.html">
+                <span>
+                    C 语言
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/C%2B%2B-1.html">
+                <span>
+                    C++
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/CMake-1.html">
+                <span>
+                    CMake
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/MySQL-1.html">
+                <span>
+                    MySQL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Python-1.html">
+                <span>
+                    Python
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20API-1.html">
+                <span>
+                    Windows API
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E6%B1%87%E7%BC%96-1.html">
+                <span>
+                    汇编
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    3
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Docker-1.html">
+                <span>
+                    Docker
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Minecraft-1.html">
+                <span>
+                    Minecraft
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    2
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/FreeType-1.html">
+                <span>
+                    FreeType
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitHub-1.html">
+                <span>
+                    GitHub
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/GitLab-1.html">
+                <span>
+                    GitLab
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Golang-1.html">
+                <span>
+                    Golang
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Kafka-1.html">
+                <span>
+                    Kafka
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenCL-1.html">
+                <span>
+                    OpenCL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/OpenGL-1.html">
+                <span>
+                    OpenGL
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/React-1.html">
+                <span>
+                    React
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE-1.html">
+                <span>
+                    Windows 命令与配置
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/nginx-1.html">
+                <span>
+                    nginx
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+            <a class="category-link link-underline link-underline-opacity-0" href="/Phosphophyllite/categories/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB-1.html">
+                <span>
+                    资源分享
+                </span>
+                <span style="flex: 1;"></span>
+                <span class="badge" style="background-color: #ec407a;">
+                    1
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+
+            </aside>
+
+            <main class="main-content flex-grow-1 flex-shrink-1 d-flex flex-column overflow-x-hidden">
+                
+
+
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%B8%AD%E6%96%AD%E5%A4%84%E7%90%86%E5%92%8C%E4%B8%AD%E6%96%AD%E5%AE%89%E5%85%A8API.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 中断处理和中断安全API</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="1">
+            <h1>FreeRTOS 中断处理和中断安全API</h1>
+<p>FreeRTOS的任务优先级是数值越大，优先级越高，0是最低优先级；而Cortex-M的中断优先级是数值越大，优先级越低，0是最高优先级。</p>
+<p><code>FreeRTOSConfig.h</code>中的宏<code>configLIBRARY_LOWEST_INTERRUPT_PRIORITY</code>表示最低中断优先级，从FreeRTOS的demo中复制出来的这个头文件中这个宏的值是15，即从0到15一共16个优先级。Cortex-M的中断优先级有抢占优先级和子优先级两个，但FreeRTOS中没有提供处理子优先级的功能，只使用抢占优先级。因此需要将STM32的中断优先级组设置为16个抢占优先级、1个子优先级，即第四组中断优先级组。</p>
+<pre><code class="language-C">//优先级组是STM32中优先级分配方式的选择，&quot;组&quot;这个翻译可能不太合适
+//使用第四组中断优先级组
+NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
+//STM32有0到4共五组优先级组
+//0组：1个抢占优先级，16个子优先级
+//1组：2个抢占优先级，8个子优先级
+//2组：4个抢占优先级，4个子优先级
+//3组：8个抢占优先级，2个子优先级
+//4组：16个抢占优先级，1个子优先级
+</code></pre>
+<p><code>portmacro.h</code>中的宏<code>portDISABLE_INTERRUPT()</code>和<code>portENABLE_INTERRUPT()</code>分别关闭和打开优先级低于<code>FreeRTOSConfig.h</code>中的宏<code>configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY</code>的中断。</p>
+<p>在优先级高于<code>configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY</code>的中断服务程序中，不能使用FreeRTOS的任何API。</p>
+<p>FreeRTOS中的任务API可能会让任务进入阻塞，但中断服务程序不是FreeRTOS的任务，因此可能导致错误。因此在优先级低于<code>configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY</code>的中断服务程序中，不能使用FreeRTOS的普通API，而必须使用名称中含有<code>FromISR</code>的<code>中断安全API</code>。</p>
+<p>例如在中断服务程序中：保护临界区，不能使用<code>taskENTER_CRITICAL()</code>和<code>taskEXIT_CRITICAL()</code>，而应当使用<code>taskENTER_CRITICAL_FROM_ISR()</code>和<code>taskEXIT_CRITICAL_FROM_ISR()</code>；向队列发送数据不能使用<code>xQueueSendToBack()</code>而应当使用<code>xQueueSendToBackFromISR()</code>。</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%B8%B4%E7%95%8C%E5%8C%BA.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 临界区</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="2">
+            <h1>FreeRTOS 临界区</h1>
+<p>在并行编程中，并行存取共享的资源时，常常会导致意外和错误的结果。例如下面代码task1和task2都通过串口打印消息，但由于任务调度，消息被截断了。</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    USART_printf(USART1,&quot;task1 is running.\n&quot;);
+    vTaskDelete(NULL);
+}
+ 
+void task2(void* args)
+{
+    USART_printf(USART1,&quot;task2 is running.\n&quot;);
+    vTaskDelete(NULL);
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic13.png" alt="Image" /></p>
+<p>类似的，当修改公共变量时任务调度可能导致变量的值错误、操作时序严格的设备时任务调度可能导致设备不能正常工作。</p>
+<p>因此，访问共享资源的部分代码会被保护起来，在执行这段代码时不进行任务调度，这样的代码段称为<code>临界区(Critical Section)</code>。</p>
+<p>FreeRTOS通过两个包含在task.h里的宏<code>taskENTER_CRITICAL()</code>、<code>taskEXIT_CRITICAL()</code>来进入和离开临界区在。<code>taskENTER_CRITICAL()</code>之后、<code>taskEXIT_CRITICAL()</code>之前不会切换到其他任务。</p>
+<p>修改<code>USART_printf</code>函数，在打印消息前后加入<code>taskENTER_CRITICAL()</code>和<code>taskEXIT_CRITICAL()</code>，这样在<code>USART_printf</code>运行期间就不会切换任务，打印的消息也就不会被截断。</p>
+<pre><code class="language-C">#define USART_PRINTF_BUFFER_SIZE 256
+ 
+int USART_printf(USART_TypeDef* port,const char* fmt,...)
+{
+    char str[USART_PRINTF_BUFFER_SIZE];
+    int length,index;
+    va_list argList;
+    va_start(argList,fmt);
+    length = vsnprintf(str,USART_PRINTF_BUFFER_SIZE-1,fmt,argList);
+    va_end(argList);
+    taskENTER_CRITICAL();//进入临界区
+    for(index = 0 ; index &lt; length ; index++)
+    {
+        USART_WriteByte(port,str[index]);
+    }
+    taskEXIT_CRITICAL();//离开临界区
+    return length;
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic14.png" alt="Image" /></p>
+<p>临界区嵌套是安全的，因为内核有维护一个嵌套深度计数。临界区只会在嵌套深度为<code>0</code>时才会真正退出——即在为每个之前调用的<code>taskENTER_CRITICAL()</code>都配套调用了<code>taskEXIT_CRITICAL()</code>之后。</p>
+<p>临界区是互斥功能的一种非常原始的实现方式，通常只是关闭所有中断从而使任务调度暂停。这样可能会导致任务不能正常执行，中断不能及时响应等问题。所以临界区应当只具有很短的时间。上例中打印串口消息是一个相当耗费时间的过程，并不适合使用临界区。</p>
+<p>另外也可以将调度器挂起来保护临界区，<code>vTaskSuspendAll</code>挂起调度器、<code>xTaskResumeAll</code>恢复调度器，在<code>vTaskSuspendAll</code>和<code>xTaskResumeAll</code>之间不会进行任务调度，但可以响应中断。</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskSuspendAll(void);
+BaseType_t xTaskResumeAll(void);
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%BA%8B%E4%BB%B6%E6%A0%87%E5%BF%97%E7%BB%84.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 事件标志组</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="3">
+            <h1>FreeRTOS 事件标志组</h1>
+<p>FreeRTOS可以使用事件标志组进行任务同步，一个事件标准组包含多个事件标志位，每一位标志一个事件。当<code>configUSE_16BIT_TICKS</code>为1时，一个事件标志组有8位；当这个宏为0时，一个事件标志组有24位。</p>
+<p>创建事件标志组使用<code>xEventGroupCreate</code>。</p>
+<pre><code class="language-C">#include &lt;event_groups.h&gt;
+EventGroupHandle_t xEventGroupCreate(void);
+//返回事件标志组句柄，失败返回NULL
+</code></pre>
+<p>置位和清除事件标志位使用<code>xEventGroupSetBits</code>和<code>xEventGroupClearBits</code>。参数是事件标志组句柄和要操作的位。</p>
+<pre><code class="language-C">#include &lt;event_groups.h&gt;
+ 
+EventBits_t xEventGroupSetBits(EventGroupHandle_t xEventGroup,const EventBits_t uxBitsToSet);
+EventBits_t xEventGroupClearBits(EventGroupHandle_t xEventGroup,const EventBits_t uxBitsToClear);
+</code></pre>
+<p><code>xEventGroupGetBits</code>获取事件标志组的值。</p>
+<pre><code class="language-C">#include &lt;event_groups.h&gt;
+EventBits_t xEventGroupGetBits(EventGroupHandle_t xEventGroup);
+</code></pre>
+<p><code>xEventGroupWaitBits</code>阻塞等待事件位。</p>
+<pre><code class="language-C">#include &lt;event_groups.h&gt;
+EventBits_t xEventGroupWaitBits(EventGroupHandle_t xEventGroup, 
+                                const EventBits_t uxBitsToWaitFor, 
+                                const BaseType_t xClearOnExit, 
+                                const BaseType_t xWaitForAllBits, 
+                                TickType_t xTicksToWait );
+</code></pre>
+<ul>
+<li>第一个参数是事件标志组句柄</li>
+<li>第二个参数是要等待的事件标志位</li>
+<li>第三个参数是是否清除位,pdTRUE表示清除,pdFASLE表示不清除</li>
+<li>第四个参数是是否等待所有位，pdTRUE表示是，pdFASLE表示否</li>
+<li>第五个参数是阻塞超时时间</li>
+</ul>
+<pre><code class="language-C">//等待bit0 bit1 bit2 bit3，其中任意一位置位就解除阻塞，之后清除bit0 bit1 bit2 bit3
+xEventGroupWaitBits(handle,0x0f,pdTRUE,pdFALSE,100/portTICK_RATE_MS);
+ 
+//等待bit0 bit1 bit2 bit3，四个位全部置位才解除阻塞，之后清除bit0 bit1 bit2 bit3
+xEventGroupWaitBits(handle,0x0f,pdTRUE,pdTRUE,100/portTICK_RATE_MS);
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%88%A0%E9%99%A4.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 任务的创建与删除</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="4">
+            <h1>FreeRTOS 任务的创建与删除</h1>
+<p>FreeRTOS的任务函数原型为:</p>
+<pre><code class="language-C">void task(void* args);
+</code></pre>
+<p>使用FreeRTOS的<code>xTaskCreate</code>函数来创建任务：</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+BaseType_t xTaskCreate(TaskFunction_t pxTaskCode,
+             const char * const pcName,
+            const uint16_t usStackDepth,
+            void * const pvParameters,
+            UBaseType_t uxPriority,
+            TaskHandle_t * const pxCreatedTask ) PRIVILEGED_FUNCTION;
+//返回值：成功返回pdPASS；失败返回errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY
+</code></pre>
+<ul>
+<li><code>pxTaskCode</code>是任务函数，没有返回值(void)，参数为void*</li>
+<li><code>pcName</code>是任务的名字，用于调试，其长度不能超过configMAX_TASK_NAME_LEN</li>
+<li><code>usStackDepth</code>是任务的堆栈深度，其四倍即是堆栈的大小(字节数)</li>
+<li><code>pvParameters</code>是传给任务函数的参数</li>
+<li><code>uxPriority</code>是任务优先级,数值越大，优先级越高，0为最低优先级</li>
+<li><code>pxCreatedTask</code>是返回的任务句柄</li>
+</ul>
+<p>使用<code>vTaskStartScheduler</code>函数来开启任务调度：</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskStartScheduler(void);
+</code></pre>
+<p>FreeRTOS的任务函数不能返回，对于不再需要的任务，应当使用<code>vTaskDelete</code>函数来进行删除，其参数是<code>xTaskCreate</code>最后一个参数返回的任务句柄，将参数设为<code>NULL</code>表示删除当前任务：</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskDelete(TaskHandle_t xTaskToDelete);
+</code></pre>
+<p>下面是一个例子，创建两个任务，通过串口打印消息：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,&quot;hello\n&quot;,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,&quot;world\n&quot;,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环5次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        //延时1000ms
+        vTaskDelay(1000/portTICK_RATE_MS);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环10次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        //延时1000ms
+        vTaskDelay(1000/portTICK_RATE_MS);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic08.png" alt="Image" /></p>
+<p>附.USART代码代码 :</p>
+<pre><code class="language-C">/**
+  * @file       uart.c
+  * @author     PlanC
+  * @blog       www.kurukurumi.com
+  * @brief      configure USART1 to print message
+  */
+ 
+#include &lt;stdarg.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stm32f4xx.h&gt;
+#include &lt;uart.h&gt;
+ 
+/**
+  * @brief  Initialize the USART1
+  * @note   set USART1_RX GPIOA10 as push-pull output
+  *           set USART1_TX GPIOA9 as pull-up input
+  *           set USART1 as 115200-8-N-1
+  */
+void USART1_Config(void)
+{
+    GPIO_InitTypeDef gpio;
+    USART_InitTypeDef usart;
+     
+    // enable the perpheral clock
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, ENABLE);
+     
+    gpio.GPIO_Mode = GPIO_Mode_AF;
+    gpio.GPIO_PuPd = GPIO_PuPd_UP;
+    gpio.GPIO_OType = GPIO_OType_PP;
+    gpio.GPIO_Speed = GPIO_High_Speed;
+     
+    //set UART1_RX GPIOA10 as push-pull output
+    gpio.GPIO_Pin = GPIO_Pin_10;
+    GPIO_Init(GPIOA,&amp;gpio);
+    GPIO_PinAFConfig(GPIOA,GPIO_PinSource10,GPIO_AF_USART1);
+     
+    //set UART1_TX GPIOA9 as pull-up input
+    gpio.GPIO_Pin = GPIO_Pin_9;
+    GPIO_Init(GPIOA,&amp;gpio);
+    GPIO_PinAFConfig(GPIOA,GPIO_PinSource9,GPIO_AF_USART1);
+     
+    //set USART1 as 115200-8-N-1
+    usart.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;
+    usart.USART_BaudRate = 115200;
+    usart.USART_WordLength = USART_WordLength_8b;
+    usart.USART_Parity = USART_Parity_No;
+    usart.USART_StopBits = USART_StopBits_1;
+    USART_Init(USART1,&amp;usart);
+    USART_Cmd(USART1,ENABLE);
+}
+ 
+ 
+/**
+  * @brief  Send a byte data from USART
+  * @param  port: the USART which will be used
+  * @param  data: the data which will be sent
+  */
+ 
+void USART_WriteByte(USART_TypeDef* port,uint8_t data)
+{
+    USART_SendData(port,data);
+    while(USART_GetFlagStatus(port,USART_FLAG_TXE) == RESET);
+}
+ 
+ 
+/**
+  * @brief  print a format string from USART
+  * @param  port: the USART which will be used
+  * @param  fmt: the format string
+  *
+  */
+ 
+#define USART_PRINTF_BUFFER_SIZE 256
+ 
+int USART_printf(USART_TypeDef* port,const char* fmt,...)
+{
+    char str[USART_PRINTF_BUFFER_SIZE];
+    int length,index;
+    va_list argList;
+    va_start(argList,fmt);
+    length = vsnprintf(str,USART_PRINTF_BUFFER_SIZE-1,fmt,argList);
+    va_end(argList);
+    for(index = 0 ; index &lt; length ; index++)
+    {
+        USART_WriteByte(port,str[index]);
+    }
+    return length;
+}
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%BB%BB%E5%8A%A1%E7%9A%84%E7%8A%B6%E6%80%81.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 任务的状态</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="5">
+            <h1>FreeRTOS 任务的状态</h1>
+<p>在<code>xTaskCreate</code>函数创建任务时，即为任务赋予了优先级。可以使用<code>vTaskPrioritySet</code>函数来修改任务的优先级，它的第一个参数是任务句柄、第二个参数是优先级，这个函数必须在调度器启动之后才能调用。相应的，<code>uxTaskPriority</code>函数返回一个任务的优先级。</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskPrioritySet(TaskHandle_t xTask,UBaseType_t uxNewPriority);
+ 
+UBaseType_t uxTaskPriorityGet(TaskHandle_t xTask);
+//返回任务的优先级
+</code></pre>
+<p>对于优先级相同的任务，FreeRTOS采用时间片轮询调度，每个任务轮流执行一段微小的时间。下面这段代码创建两个优先级相同的任务打印串口消息：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,&quot;hello\n&quot;,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,&quot;world\n&quot;,1,&amp;h2);
+     
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环5次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环10次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic09.png" alt="Image" /></p>
+<p>对于优先级不同的任务，FreeRTOS采用抢占式调度，高优先级的任务优先执行。将上面代码中的task1优先级设为2，task1会优先执行：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,&quot;hello\n&quot;,2,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,&quot;world\n&quot;,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环5次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环10次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic10.png" alt="Image" /></p>
+<p>FreeRTOS中任务存在4种状态：<code>运行</code>、<code>就绪</code>、<code>阻塞</code>和<code>挂起</code>。调度器总是让运行和就绪状态的任务中，优先级最高的任务进入运行状态。</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center">状态</th>
+  <th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">运行状态(Running)</td>
+  <td style="text-align:left">正在运行的任务处于运行状态</td>
+</tr>
+<tr>
+  <td style="text-align:center">就绪状态(Ready)</td>
+  <td style="text-align:left">可以运行但没有运行的任务处于就绪状态</td>
+</tr>
+<tr>
+  <td style="text-align:center">阻塞状态(Blocked)</td>
+  <td style="text-align:left">等待某一事件而不能运行的任务处于阻塞状态</td>
+</tr>
+<tr>
+  <td style="text-align:center">挂起状态(Suspended)</td>
+  <td style="text-align:left">调用vTaskSuspend挂起的任务处于挂起状态</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic11.png" alt="Image" /></p>
+<p>运行状态的任务可以通过调用阻塞函数进入阻塞状态，阻塞解除的事件可以让阻塞状态的任务进入就绪状态，<code>vTaskSuspend</code>函数让任务进入挂起状态，<code>vTaskResume</code>函数让挂起的任务进入就绪状态。</p>
+<p><code>vTaskDelay</code>是一个阻塞函数，它让任务进入阻塞状态等待一个定时事件，它的参数是定时事件的延时时间(周期数)。当定时时间到达，就会产生定时事件，让任务进入就绪状态。</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskDelay(const TickType_t xTicksToDelay);
+</code></pre>
+<p>宏<code>portTICK_RATE_MS</code>表示每毫秒的周期数，用期望延时的毫秒数除以她可以得到相应的周期数，例如<code>vTaskDelay(1000/portTICK_RATE_MS)</code>延时1000毫秒。</p>
+<p>仍然让task1的优先级高于task2,在task1中调用<code>vTaskDelay</code>阻塞，在task1阻塞期间，task2是优先级最高的任务，因此运行task2：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,&quot;hello\n&quot;,2,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,&quot;world\n&quot;,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    //阻塞1000ms
+    vTaskDelay(1000/portTICK_RATE_MS);
+    while(1)
+    {
+        //循环5次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环10次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //打印参数
+        USART_printf(USART1,args);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic12.png" alt="Image" /></p>
+<p>挂起状态的任务对于调度器而言是<strong>不可见</strong>的。<code>vTaskSuspend</code>让任务进入挂起状态，<code>vTaskResume</code>让挂起的任务进入就绪状态，它们的参数都是要操作任务的句柄。</p>
+<pre><code class="language-C">#include &lt;task.h&gt;
+void vTaskSuspend(TaskHandle_t xTaskToSuspend);
+void vTaskResume(TaskHandle_t xTaskToResume);
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%92%8C%E4%BA%92%E6%96%A5%E9%87%8F.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 信号量和互斥量</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="6">
+            <h1>FreeRTOS 信号量和互斥量</h1>
+<p><code>信号量(Semaphore)</code>也是一种任务间通信的常用方式，通常用于任务的同步。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+BaseType_t xSemaphoreGive(SemaphoreHandle_t xSemaphore);
+//产生一个信号，成功返回pdPASS
+//信号量已满则失败，返回errQUEUE_FULL
+
+BaseType_t xSemaphoreTake(SemaphoreHandle_t xSemaphore,TickType_t xBlockTime);
+//获取一个信号，信号量为空则阻塞
+//第二个参数是阻塞超时时间，成功返回pdTRUE，超时返回pdFALSE
+</code></pre>
+<p>值信号量是只有两个值(例如0或1、满或空)的信号量，FreeRTOS的二值信号量相当于只有一个元素的队列，用满和空表示信号量的值。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateBinary(void);
+//创建一个二值信号量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+<ul>
+<li>二值信号量为空时调用<code>xSemaphoreGive</code>，信号量变满；为满时失败。</li>
+<li>二值信号量为满时调用<code>xSemaphoreTake</code>，信号量变空；为空时阻塞。</li>
+</ul>
+<p>计数信号量顾名思义是计数用的信号量。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateCounting(void);
+//创建一个计数信号量，成功返回信号量句柄，失败返回NULL
+ 
+UBaseType_t uxSemaphoreGetCount(const QueueHandle_t xSemaphore);
+//返回计数信号量的计数值
+</code></pre>
+<ul>
+<li><code>xSemaphoreGive</code>使计数信号量加一。</li>
+<li><code>xSemaphoreTake</code>使计数信号量减一。</li>
+</ul>
+<p>信号量通常用于任务同步，例如多个任务共享资源时，使用二值信号量进行访问控制，二值信号量为满则表示资源可用，二值信号量为空则表示资源正在被使用。也可以使用计数信号量计数有多少个任务在使用共享资源。</p>
+<p>下面这个例子使用二值信号量标志串口是否被使用：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;queue.h&gt;
+#include &lt;semphr.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+SemaphoreHandle_t binary;
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    //创建二值信号量，用这个信号量标识串口是否可用
+    binary = xSemaphoreCreateBinary();
+    //使二值信号量变为满，表示资源可用
+    xSemaphoreGive(binary);
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环五次后删除自己
+        if(i &gt;= 5)
+        {
+            vTaskDelete(NULL);
+        }
+        //使二值信号量变为空，表示资源被占用
+        xSemaphoreTake(binary,100/portTICK_RATE_MS);
+        USART_printf(USART1,&quot;The task1 is running now.\n&quot;);
+        //使二值信号量变为满，表示资源可用
+        xSemaphoreGive(binary);
+        i++;
+    }
+}
+ 
+void task2(void* args)
+{
+    int i = 0;
+    while(1)
+    {
+        //循环十次后删除自己
+        if(i &gt;= 10)
+        {
+            vTaskDelete(NULL);
+        }
+        //使二值信号量变为空，表示资源被占用
+        xSemaphoreTake(binary,100/portTICK_RATE_MS);
+        USART_printf(USART1,&quot;The task2 is running now.\n&quot;);
+        //使二值信号量变为满，表示资源可用
+        xSemaphoreGive(binary);
+        i++;
+    }
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic16.png" alt="Image" /></p>
+<p>不过这种方式可能导致优先级反转：</p>
+<pre><code>(1)假设优先级task1&gt;task2&gt;task3  
+(2)task1和task2阻塞或挂起  
+(3)task3运行并通过二值信号量占用了某个公共资源  
+(4)task1就绪并试图通过二值信号量使用被task3占用的资源，但由于资源被占用，task1阻塞  
+(5)task2就绪，由于它优先级高于task3，因此task2优先执行  
+(6)task2执行完之后task3继续执行  
+(7)task3释放资源，task1解除阻塞并执行  
+</code></pre>
+<p>如此以来优先级相当于变成了task2&gt;task1，原本优先级最高的task1不能及时运行，这在实时性要求高的场合是不被允许的。</p>
+<p><code>互斥量(Mutex)</code>是处理共享资源同步的常用方式。在FreeRTOS的实现中，互斥量是一种特殊的二值信号量，其操作方式和二值信号量一样，但互斥量具有优先级继承的特性。</p>
+<pre><code>(1)假设优先级task1&gt;task2&gt;task3  
+(2)task1和task2阻塞或挂起  
+(3)task3运行并通过互斥量占用了某个公共资源  
+(4)task1就绪并试图通过互斥量使用被task3占用的资源，但由于资源被占用，task1阻塞  
+(5)task3的优先级被提升到和task1一样  
+</code></pre>
+<p>如此一来就不会发生task2在task1之前运行的情况，提高了实时性。</p>
+<p><code>xSemaphoreCreateMutex</code>用于创建互斥量。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateMutex(void);
+//创建一个互斥量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+<blockquote>
+<blockquote>
+<p>假如任务中调用一个函数来使用公共资源，在调用这个函数前使用<code>xSemaphoreTake</code>占用该资源的互斥量，在这个函数返回后使用<code>xSemaphoreGive</code>来释放该资源的互斥量。但这个函数中可能也使用了<code>xSemaphoreTake</code>和<code>xSemaphoreGive</code>来占用和释放资源。这种情况下就会导致错误。</p>
+</blockquote>
+</blockquote>
+<p>递归互斥量可以让同一个任务多次占用资源，在释放同等次数互斥量后释放资源。</p>
+<pre><code class="language-C">#include &lt;semphr.h&gt;
+ 
+SemaphoreHandle_t xSemaphoreCreateRecursiveMutex(void);
+//创建一个递归互斥量，成功返回信号量句柄，失败返回NULL
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 内存管理</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="7">
+            <h1>FreeRTOS 内存管理</h1>
+<p>FreeRTOS的内存管理API定义在<code>heep_1.c</code>、<code>heep_2.c</code>、<code>heep_3.c</code>、<code>heep_4.c</code>和<code>heep_5.c</code>中，这五个文件中的内存管理API有所不同。</p>
+<ul>
+<li><code>heep_1.c</code>只能分配内存而不能释放内存。</li>
+<li><code>heep_2.c</code>可以分配和释放内存但不能合并空闲内存块。</li>
+<li><code>heep_3.c</code>简单的封装了线程安全版的标准C语言malloc和free函数。</li>
+<li><code>heep_4.c</code>可以合并相邻的空闲内存块。</li>
+<li><code>heep_5.c</code>可以合并相邻的空闲内存块，且可以管理地址不连续的物理内存。</li>
+</ul>
+<p>分配内存的API是<code>pvPortMalloc</code>，释放内存的<code>API是vPortFree</code>。</p>
+<pre><code class="language-C">#include &lt;portable.h&gt;
+ 
+void* pvPortMalloc(size_t xWantedSize);
+//分配指定大小的内存
+ 
+void vPortFree(void *pv);
+//释放内存，使用heep_1.c的话，这个函数不工作
+</code></pre>
+<p>如果使用<code>heep_5.c</code>则需要使用<code>vPortDefineHeapRegions</code>进行初始化。</p>
+<pre><code class="language-C">#include &lt;portable.h&gt;
+void vPortDefineHeapRegions(const HeapRegion_t * const pxHeapRegions);
+</code></pre>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 协同程序</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="8">
+            <h1>FreeRTOS 协同程序</h1>
+<p>协同程序是一种特殊的多任务编程方式，多个协同程序之间共用调用栈，且正在运行的协同程序不会被其他协程抢占(可以被任务和中断抢占)，正在运行的协同程序只能自己主动让出CPU的使用权。要使用协同程序，需要将<code>FreeRTOSConfig.h</code>中的<code>configUSE_CO_ROUTINES</code>设为<code>1</code>。</p>
+<p>FreeRTOS的协同程序采用<code>switch-case</code>实现，函数定义方式如下：</p>
+<pre><code class="language-C">void CoRoutineTask(CoRoutineHandle_t handle,UBaseType_t uxIndex)
+{
+    //协同程序中变量如果要保证值在下一次运行时仍有效，则必须为static
+    static const TickType_t delay = 1000 / portTICK_PERIOD_MS;
+ 
+    //协同程序必须以crSTART(handle)开始
+    crSTART(handle);
+     
+    //协同程序主体
+    while(1)
+    {
+        /* 协同程序工作内容 */
+         
+        //主动阻塞1000ms，让出CPU使用权
+        crDELAY(handle,delay);
+    }
+     
+    //协同程序必须以crEND()结束
+    crEND()    
+}
+</code></pre>
+<p>使用<code>vCoRoutineSchedule</code>来调度协同程序，调用这个函数时，他会运行可运行的优先级最高的协同程序，当这个协同程序让出CPU时，<code>vCoRoutineSchedule</code>返回。需要不断的调用这个函数来进行协程的调度。</p>
+<pre><code class="language-C">#include &lt;croutine.h&gt;
+void vCoRoutineSchedule(void);
+</code></pre>
+<p>使用<code>xCoRoutineCreate</code>来创建一个协程，它的第一个参数是协程函数，第二个参数是协程优先级，可以用同一个协程函数创建多个协程，第三个参数用来区分同一个函数创建的协程。</p>
+<pre><code class="language-C">#include &lt;croutine.h&gt;
+BaseType_t xCoRoutineCreate(crCOROUTINE_CODE pxCoRoutineCode, 
+                            UBaseType_t uxPriority, 
+                            UBaseType_t uxIndex );
+</code></pre>
+<p>下面这个示例使用同一个函数创建了4个协程，协程函数打印uxIndex并阻塞1000ms:</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;croutine.h&gt;
+#include &lt;uart.h&gt;
+ 
+void coTask(CoRoutineHandle_t h,UBaseType_t uxIndex);
+void task(void* args);
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建协程
+    xCoRoutineCreate(coTask,0,0);
+    xCoRoutineCreate(coTask,0,1);
+    xCoRoutineCreate(coTask,0,2);
+    xCoRoutineCreate(coTask,0,3);
+    //创建任务，用于调度协程
+    xTaskCreate(task,&quot;task1&quot;,configMINIMAL_STACK_SIZE,NULL,1,NULL);
+    //启动任务调度器
+    vTaskStartScheduler();
+}
+ 
+void task(void* args)
+{
+    while(1)
+    {
+        //运行优先级最高的协程,该协程让出时，函数返回
+        vCoRoutineSchedule();
+    }
+}
+ 
+ 
+void coTask(CoRoutineHandle_t handle,UBaseType_t uxIndex)
+{
+    //如果协程函数希望在阻塞后仍能保存变量的值，那么变量必须是static的
+    static const TickType_t delay = 1000 / portTICK_PERIOD_MS;
+     
+    //协程函数必须以crSTART开始
+    crSTART(handle);
+     
+    while(1)
+    {
+        //通过串口打印uxIndex
+        USART_printf(USART1,&quot;coTask1 : %d\n&quot;,uxIndex);
+        //在协程中延时1000ms
+        crDELAY(handle,delay);
+    }
+     
+    //协程函数必须以crEND结束
+    crEND();
+     
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic17.png" alt="Image" /></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 搭建开发环境</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="9">
+            <h1>FreeRTOS 搭建开发环境</h1>
+<p>本文使用Keil MDK和STM32为例</p>
+<p>首先需要下载FreeRTOS的源码：<a href="http://www.freertos.org/">http://www.freertos.org/</a>。当前最新版本为9.0.0，其源码目录如下图 :</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic01.png" alt="Image" /></p>
+<p>在<code>FreeRTOS/Demo</code>目录下已经有许多工程可以直接使用，例如<code>FreeRTOS\Demo\CORTEX_STM32F103_Keil</code>就是STM32F103在Keil下的工程。不过这个工程是针对小容量STM32F103的，对于其他型号的STM32芯片，需要自己组织工程。</p>
+<p><strong>首先创建一个文件夹用于存放工程文件，命名为“<code>Project</code>”。</strong><br />
+<code>FreeRTOS/Source</code>目录下是FreeRTOS的源码，将其中除了<code>portable</code>文件夹以外所有的文件复制到Project文件夹中，这些是平台无关的代码。</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic02.png" alt="Image" /></p>
+<p><code>FreeRTOS/Source/portable</code>目录下是平台有关的可移植代码。</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic03.png" alt="Image" /></p>
+<p>其中<code>FreeRTOS/Source/protable/MemMang</code>目录下是内存管理的相关代码。</p>
+<ul>
+<li><code>heep_1.c</code>只能分配内存而不能释放内存。</li>
+<li><code>heep_2.c</code>可以分配和释放内存但不能合并空闲内存块。</li>
+<li><code>heep_3.c</code>简单的封装了线程安全版的标准C语言malloc和free函数。</li>
+<li><code>heep_4.c</code>可以合并相邻的空闲内存块。</li>
+<li><code>heep_5.c</code>可以合并相邻的空闲内存块，且可以管理地址不连续的物理内存。</li>
+</ul>
+<p>这里选用heep_2.c，将它复制到Project文件夹中。</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic04.png" alt="Image" /></p>
+<p>接下来，由于我们的目标平台是<code>Keil</code>，因此代开<code>FreeRTOS/Source/protable/Keil</code>文件夹看到如下文件。</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic05.png" alt="Image" /></p>
+<p>因此我们打开<code>FreeRTOS/Source/protable/RVDS</code>文件夹，根据芯片型号选择。我的目标芯片<code>STM32F429IGT6</code>是<code>Cortex-M4F</code>内核，因此将<code>ARM_CM4F</code>中的<code>port.c</code>复制到<code>Project</code>中，<code>portmacro.h</code>复制到<code>Project/include</code>中。</p>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic06.png" alt="Image" /></p>
+<p>然后，我们还需要一个<code>FreeRTOSConfig.h</code>，在<code>FreeRTOS/Demo/CORTEX_M4F_STM32F407ZG-SK</code>中复制它到<code>Project/include</code>中。</p>
+<p><strong>最后得到Project以及include下的文件：</strong><br />
+<img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic07-1.png" alt="Image" /><br />
+<img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic07-2.png" alt="Image" /></p>
+<p>接下来将这些文件复制到一个Keil的STM32标准外设库工程中，将.c文件加入工程，将include文件夹加入头文件搜索路径。</p>
+<p>接下来需要修改部分代码：</p>
+<p><code>FreeRTOS</code>使用了一些中断功能，因此<code>port.c</code>中定义了部分中断函数，STM32标准外设库中的<code>stm32f4xx_it.c</code>中也定义了这些中断函数，因此需要删除<code>stm32f4xx_it.c</code>中的这些函数。它们是<code>SVC_Handler</code>、<code>PendSV_Handler</code>和<code>SysTick_Handler</code>。</p>
+<p><code>port.c</code>中使用了变量<code>SystemCoreClock</code>,这个变量定义在标准外设库的<code>system_stm32f4xx.c</code>中，需要在<code>port.c</code>中声明。</p>
+<p><code>FreeRTOS</code>中使用了一些<code>hook</code>函数，这些函数需要我们自己编写(可以写成空的函数)，也可以将<code>FreeRTOSConfig.h</code>中的<code>configUSE_IDLE_HOOK</code>、<code>configUSE_TICK_HOOK</code>、<code>configUSE_MALLOC_FAILED_HOOK</code>和<code>configCHECK_FOR_STACK_OVERFLOW</code>设为<code>0</code>从而不使用这些hook函数。</p>
+<p>如此一来工程就配置完成了。</p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+    
+        
+        <div class="d-flex flex-column">
+    <div class="no-print article-header d-flex px-1 text-nowrap" style="gap: 16px">
+        <a class="fs-6 overflow-x-hidden text-white" href="/Phosphophyllite/articles/FreeRTOS/FreeRTOS%20%E9%98%9F%E5%88%97.html"><i class="bi bi-box-arrow-up-right me-1"></i>FreeRTOS 队列</a>
+        <div style="flex-grow: 1; flex-shrink: 1;"></div>
+        <div class="fs-6"><i class="bi bi-calendar"></i><span class="time ms-1">2024-12-18 20:03:48+08:00</span></div>
+    </div>
+
+    <div class="d-flex overflow-hidden" style="max-height: 300px;">
+        <div class="no-print article-border-left"></div>
+        <div class="article-preview markdown-body flex-grow-1 p-2" tabindex="10">
+            <h1>FreeRTOS 队列</h1>
+<p>队列(Queue)是一种数据结构，它是一种特殊的线性表，只允许在队列的首端进行删除，尾端进行插入，具有先入先出的特性。是任务间通信的一种常用方式。</p>
+<p><code>xQueueCreate</code>函数创建一个队列，它的第一个参数是队列的长度(元素的个数)，第二个参数是每个元素的大小(byte)。</p>
+<pre><code class="language-C">#include &lt;queue.h&gt;
+QueueHandle_t xQueueCreate(const UBaseType_t uxQueueLength,const UBaseType_t uxItemSize);
+//成功返回队列句柄，失败返回NULL
+</code></pre>
+<p>FreeRTOS中既可在队尾插入，也能在队首插入，但是只能从队首取出数据。</p>
+<pre><code class="language-C">#include &lt;queue.h&gt;
+ 
+BaseType_t xQueueSendToBack( QueueHandle_t xQueue, 
+                            const void * const pvItemToQueue, 
+                            TickType_t xTicksToWait);
+//向队尾插入一个元素
+ 
+BaseType_t xQueueSendToFront( QueueHandle_t xQueue, 
+                            const void * const pvItemToQueue, 
+                           TickType_t xTicksToWait);
+//向队首插入一个元素
+</code></pre>
+<p>它们的第一个参数是队列句柄，第二个参数是指向要插入的数据的指针(该数据的大小必须和创建队列时设置的元素大小一样)，第三个参数是阻塞超时时间。</p>
+<p>如果队列未满。则插入数据并返回<code>pdPASS</code>；如果队列已满则阻塞，若在阻塞超时时间之前队列变成未满则插入数据并返回<code>pdPASS</code>,若到达阻塞超时时间则返回<code>errQUEUE_FULL</code>。</p>
+<p><code>xQueueReceive</code>读取队首元素并将其从队列中删除，<code>xQueuePeek</code>读取队首元素但不删除。</p>
+<pre><code class="language-C">#include &lt;queue.h&gt;
+ 
+BaseType_t xQueueReceive( QueueHandle_t xQueue, 
+                            void * const pvBuffer, 
+                            TickType_t xTicksToWait);
+//成功返回pdTRUE，失败返回pdFALSE
+ 
+BaseType_t xQueuePeek( QueueHandle_t xQueue, 
+                            void * const pvBuffer, 
+                            TickType_t xTicksToWait);
+//成功返回pdTRUE，失败返回pdFALSE
+</code></pre>
+<p>他们的第一个参数是队列句柄，第二个参数返回读取到的元素，第三个参数是阻塞超时时间。队列为空时阻塞等待数据，超时则返回<code>pdFASLE</code>。</p>
+<p><code>uxQueueMessagesWaiting</code>可以查询队列中当前有多少个元素。</p>
+<pre><code class="language-C">#include&lt;queue.h&gt;
+UBaseType_t uxQueueMessagesWaiting(const QueueHandle_t xQueue);
+//返回队列中元素的个数
+</code></pre>
+<p>下面是一个使用队列进行通信的例子：</p>
+<pre><code class="language-C">#include &lt;stm32f4xx.h&gt;
+#include &lt;FreeRTOS.h&gt;
+#include &lt;task.h&gt;
+#include &lt;queue.h&gt;
+#include &lt;uart.h&gt;
+ 
+void task1(void* args);
+void task2(void* args);
+ 
+QueueHandle_t queue;
+ 
+int main()
+{
+    //配置USART1
+    USART1_Config();
+    //创建任务
+    TaskHandle_t h1,h2;
+    //创建队列
+    queue = xQueueCreate(10,128);
+    xTaskCreate(task1,&quot;task1&quot;,configMINIMAL_STACK_SIZE,NULL,1,&amp;h1);
+    xTaskCreate(task2,&quot;task2&quot;,configMINIMAL_STACK_SIZE,NULL,2,&amp;h2);
+    //开启任务调度
+    vTaskStartScheduler();
+    while(1);
+}
+ 
+ 
+void task1(void* args)
+{
+    char str[128] = &quot;FreeRTOS queue demo.\n&quot;;
+    //向队列发送数据
+    xQueueSendToBack(queue,str,100/portTICK_RATE_MS);
+    vTaskDelete(NULL);
+}
+ 
+void task2(void* args)
+{
+    char str[128];
+    //从队列中读取数据
+    xQueueReceive(queue,str,100/portTICK_RATE_MS);
+    USART_printf(USART1,str);
+    vTaskDelete(NULL);
+}
+</code></pre>
+<p><img src="https://xplanc.org/Phosphophyllite//resource/FreeRTOS/pic15.png" alt="Image" /></p>
+
+        </div>
+        <div class="no-print article-border-right"></div>
+    </div>
+
+    <div class="no-print article-border-bottom"></div>
+</div>
+    
+
+
+
+<div>
+    <ul class="pagination float-end">
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-left"></i></a>
+        </li>
+        
+
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="page-item active">
+                <a class="page-link" href="/Phosphophyllite/categories/FreeRTOS-1.html">1</a>
+            </li>
+            
+        
+            
+            
+        
+            
+            
+        
+
+        
+        <li class="page-item disabled">
+            <a class="page-link" href="#"><i class="bi bi-chevron-double-right"></i></a>
+        </li>
+        
+    </ul>
+</div>
+
+
+            </main>
+
+            <aside class="no-print right-side flex-shrink-0 d-flex flex-column">
+            
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api?username=hubenchang0515&theme=transparent&hide_border=true&show_icons=true&card_width=400"/>
+</div>
+
+<div class="card">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hubenchang0515&layout=compact&theme=transparent&hide_border=true&card_width=400&langs_count=32&size_weight=0.1&count_weight=0.9&hide=cmake%2Cqmake%2Cmakefile%2Cshell%2Cobjective-c"/>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">导航</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Navigation</h6>
+        <div class="d-flex flex-wrap" style="gap: 8px;">
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/" target="_blank"><i class="bi bi-link-45deg"></i> 主页</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/primers/" target="_blank"><i class="bi bi-link-45deg"></i> Primers 编程教程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/QtTheme/" target="_blank"><i class="bi bi-link-45deg"></i> QtTheme</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/shift/" target="_blank"><i class="bi bi-link-45deg"></i> Shift 在线编程</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/moe-tools/" target="_blank"><i class="bi bi-link-45deg"></i> 萌萌工具箱</a>
+            
+            <a class="link-info" href="https://hubenchang0515.github.io/friends/" target="_blank"><i class="bi bi-link-45deg"></i> 友情链接</a>
+            
+        </div>
+    </div>
+</div>
+
+<div class="card sticky">
+    <div class="card-body">
+        <h4 class="card-title">最近文章</h4>
+        <h6 class="card-subtitle mb-2 text-muted">Recent Articles</h6>
+        <ul>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/React/MUI%20%E9%9B%86%E6%88%90%20nextjs.html">MUI 集成 nextjs</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95.html">MySQL 全文索引</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/%E8%B5%84%E6%BA%90%E5%88%86%E4%BA%AB/%E5%9C%A8%20eu.org%20%E6%B3%A8%E5%86%8C%E5%85%8D%E8%B4%B9%E5%9F%9F%E5%90%8D.html">在 eu.org 注册免费域名</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4.html">MySQL 数据库基础命令</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/MySQL/MySQL%20%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96.html">MySQL 数据库初始化</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/%E4%BD%BF%E7%94%A8%20Tan90-Proxy%20%E4%BB%A3%E7%90%86%20Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8.html">使用 Tan90-Proxy 代理 Minecraft 服务器</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Minecraft/Minecraft%20%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8B%E8%BD%BD%E9%A1%B5%E5%9C%B0%E5%9D%80.html">Minecraft 服务器下载页地址</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/nginx/nginx%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E4%B8%8E%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE.html">nginx 常用命令与基础配置</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Linux%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/%E5%88%B6%E4%BD%9C%20deb%20%E5%8C%85.html">制作 deb 包</a>
+            </li>
+            
+            <li>
+                <a class="link-info" href="/Phosphophyllite/articles/Windows%20%E5%91%BD%E4%BB%A4%E4%B8%8E%E9%85%8D%E7%BD%AE/Windows%20%E6%B3%A8%E5%86%8C%E8%A1%A8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A8%8B%E5%BA%8F.html">Windows 注册表中添加自己的程序</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+            </aside>
+        </div>
+
+        <footer class="no-print">
+            
+
+<div class="card" style="border-radius: 0;">
+    <p class="github-brief card-text" style="margin: auto;">
+        Powered by <i class="bi bi-arrow-through-heart-fill"></i> <a class="card-link link-success" href="https://github.com/hubenchang0515/Phosphophyllite" target="_blank">Phosphophyllite</a>
+    </p>
+</div>
+
+
+        </footer>
+
+        
+
+<script>
+    fetchUserInfo("hubenchang0515");
+    scanTime();
+</script>
+
+
+    </body>
+</html>
