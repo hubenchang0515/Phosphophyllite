@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "deploy": "npm run deploy:vercel",
+    "deploy:vercel": "npx vercel ./build/Phosphophyllite/ --prod --archive=tgz"
+  },
   "devDependencies": {
     "vercel": "^42.3.0"
   }

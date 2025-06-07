@@ -73,7 +73,7 @@ def renderArticle(article:Article, articles:list[Article], categories:list[Categ
 def renderSitemap(articles:list[Article]):
     sites:list[str] = []
     for article in articles:
-        sites.append(f"{CONFIG['Domain']}{CONFIG["Base"]}/articles/{article.urlPath()}.html")
+        sites.append(f"{CONFIG['Domain']}{CONFIG["Base"]}/articles/{article.urlPath()}")
     DATA = {
         "Sites": sites,
     }
